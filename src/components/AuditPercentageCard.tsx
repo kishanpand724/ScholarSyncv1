@@ -34,17 +34,17 @@ export const AuditPercentageCard: React.FC<AuditPercentageCardProps> = ({
     return (
       <div
         data-testid="audit-percentage-card"
-        className="bg-white border border-[#E5E7EB] rounded-2xl p-6 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+        className="bg-white border border-[#E5E7EB] rounded-none p-6 sm:p-8 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-6"
       >
-        <div className="flex items-start sm:items-center gap-3.5">
-          <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
+        <div className="flex items-start sm:items-center gap-4">
+          <div className="w-11 h-11 rounded-none bg-amber-50 text-amber-700 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
             <AlertCircle className="w-5 h-5" />
           </div>
           <div>
             <h3 className="text-base sm:text-lg font-bold text-[#111827]">
               Profile not completed
             </h3>
-            <p className="text-xs sm:text-sm text-[#6B7280] mt-0.5">
+            <p className="text-xs sm:text-sm text-[#6B7280] mt-1">
               Complete your profile to run the eligibility audit.
             </p>
           </div>
@@ -53,7 +53,7 @@ export const AuditPercentageCard: React.FC<AuditPercentageCardProps> = ({
         <button
           type="button"
           onClick={onCompleteProfile}
-          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#16A34A] hover:bg-[#15803D] text-white text-xs font-bold transition-all shadow-xs cursor-pointer shrink-0"
+          className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-none bg-emerald-800 hover:bg-emerald-900 text-white text-xs font-bold transition-all shadow-xs cursor-pointer shrink-0"
         >
           <span>Complete Profile</span>
           <ArrowRight className="w-3.5 h-3.5" />
@@ -67,10 +67,10 @@ export const AuditPercentageCard: React.FC<AuditPercentageCardProps> = ({
   return (
     <div
       data-testid="audit-percentage-card"
-      className="bg-white border border-[#E5E7EB] rounded-2xl p-6 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+      className="bg-white border border-[#E5E7EB] rounded-none p-6 sm:p-8 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-6"
     >
       <div className="flex items-center gap-4">
-        <div className="w-12 h-12 rounded-xl bg-[#F0FDF4] border border-[#DCFCE7] flex items-center justify-center text-[#16A34A] shrink-0">
+        <div className="w-12 h-12 rounded-none bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-800 shrink-0">
           <ShieldCheck className="w-6 h-6 stroke-[2.2]" />
         </div>
         <div>
@@ -80,7 +80,7 @@ export const AuditPercentageCard: React.FC<AuditPercentageCardProps> = ({
           <h3 className="text-lg font-bold text-[#111827] mt-0.5">
             Audit Percentage
           </h3>
-          <p className="text-xs text-[#6B7280] mt-0.5">
+          <p className="text-xs text-[#6B7280] mt-1">
             Evaluated against official NSP AY 2026-27 statutory scholarship criteria.
           </p>
         </div>
@@ -88,10 +88,10 @@ export const AuditPercentageCard: React.FC<AuditPercentageCardProps> = ({
 
       <div className="flex items-center gap-4 self-start sm:self-auto">
         <div className="text-left sm:text-right">
-          <div className="text-2xl sm:text-3xl font-extrabold text-[#16A34A] tracking-tight">
+          <div className="text-2xl sm:text-3xl font-extrabold text-emerald-800 tracking-tight">
             {auditPercentage}%
           </div>
-          <span className="text-xs text-[#6B7280] block mt-0.5 font-medium">
+          <span className="text-xs text-[#6B7280] block mt-1 font-medium">
             {eligibleCount} of {totalAnalyzed} Schemes Fully Qualified
           </span>
         </div>

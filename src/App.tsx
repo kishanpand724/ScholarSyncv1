@@ -357,21 +357,21 @@ export default function App() {
           {/* TAB 1: DASHBOARD */}
           {activeTab === 'dashboard' && (
             !profile.is_completed ? (
-              <div className="bg-white border border-[#E5E7EB] rounded-2xl p-8 sm:p-14 text-center shadow-xs flex flex-col items-center justify-center max-w-xl mx-auto my-8 space-y-4">
-                <div className="w-16 h-16 rounded-2xl bg-[#F0FDF4] border border-[#DCFCE7] text-[#16A34A] flex items-center justify-center mb-1">
+              <div className="bg-white border border-[#E5E7EB] rounded-none p-8 sm:p-14 text-center shadow-xs flex flex-col items-center justify-center max-w-xl mx-auto my-8 space-y-5">
+                <div className="w-16 h-16 rounded-none bg-emerald-50 border border-emerald-200 text-emerald-800 flex items-center justify-center mb-1">
                   <GraduationCap className="w-8 h-8" />
                 </div>
                 <h2 className="text-xl sm:text-2xl font-bold text-[#111827] tracking-tight">
-                  Complete your student profile to discover scholarships.
+                  Complete your profile to find scholarships matching your eligibility.
                 </h2>
-                <p className="text-xs text-[#6B7280] max-w-md mx-auto">
-                  Provide your academic performance, category, domicile state, and family income details to discover eligible government and corporate scholarship schemes with verified eligibility rules.
+                <p className="text-xs text-[#6B7280] max-w-md mx-auto leading-relaxed">
+                  Enter your academic and personal details to discover eligible scholarships and valid combinations.
                 </p>
-                <div className="pt-2">
+                <div className="pt-3">
                   <button
                     type="button"
                     onClick={() => setActiveTab('profile')}
-                    className="px-6 py-3 rounded-xl bg-[#16A34A] hover:bg-[#15803D] text-white text-xs font-bold transition-all shadow-xs flex items-center gap-2 cursor-pointer"
+                    className="px-6 py-3 rounded-none bg-emerald-800 hover:bg-emerald-900 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-2 cursor-pointer"
                   >
                     <Edit3 className="w-4 h-4" />
                     <span>Complete Profile</span>
@@ -381,22 +381,22 @@ export default function App() {
             ) : (
               <div className="space-y-8">
                 {/* Top Hero Section */}
-                <div className="bg-white border border-[#E5E7EB] rounded-2xl p-6 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div className="bg-white border border-[#E5E7EB] rounded-none p-6 sm:p-7 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-5">
                 <div>
                   <h2 className="text-xl sm:text-2xl font-bold text-[#111827] tracking-tight">
                     Scholarship Eligibility & Stacking
                   </h2>
-                  <p className="text-xs text-[#6B7280] mt-1">
+                  <p className="text-xs text-[#6B7280] mt-1.5 leading-relaxed">
                     Check your eligibility and find compatible scholarship combinations without duplicate benefit conflicts.
                   </p>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+                <div className="flex flex-wrap items-center gap-3 shrink-0">
                   <button
                     type="button"
                     onClick={() => executeAnalysis(profile)}
                     disabled={isLoading}
-                    className="px-4 py-2.5 rounded-xl bg-[#16A34A] hover:bg-[#15803D] text-white text-xs font-bold transition-all shadow-xs flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75"
+                    className="px-4 py-2.5 rounded-none bg-emerald-800 hover:bg-emerald-900 text-white text-xs font-bold transition-all shadow-xs flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75"
                   >
                     {isLoading ? (
                       <>
@@ -414,16 +414,16 @@ export default function App() {
                   <button
                     type="button"
                     onClick={() => setActiveTab('profile')}
-                    className="px-4 py-2.5 rounded-xl bg-white border border-[#E5E7EB] hover:bg-[#F9FAFB] hover:border-[#16A34A] text-[#111827] text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
+                    className="px-4 py-2.5 rounded-none bg-white border border-[#E5E7EB] hover:bg-[#F9FAFB] hover:border-emerald-800 text-[#111827] text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
                   >
-                    <Edit3 className="w-4 h-4 text-[#16A34A]" />
+                    <Edit3 className="w-4 h-4 text-emerald-800" />
                     <span>Edit Profile</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={handleResetToBlank}
-                    className="px-3.5 py-2.5 rounded-xl bg-rose-50/70 border border-rose-200 hover:bg-rose-100 text-rose-700 text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                    className="px-3.5 py-2.5 rounded-none bg-rose-50/70 border border-rose-200 hover:bg-rose-100 text-rose-700 text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                     title="Clear current profile data and start fresh"
                   >
                     <RotateCcw className="w-3.5 h-3.5" />
@@ -434,9 +434,9 @@ export default function App() {
                     type="button"
                     onClick={handleSyncNsp}
                     disabled={isSyncingNsp}
-                    className="px-3.5 py-2.5 rounded-xl bg-white border border-[#E5E7EB] hover:border-[#16A34A] text-[#15803D] hover:bg-[#F0FDF4] text-xs font-semibold transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+                    className="px-3.5 py-2.5 rounded-none bg-white border border-[#E5E7EB] hover:border-emerald-800 text-emerald-900 hover:bg-emerald-50 text-xs font-semibold transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
                   >
-                    <RefreshCw className={`w-4 h-4 text-[#16A34A] ${isSyncingNsp ? 'animate-spin' : ''}`} />
+                    <RefreshCw className={`w-4 h-4 text-emerald-800 ${isSyncingNsp ? 'animate-spin' : ''}`} />
                     <span>{isSyncingNsp ? 'Updating...' : 'Refresh Directory'}</span>
                   </button>
                 </div>
@@ -444,20 +444,20 @@ export default function App() {
 
               {/* Sync Feedback Banner */}
               {syncFeedback && (
-                <div className="p-4 rounded-2xl bg-[#F0FDF4] border border-[#DCFCE7] flex items-center justify-between gap-3 text-xs">
+                <div className="p-4 rounded-none bg-emerald-50 border border-emerald-200 flex items-center justify-between gap-3 text-xs">
                   <div className="flex items-center gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#16A34A] shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-emerald-800 shrink-0" />
                     <div>
-                      <span className="font-bold text-[#15803D]">{syncFeedback.message}</span>
+                      <span className="font-bold text-emerald-900">{syncFeedback.message}</span>
                       <span className="text-[#4B5563] ml-1.5">
-                        ({syncFeedback.count} real schemes normalized into local database)
+                        ({syncFeedback.count} scholarships updated)
                       </span>
                     </div>
                   </div>
                   <button
                     type="button"
                     onClick={() => setSyncFeedback(null)}
-                    className="text-xs font-semibold text-[#16A34A] hover:text-[#15803D] px-2 py-1 rounded-lg hover:bg-white cursor-pointer"
+                    className="text-xs font-semibold text-emerald-800 hover:text-emerald-950 px-2 py-1 rounded-none hover:bg-white cursor-pointer"
                   >
                     Dismiss
                   </button>
@@ -492,16 +492,16 @@ export default function App() {
               />
 
               {/* SMART COMBINATIONS SECTION (Premium Green-Tinted Section) */}
-              <section className="bg-[#F0FDF4] border border-[#DCFCE7] rounded-2xl p-6 space-y-5">
+              <section className="bg-emerald-50/50 border border-emerald-200 rounded-none p-6 sm:p-7 space-y-6">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-[#16A34A]" />
+                      <span className="w-2.5 h-2.5 rounded-none bg-emerald-800" />
                       <h3 className="text-lg font-bold text-[#111827]">
                         Recommended Combinations
                       </h3>
                     </div>
-                    <p className="text-xs text-[#6B7280] mt-0.5">
+                    <p className="text-xs text-[#6B7280] mt-1 leading-relaxed">
                       Compatible multi-scholarship options that can be availed together without conflict.
                     </p>
                   </div>
@@ -510,7 +510,7 @@ export default function App() {
                     <button
                       type="button"
                       onClick={() => setActiveTab('combinations')}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#16A34A] hover:text-[#15803D] transition-colors cursor-pointer self-start sm:self-auto"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 hover:text-emerald-950 transition-colors cursor-pointer self-start sm:self-auto"
                     >
                       <span>View All ({analysis.valid_combinations.length})</span>
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -519,7 +519,7 @@ export default function App() {
                 </div>
 
                 {analysis && analysis.valid_combinations.length > 0 ? (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {analysis.valid_combinations.slice(0, 3).map((combo, idx) => (
                       <CombinationCard
                         key={combo.id}
@@ -531,7 +531,7 @@ export default function App() {
                     ))}
                   </div>
                 ) : (
-                  <div className="bg-white rounded-2xl border border-[#DCFCE7] p-8 text-center">
+                  <div className="bg-white rounded-none border border-emerald-200 p-8 text-center">
                     <Layers className="w-10 h-10 text-[#9CA3AF] mx-auto mb-2" />
                     <h4 className="text-sm font-bold text-[#111827]">
                       No Multi-Scholarship Combinations Possible
@@ -545,11 +545,11 @@ export default function App() {
 
               {/* FILTER BAR FOR SCHOLARSHIP RESULTS */}
               <div className="flex items-center justify-between gap-3 pt-2">
-                <div className="flex flex-wrap items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2.5">
                   <button
                     type="button"
                     onClick={() => setDashboardFilter('all')}
-                    className={`text-xs font-semibold px-3.5 py-1.5 rounded-xl border transition-all cursor-pointer ${
+                    className={`text-xs font-semibold px-4 py-2 rounded-none border transition-all cursor-pointer ${
                       dashboardFilter === 'all'
                         ? 'bg-[#111827] text-white border-[#111827]'
                         : 'bg-white text-[#4B5563] border-[#E5E7EB] hover:bg-[#F9FAFB]'
@@ -560,9 +560,9 @@ export default function App() {
                   <button
                     type="button"
                     onClick={() => setDashboardFilter('eligible')}
-                    className={`text-xs font-semibold px-3.5 py-1.5 rounded-xl border transition-all cursor-pointer ${
+                    className={`text-xs font-semibold px-4 py-2 rounded-none border transition-all cursor-pointer ${
                       dashboardFilter === 'eligible'
-                        ? 'bg-[#16A34A] text-white border-[#16A34A]'
+                        ? 'bg-emerald-800 text-white border-emerald-800'
                         : 'bg-white text-[#4B5563] border-[#E5E7EB] hover:bg-[#F9FAFB]'
                     }`}
                   >
@@ -571,9 +571,9 @@ export default function App() {
                   <button
                     type="button"
                     onClick={() => setDashboardFilter('undetermined')}
-                    className={`text-xs font-semibold px-3.5 py-1.5 rounded-xl border transition-all cursor-pointer ${
+                    className={`text-xs font-semibold px-4 py-2 rounded-none border transition-all cursor-pointer ${
                       dashboardFilter === 'undetermined'
-                        ? 'bg-amber-600 text-white border-amber-600'
+                        ? 'bg-amber-700 text-white border-amber-700'
                         : 'bg-white text-[#4B5563] border-[#E5E7EB] hover:bg-[#F9FAFB]'
                     }`}
                   >
@@ -582,7 +582,7 @@ export default function App() {
                   <button
                     type="button"
                     onClick={() => setDashboardFilter('ineligible')}
-                    className={`text-xs font-semibold px-3.5 py-1.5 rounded-xl border transition-all cursor-pointer ${
+                    className={`text-xs font-semibold px-4 py-2 rounded-none border transition-all cursor-pointer ${
                       dashboardFilter === 'ineligible'
                         ? 'bg-[#374151] text-white border-[#374151]'
                         : 'bg-white text-[#4B5563] border-[#E5E7EB] hover:bg-[#F9FAFB]'
@@ -606,7 +606,7 @@ export default function App() {
                   </div>
 
                   {analysis && analysis.eligible_scholarships.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                       {analysis.eligible_scholarships.map((match) => (
                         <ScholarshipCard
                           key={match.scholarship.id}
@@ -621,7 +621,7 @@ export default function App() {
                       ))}
                     </div>
                   ) : (
-                    <div className="bg-white border border-[#E5E7EB] rounded-2xl p-8 text-center shadow-xs">
+                    <div className="bg-white border border-[#E5E7EB] rounded-none p-8 text-center shadow-xs">
                       <AlertCircle className="w-8 h-8 text-[#9CA3AF] mx-auto mb-2" />
                       <h4 className="text-sm font-bold text-[#111827]">
                         No 100% Eligible Scholarships Found
@@ -632,7 +632,7 @@ export default function App() {
                       <button
                         type="button"
                         onClick={() => setActiveTab('profile')}
-                        className="px-4 py-2 rounded-xl bg-[#16A34A] text-white text-xs font-bold hover:bg-[#15803D] transition-colors"
+                        className="px-4 py-2 rounded-none bg-emerald-800 text-white text-xs font-bold hover:bg-emerald-900 transition-colors"
                       >
                         Adjust Profile Criteria
                       </button>
@@ -648,7 +648,7 @@ export default function App() {
                     <h3 className="text-lg font-bold text-amber-900 flex items-center gap-2">
                       <span>Additional Information Required (? Missing Input)</span>
                       {analysis?.undetermined_scholarships && analysis.undetermined_scholarships.length > 0 && (
-                        <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">
+                        <span className="text-xs font-bold px-2 py-0.5 rounded-none bg-amber-100 text-amber-900 border border-amber-200">
                           {analysis.undetermined_scholarships.length}
                         </span>
                       )}
@@ -659,7 +659,7 @@ export default function App() {
                   </div>
 
                   {analysis && analysis.undetermined_scholarships && analysis.undetermined_scholarships.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                       {analysis.undetermined_scholarships.map((match) => (
                         <ScholarshipCard
                           key={match.scholarship.id}
@@ -674,7 +674,7 @@ export default function App() {
                       ))}
                     </div>
                   ) : (
-                    <div className="bg-white border border-[#E5E7EB] rounded-2xl p-6 text-center shadow-xs">
+                    <div className="bg-white border border-[#E5E7EB] rounded-none p-6 text-center shadow-xs">
                       <p className="text-xs text-[#6B7280]">
                         No scholarships currently requiring additional information.
                       </p>
@@ -696,7 +696,7 @@ export default function App() {
                   </div>
 
                   {analysis && analysis.ineligible_scholarships.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                       {analysis.ineligible_scholarships.map((match) => (
                         <ScholarshipCard
                           key={match.scholarship.id}
@@ -711,7 +711,7 @@ export default function App() {
                       ))}
                     </div>
                   ) : (
-                    <div className="bg-white border border-[#E5E7EB] rounded-2xl p-6 text-center shadow-xs">
+                    <div className="bg-white border border-[#E5E7EB] rounded-none p-6 text-center shadow-xs">
                       <p className="text-xs text-[#6B7280]">
                         All analyzed schemes are currently eligible for this candidate!
                       </p>
@@ -754,21 +754,21 @@ export default function App() {
           {/* TAB 4: SMART COMBINATIONS */}
           {activeTab === 'combinations' && (
             !profile.is_completed ? (
-              <div className="bg-white border border-[#E5E7EB] rounded-2xl p-8 sm:p-14 text-center shadow-xs flex flex-col items-center justify-center max-w-xl mx-auto my-8 space-y-4">
-                <div className="w-16 h-16 rounded-2xl bg-[#F0FDF4] border border-[#DCFCE7] text-[#16A34A] flex items-center justify-center mb-1">
+              <div className="bg-white border border-[#E5E7EB] rounded-none p-8 sm:p-14 text-center shadow-xs flex flex-col items-center justify-center max-w-xl mx-auto my-8 space-y-5">
+                <div className="w-16 h-16 rounded-none bg-emerald-50 border border-emerald-200 text-emerald-800 flex items-center justify-center mb-1">
                   <Layers className="w-8 h-8" />
                 </div>
                 <h2 className="text-xl sm:text-2xl font-bold text-[#111827] tracking-tight">
-                  Complete your student profile to discover scholarships.
+                  Complete your profile to find scholarships matching your eligibility.
                 </h2>
-                <p className="text-xs text-[#6B7280] max-w-md mx-auto">
-                  Smart combinations and stacking compatibility analysis require a completed student profile.
+                <p className="text-xs text-[#6B7280] max-w-md mx-auto leading-relaxed">
+                  Compatible combinations and scholarship stacking options require a completed profile.
                 </p>
-                <div className="pt-2">
+                <div className="pt-3">
                   <button
                     type="button"
                     onClick={() => setActiveTab('profile')}
-                    className="px-6 py-3 rounded-xl bg-[#16A34A] hover:bg-[#15803D] text-white text-xs font-bold transition-all shadow-xs flex items-center gap-2 cursor-pointer"
+                    className="px-6 py-3 rounded-none bg-emerald-800 hover:bg-emerald-900 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-2 cursor-pointer"
                   >
                     <Edit3 className="w-4 h-4" />
                     <span>Complete Profile</span>
@@ -778,14 +778,14 @@ export default function App() {
             ) : (
               <div className="space-y-6">
                 {/* Sub navigation for Valid vs Blocked Conflicts */}
-                <div className="bg-white border border-[#E5E7EB] rounded-2xl p-4 shadow-xs flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-2">
+                <div className="bg-white border border-[#E5E7EB] rounded-none p-4 sm:p-5 shadow-xs flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-2.5">
                     <button
                       type="button"
                       onClick={() => setCombinationSubTab('valid')}
-                      className={`text-xs font-bold px-4 py-2 rounded-xl transition-all cursor-pointer ${
+                      className={`text-xs font-bold px-4 py-2 rounded-none transition-all cursor-pointer ${
                         combinationSubTab === 'valid'
-                          ? 'bg-[#16A34A] text-white shadow-xs'
+                          ? 'bg-emerald-800 text-white shadow-xs'
                           : 'text-[#4B5563] hover:bg-[#F9FAFB]'
                       }`}
                     >
@@ -795,7 +795,7 @@ export default function App() {
                     <button
                       type="button"
                       onClick={() => setCombinationSubTab('conflicts')}
-                      className={`text-xs font-bold px-4 py-2 rounded-xl transition-all cursor-pointer ${
+                      className={`text-xs font-bold px-4 py-2 rounded-none transition-all cursor-pointer ${
                         combinationSubTab === 'conflicts'
                           ? 'bg-[#111827] text-white shadow-xs'
                           : 'text-[#4B5563] hover:bg-[#F9FAFB]'
@@ -808,7 +808,7 @@ export default function App() {
 
                 {combinationSubTab === 'valid' ? (
                   analysis && analysis.valid_combinations.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                       {analysis.valid_combinations.map((combo, idx) => (
                         <CombinationCard
                           key={combo.id}
@@ -821,7 +821,7 @@ export default function App() {
                       ))}
                     </div>
                   ) : (
-                    <div className="bg-white border border-[#E5E7EB] rounded-2xl p-12 text-center shadow-xs">
+                    <div className="bg-white border border-[#E5E7EB] rounded-none p-12 text-center shadow-xs">
                       <Layers className="w-10 h-10 text-[#9CA3AF] mx-auto mb-2" />
                       <h4 className="text-sm font-bold text-[#111827]">
                         No Valid Combinations Found
@@ -832,7 +832,7 @@ export default function App() {
                       <button
                         type="button"
                         onClick={() => setActiveTab('profile')}
-                        className="px-4 py-2 rounded-xl bg-[#16A34A] text-white text-xs font-bold hover:bg-[#15803D]"
+                        className="px-4 py-2 rounded-none bg-emerald-800 text-white text-xs font-bold hover:bg-emerald-900"
                       >
                         Update Profile
                       </button>
@@ -851,21 +851,21 @@ export default function App() {
           {/* TAB 5: COMPATIBILITY NETWORK */}
           {activeTab === 'network' && (
             !profile.is_completed ? (
-              <div className="bg-white border border-[#E5E7EB] rounded-2xl p-8 sm:p-14 text-center shadow-xs flex flex-col items-center justify-center max-w-xl mx-auto my-8 space-y-4">
-                <div className="w-16 h-16 rounded-2xl bg-[#F0FDF4] border border-[#DCFCE7] text-[#16A34A] flex items-center justify-center mb-1">
+              <div className="bg-white border border-[#E5E7EB] rounded-none p-8 sm:p-14 text-center shadow-xs flex flex-col items-center justify-center max-w-xl mx-auto my-8 space-y-5">
+                <div className="w-16 h-16 rounded-none bg-emerald-50 border border-emerald-200 text-emerald-800 flex items-center justify-center mb-1">
                   <Network className="w-8 h-8" />
                 </div>
                 <h2 className="text-xl sm:text-2xl font-bold text-[#111827] tracking-tight">
-                  Complete your profile to render the live network graph.
+                  Complete your profile to find scholarships matching your eligibility.
                 </h2>
-                <p className="text-xs text-[#6B7280] max-w-md mx-auto">
-                  The analytical compatibility network computes real-time topological edges based on your verified eligibility and statutory restrictions.
+                <p className="text-xs text-[#6B7280] max-w-md mx-auto leading-relaxed">
+                  The compatibility network shows connections and rules based on your profile and eligible schemes.
                 </p>
-                <div className="pt-2">
+                <div className="pt-3">
                   <button
                     type="button"
                     onClick={() => setActiveTab('profile')}
-                    className="px-6 py-3 rounded-xl bg-[#16A34A] hover:bg-[#15803D] text-white text-xs font-bold transition-all shadow-xs flex items-center gap-2 cursor-pointer"
+                    className="px-6 py-3 rounded-none bg-emerald-800 hover:bg-emerald-900 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-2 cursor-pointer"
                   >
                     <Edit3 className="w-4 h-4" />
                     <span>Complete Profile</span>
@@ -898,21 +898,21 @@ export default function App() {
           {/* TAB 6: WHAT-IF? SIMULATOR */}
           {activeTab === 'whatif' && (
             !profile.is_completed ? (
-              <div className="bg-white border border-[#E5E7EB] rounded-2xl p-8 sm:p-14 text-center shadow-xs flex flex-col items-center justify-center max-w-xl mx-auto my-8 space-y-4">
-                <div className="w-16 h-16 rounded-2xl bg-purple-50 border border-purple-200 text-purple-700 flex items-center justify-center mb-1">
+              <div className="bg-white border border-[#E5E7EB] rounded-none p-8 sm:p-14 text-center shadow-xs flex flex-col items-center justify-center max-w-xl mx-auto my-8 space-y-5">
+                <div className="w-16 h-16 rounded-none bg-purple-50 border border-purple-200 text-purple-800 flex items-center justify-center mb-1">
                   <Sparkles className="w-8 h-8" />
                 </div>
                 <h2 className="text-xl sm:text-2xl font-bold text-[#111827] tracking-tight">
-                  Complete your profile before running simulations.
+                  Complete your profile to find scholarships matching your eligibility.
                 </h2>
-                <p className="text-xs text-[#6B7280] max-w-md mx-auto">
-                  The What-If simulator uses your baseline profile to calculate potential unlocked scholarship grants when conditions change.
+                <p className="text-xs text-[#6B7280] max-w-md mx-auto leading-relaxed">
+                  The What-If simulator uses your baseline profile to calculate potential unlocked scholarships when parameters change.
                 </p>
-                <div className="pt-2">
+                <div className="pt-3">
                   <button
                     type="button"
                     onClick={() => setActiveTab('profile')}
-                    className="px-6 py-3 rounded-xl bg-[#16A34A] hover:bg-[#15803D] text-white text-xs font-bold transition-all shadow-xs flex items-center gap-2 cursor-pointer"
+                    className="px-6 py-3 rounded-none bg-emerald-800 hover:bg-emerald-900 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-2 cursor-pointer"
                   >
                     <Edit3 className="w-4 h-4" />
                     <span>Complete Profile</span>

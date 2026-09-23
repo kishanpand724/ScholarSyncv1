@@ -141,14 +141,14 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
   // 1. CLASS 10 (Secondary / Pre-Matric)
   if (isClass10) {
     return (
-      <div className="space-y-6 text-xs">
-        <div className="border border-gray-200 rounded-xl p-4 bg-gray-50/50 space-y-4">
+      <div className="space-y-7 text-xs">
+        <div className="border border-gray-200 rounded-none p-5 sm:p-6 bg-gray-50/50 space-y-5">
           <h4 className="text-xs font-bold text-gray-900 uppercase tracking-wider flex items-center gap-2">
-            <GraduationCap className="w-4 h-4 text-[#16A34A]" />
+            <GraduationCap className="w-4 h-4 text-emerald-800" />
             Secondary School (Class 9 - 10) Academic Performance
           </h4>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
             <div>
               <label className="block font-semibold text-[#374151] mb-1.5">
                 Current Class <span className="text-red-500">*</span>
@@ -156,7 +156,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
               <select
                 value={formData.year_of_study || '10th Standard'}
                 onChange={(e) => handleYearChange(e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               >
                 <option value="9th Standard">Class 9 (Pre-Matric)</option>
                 <option value="10th Standard">Class 10 (Secondary Board Exam)</option>
@@ -170,7 +170,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
               <select
                 value={formData.tenth_board || 'Maharashtra State Board (MSBSHSE)'}
                 onChange={(e) => updateField('tenth_board', e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               >
                 {BOARD_OPTIONS.map((b) => (
                   <option key={b} value={b}>{b}</option>
@@ -195,7 +195,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                   updateField('tenth_percentage', clamped);
                   handlePercentageChange(clamped);
                 }}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               />
             </div>
 
@@ -209,7 +209,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                 max="2030"
                 value={formData.admission_year || 2026}
                 onChange={(e) => updateField('admission_year', parseInt(e.target.value, 10) || 2026)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               />
             </div>
 
@@ -222,19 +222,19 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                 placeholder="e.g. R984120"
                 value={formData.tenth_roll_number || ''}
                 onChange={(e) => updateField('tenth_roll_number', e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               />
             </div>
           </div>
         </div>
 
         {/* Dynamic Score Indicator */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-xl bg-[#F0FDF4] border border-[#DCFCE7]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-none bg-emerald-50 border border-emerald-200">
           <div>
-            <span className="text-xs font-semibold text-[#15803D] block">
+            <span className="text-xs font-semibold text-emerald-900 block">
               {scoreLabel}:
             </span>
-            <span className="text-2xl font-black text-[#16A34A]">
+            <span className="text-2xl font-black text-emerald-800">
               {activeScore > 0 ? `${activeScore}%` : 'Not entered'}
             </span>
           </div>
@@ -246,15 +246,15 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
   // 2. CLASS 12 (Higher Secondary / Intermediate / Junior College)
   if (isClass12) {
     return (
-      <div className="space-y-6 text-xs">
+      <div className="space-y-7 text-xs">
         {/* 10th Qualifying Details */}
-        <div className="border border-gray-200 rounded-xl p-4 bg-gray-50/50 space-y-4">
+        <div className="border border-gray-200 rounded-none p-5 sm:p-6 bg-gray-50/50 space-y-5">
           <h4 className="text-xs font-bold text-gray-900 uppercase tracking-wider flex items-center gap-2">
-            <GraduationCap className="w-4 h-4 text-[#16A34A]" />
+            <GraduationCap className="w-4 h-4 text-emerald-800" />
             1. Qualifying Class 10 (Secondary) Board Details
           </h4>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
             <div>
               <label className="block font-semibold text-[#374151] mb-1.5">
                 10th Board <span className="text-red-500">*</span>
@@ -262,7 +262,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
               <select
                 value={formData.tenth_board || 'Maharashtra State Board (MSBSHSE)'}
                 onChange={(e) => updateField('tenth_board', e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               >
                 {BOARD_OPTIONS.map((b) => (
                   <option key={b} value={b}>{b}</option>
@@ -285,7 +285,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                   const val = e.target.value === '' ? 0 : parseFloat(e.target.value);
                   updateField('tenth_percentage', isNaN(val) ? 0 : val);
                 }}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               />
             </div>
 
@@ -299,20 +299,20 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                 max="2026"
                 value={formData.admission_year ? formData.admission_year - 2 : 2024}
                 onChange={(e) => updateField('admission_year', (parseInt(e.target.value, 10) || 2024) + 2)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               />
             </div>
           </div>
         </div>
 
         {/* 12th / Current Class Details */}
-        <div className="border border-gray-200 rounded-xl p-4 bg-gray-50/50 space-y-4">
+        <div className="border border-gray-200 rounded-none p-5 sm:p-6 bg-gray-50/50 space-y-5">
           <h4 className="text-xs font-bold text-gray-900 uppercase tracking-wider flex items-center gap-2">
-            <BookOpen className="w-4 h-4 text-[#16A34A]" />
+            <BookOpen className="w-4 h-4 text-emerald-800" />
             2. Current Class 11 / 12 (Higher Secondary) Details
           </h4>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
             <div>
               <label className="block font-semibold text-[#374151] mb-1.5">
                 Current Class <span className="text-red-500">*</span>
@@ -320,7 +320,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
               <select
                 value={formData.year_of_study || '12th Standard'}
                 onChange={(e) => handleYearChange(e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               >
                 <option value="11th Standard">Class 11 (Junior College 1st Year)</option>
                 <option value="12th Standard">Class 12 (HSC / Board Examination)</option>
@@ -334,7 +334,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
               <select
                 value={formData.twelfth_board || 'Maharashtra State Board (MSBSHSE)'}
                 onChange={(e) => updateField('twelfth_board', e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               >
                 {BOARD_OPTIONS.map((b) => (
                   <option key={b} value={b}>{b}</option>
@@ -359,7 +359,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                   updateField('twelfth_percentage', clamped);
                   handlePercentageChange(clamped);
                 }}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               />
             </div>
 
@@ -372,27 +372,27 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                 placeholder="e.g. M1204892"
                 value={formData.twelfth_roll_number || ''}
                 onChange={(e) => updateField('twelfth_roll_number', e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               />
             </div>
           </div>
 
           {/* Top 20th Percentile Toggle for CSSS */}
-          <div className="p-3.5 rounded-xl border border-emerald-200 bg-emerald-50/40 flex items-center justify-between">
+          <div className="p-4 rounded-none border border-emerald-300 bg-emerald-50/50 flex items-center justify-between gap-4">
             <div>
               <span className="font-semibold text-gray-900 block">
                 Top 20th Percentile in Class 12 Board Exam?
               </span>
-              <span className="text-[10px] text-gray-500">
+              <span className="text-[10px] text-gray-500 mt-0.5 block">
                 Mandatory for Central Sector Scheme of Scholarship (CSSS) quota cutoff
               </span>
             </div>
             <button
               type="button"
               onClick={() => updateField('board_percentile_80th', !formData.board_percentile_80th)}
-              className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+              className={`px-4 py-2 rounded-none text-xs font-bold transition-all cursor-pointer ${
                 formData.board_percentile_80th
-                  ? 'bg-[#16A34A] text-white shadow-xs'
+                  ? 'bg-emerald-800 text-white shadow-xs'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
               }`}
             >
@@ -402,12 +402,12 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
         </div>
 
         {/* Dynamic Score Indicator */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-xl bg-[#F0FDF4] border border-[#DCFCE7]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-none bg-emerald-50 border border-emerald-200">
           <div>
-            <span className="text-xs font-semibold text-[#15803D] block">
+            <span className="text-xs font-semibold text-emerald-900 block">
               {scoreLabel}:
             </span>
-            <span className="text-2xl font-black text-[#16A34A]">
+            <span className="text-2xl font-black text-emerald-800">
               {activeScore > 0 ? `${activeScore}%` : 'Not entered'}
             </span>
           </div>
@@ -421,15 +421,15 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
     const diplomaSemesters = getSemestersForYear('Diploma', formData.year_of_study || '1st Year');
 
     return (
-      <div className="space-y-6 text-xs">
+      <div className="space-y-7 text-xs">
         {/* 10th Qualifying Details */}
-        <div className="border border-gray-200 rounded-xl p-4 bg-gray-50/50 space-y-4">
+        <div className="border border-gray-200 rounded-none p-5 sm:p-6 bg-gray-50/50 space-y-5">
           <h4 className="text-xs font-bold text-gray-900 uppercase tracking-wider flex items-center gap-2">
-            <GraduationCap className="w-4 h-4 text-[#16A34A]" />
+            <GraduationCap className="w-4 h-4 text-emerald-800" />
             1. Qualifying Class 10th (SSC) Details for Polytechnic
           </h4>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
             <div>
               <label className="block font-semibold text-[#374151] mb-1.5">
                 10th Board <span className="text-red-500">*</span>
@@ -437,7 +437,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
               <select
                 value={formData.tenth_board || 'Maharashtra State Board (MSBSHSE)'}
                 onChange={(e) => updateField('tenth_board', e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               >
                 {BOARD_OPTIONS.map((b) => (
                   <option key={b} value={b}>{b}</option>
@@ -464,7 +464,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                     handlePercentageChange(clamped);
                   }
                 }}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               />
             </div>
 
@@ -477,20 +477,20 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                 placeholder="e.g. A928371"
                 value={formData.tenth_roll_number || ''}
                 onChange={(e) => updateField('tenth_roll_number', e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               />
             </div>
           </div>
         </div>
 
         {/* Diploma Year, Semester & Continuous Evaluation */}
-        <div className="border border-gray-200 rounded-xl p-4 bg-gray-50/50 space-y-4">
+        <div className="border border-gray-200 rounded-none p-5 sm:p-6 bg-gray-50/50 space-y-5">
           <h4 className="text-xs font-bold text-gray-900 uppercase tracking-wider flex items-center gap-2">
-            <Building className="w-4 h-4 text-[#16A34A]" />
+            <Building className="w-4 h-4 text-emerald-800" />
             2. Current Diploma Year, Semester & Performance
           </h4>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
             <div>
               <label className="block font-semibold text-[#374151] mb-1.5">
                 Current Diploma Year <span className="text-red-500">*</span>
@@ -498,7 +498,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
               <select
                 value={formData.year_of_study || '1st Year'}
                 onChange={(e) => handleYearChange(e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               >
                 <option value="1st Year">1st Year (Fresh Admission)</option>
                 <option value="2nd Year">2nd Year (Lateral / Second)</option>
@@ -513,7 +513,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
               <select
                 value={formData.current_semester || diplomaSemesters[0] || 'Semester 1'}
                 onChange={(e) => updateField('current_semester', e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               >
                 {diplomaSemesters.map((sem) => (
                   <option key={sem} value={sem}>{sem}</option>
@@ -540,7 +540,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                     handlePercentageChange(clamped);
                   }
                 }}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               />
             </div>
 
@@ -563,23 +563,23 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                     academic_percentage: clamped > 0 ? Number((clamped * 9.5).toFixed(2)) : formData.academic_percentage
                   });
                 }}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               />
             </div>
 
             {/* Backlogs */}
-            <div className="sm:col-span-2 p-3.5 rounded-xl border border-gray-200 bg-white flex items-center justify-between">
+            <div className="sm:col-span-2 p-4 rounded-none border border-gray-200 bg-white flex items-center justify-between gap-4">
               <div>
                 <span className="font-semibold text-gray-900 block">Active Backlogs / ATKT</span>
-                <span className="text-[10px] text-gray-500">Government schemes require regular clear pass</span>
+                <span className="text-[10px] text-gray-500 mt-0.5 block">Government schemes require regular clear pass</span>
               </div>
               <button
                 type="button"
                 onClick={() => updateProfile({ has_backlogs: !formData.has_backlogs, backlogs_count: formData.has_backlogs ? 0 : 1 })}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                className={`px-3.5 py-2 rounded-none text-xs font-bold transition-all cursor-pointer ${
                   formData.has_backlogs
                     ? 'bg-amber-600 text-white shadow-xs'
-                    : 'bg-[#16A34A] text-white shadow-xs'
+                    : 'bg-emerald-800 text-white shadow-xs'
                 }`}
               >
                 {formData.has_backlogs ? 'Has Active Backlogs' : 'No Backlogs (0)'}
@@ -589,12 +589,12 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
         </div>
 
         {/* Dynamic Score Indicator */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-xl bg-[#F0FDF4] border border-[#DCFCE7]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-none bg-emerald-50 border border-emerald-200">
           <div>
-            <span className="text-xs font-semibold text-[#15803D] block">
+            <span className="text-xs font-semibold text-emerald-900 block">
               {scoreLabel}:
             </span>
-            <span className="text-2xl font-black text-[#16A34A]">
+            <span className="text-2xl font-black text-emerald-800">
               {activeScore > 0 ? `${activeScore}%` : 'Not entered'}
             </span>
           </div>
@@ -608,15 +608,15 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
     const pgSemesters = getSemestersForYear(formData.course || 'M.Tech', formData.year_of_study || '1st Year');
 
     return (
-      <div className="space-y-6 text-xs">
+      <div className="space-y-7 text-xs">
         {/* Undergraduate Qualifying Degree */}
-        <div className="border border-gray-200 rounded-xl p-4 bg-gray-50/50 space-y-4">
+        <div className="border border-gray-200 rounded-none p-5 sm:p-6 bg-gray-50/50 space-y-5">
           <h4 className="text-xs font-bold text-gray-900 uppercase tracking-wider flex items-center gap-2">
-            <GraduationCap className="w-4 h-4 text-[#16A34A]" />
+            <GraduationCap className="w-4 h-4 text-emerald-800" />
             1. Undergraduate Qualifying Degree (UGC PG Merit Criteria)
           </h4>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
             <div>
               <label className="block font-semibold text-[#374151] mb-1.5">
                 Undergraduate Degree Name <span className="text-red-500">*</span>
@@ -626,7 +626,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                 placeholder="e.g. B.Tech (Computer Science) / B.Sc / B.Com"
                 value={formData.ug_degree_name || ''}
                 onChange={(e) => updateField('ug_degree_name', e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               />
             </div>
 
@@ -649,20 +649,20 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                     handlePercentageChange(clamped);
                   }
                 }}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               />
             </div>
           </div>
         </div>
 
         {/* PG Standing, Semesters & Score */}
-        <div className="border border-gray-200 rounded-xl p-4 bg-gray-50/50 space-y-4">
+        <div className="border border-gray-200 rounded-none p-5 sm:p-6 bg-gray-50/50 space-y-5">
           <h4 className="text-xs font-bold text-gray-900 uppercase tracking-wider flex items-center gap-2">
-            <Building className="w-4 h-4 text-[#16A34A]" />
+            <Building className="w-4 h-4 text-emerald-800" />
             2. Current Postgraduate Standing & Evaluation
           </h4>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
             <div>
               <label className="block font-semibold text-[#374151] mb-1.5">
                 Current PG Year of Study <span className="text-red-500">*</span>
@@ -670,7 +670,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
               <select
                 value={formData.year_of_study || '1st Year'}
                 onChange={(e) => handleYearChange(e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               >
                 <option value="1st Year">1st Year (Fresh Admission)</option>
                 <option value="2nd Year">2nd Year (Final Year)</option>
@@ -684,7 +684,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
               <select
                 value={formData.current_semester || pgSemesters[0] || 'Semester 1'}
                 onChange={(e) => updateField('current_semester', e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               >
                 {pgSemesters.map((sem) => (
                   <option key={sem} value={sem}>{sem}</option>
@@ -711,7 +711,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                     handlePercentageChange(clamped);
                   }
                 }}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               />
             </div>
 
@@ -734,19 +734,19 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                     academic_percentage: clamped > 0 ? Number((clamped * 9.5).toFixed(2)) : formData.academic_percentage
                   });
                 }}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               />
             </div>
           </div>
         </div>
 
         {/* Dynamic Score Indicator */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-xl bg-[#F0FDF4] border border-[#DCFCE7]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-none bg-emerald-50 border border-emerald-200">
           <div>
-            <span className="text-xs font-semibold text-[#15803D] block">
+            <span className="text-xs font-semibold text-emerald-900 block">
               {scoreLabel}:
             </span>
-            <span className="text-2xl font-black text-[#16A34A]">
+            <span className="text-2xl font-black text-emerald-800">
               {activeScore > 0 ? `${activeScore}%` : 'Not entered'}
             </span>
           </div>
@@ -760,15 +760,15 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
     const btechSemesters = getSemestersForYear(formData.course || 'B.Tech / B.E.', formData.year_of_study || '1st Year');
 
     return (
-      <div className="space-y-6 text-xs">
+      <div className="space-y-7 text-xs">
         {/* Block 1: 10th & 12th Details */}
-        <div className="border border-gray-200 rounded-xl p-4 bg-gray-50/50 space-y-4">
+        <div className="border border-gray-200 rounded-none p-5 sm:p-6 bg-gray-50/50 space-y-5">
           <h4 className="text-xs font-bold text-gray-900 uppercase tracking-wider flex items-center gap-2">
-            <GraduationCap className="w-4 h-4 text-[#16A34A]" />
+            <GraduationCap className="w-4 h-4 text-emerald-800" />
             1. Secondary (10th) & Higher Secondary (12th) Board Details
           </h4>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
             <div>
               <label className="block font-semibold text-[#374151] mb-1.5">
                 10th Board <span className="text-red-500">*</span>
@@ -776,7 +776,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
               <select
                 value={formData.tenth_board || 'Maharashtra State Board (MSBSHSE)'}
                 onChange={(e) => updateField('tenth_board', e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               >
                 {BOARD_OPTIONS.map((b) => (
                   <option key={b} value={b}>{b}</option>
@@ -799,7 +799,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                   const val = e.target.value === '' ? 0 : parseFloat(e.target.value);
                   updateField('tenth_percentage', isNaN(val) ? 0 : val);
                 }}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               />
             </div>
 
@@ -810,7 +810,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
               <select
                 value={formData.twelfth_board || 'Maharashtra State Board (MSBSHSE)'}
                 onChange={(e) => updateField('twelfth_board', e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               >
                 {BOARD_OPTIONS.map((b) => (
                   <option key={b} value={b}>{b}</option>
@@ -837,7 +837,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                     handlePercentageChange(clamped);
                   }
                 }}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               />
             </div>
 
@@ -850,27 +850,27 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                 placeholder="e.g. M1204892"
                 value={formData.twelfth_roll_number || ''}
                 onChange={(e) => updateField('twelfth_roll_number', e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               />
             </div>
           </div>
 
           {/* Top 20th Percentile Toggle */}
-          <div className="p-3.5 rounded-xl border border-emerald-200 bg-emerald-50/40 flex items-center justify-between">
+          <div className="p-4 rounded-none border border-emerald-300 bg-emerald-50/50 flex items-center justify-between gap-4">
             <div>
               <span className="font-semibold text-gray-900 block">
                 Top 20th Percentile in Class 12 Board Exam?
               </span>
-              <span className="text-[10px] text-gray-500">
+              <span className="text-[10px] text-gray-500 mt-0.5 block">
                 Mandatory for Central Sector Scheme of Scholarship (CSSS) quota cutoff
               </span>
             </div>
             <button
               type="button"
               onClick={() => updateField('board_percentile_80th', !formData.board_percentile_80th)}
-              className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+              className={`px-4 py-2 rounded-none text-xs font-bold transition-all cursor-pointer ${
                 formData.board_percentile_80th
-                  ? 'bg-[#16A34A] text-white shadow-xs'
+                  ? 'bg-emerald-800 text-white shadow-xs'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
               }`}
             >
@@ -880,10 +880,10 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
         </div>
 
         {/* Block 2: Entrance / Competitive Examination */}
-        <div className="border border-gray-200 rounded-xl p-4 bg-gray-50/50 space-y-4">
-          <div className="flex items-center justify-between">
+        <div className="border border-gray-200 rounded-none p-5 sm:p-6 bg-gray-50/50 space-y-5">
+          <div className="flex items-center justify-between gap-4">
             <h4 className="text-xs font-bold text-gray-900 uppercase tracking-wider flex items-center gap-2">
-              <Award className="w-4 h-4 text-[#16A34A]" />
+              <Award className="w-4 h-4 text-emerald-800" />
               2. Entrance / Competitive Examination
             </h4>
             <div className="flex items-center gap-2">
@@ -891,9 +891,9 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
               <button
                 type="button"
                 onClick={() => updateField('competitive_exam_taken', !formData.competitive_exam_taken)}
-                className={`px-3 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                className={`px-3.5 py-1.5 rounded-none text-xs font-bold transition-all cursor-pointer ${
                   formData.competitive_exam_taken
-                    ? 'bg-[#16A34A] text-white'
+                    ? 'bg-emerald-800 text-white'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                 }`}
               >
@@ -903,7 +903,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
           </div>
 
           {formData.competitive_exam_taken && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-gray-200">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 pt-3 border-t border-gray-200">
               <div>
                 <label className="block font-semibold text-[#374151] mb-1.5">
                   Exam Name (MHT-CET / JEE / etc.)
@@ -911,7 +911,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                 <select
                   value={formData.competitive_exam_name || 'MHT-CET (Maharashtra Common Entrance Test)'}
                   onChange={(e) => updateField('competitive_exam_name', e.target.value)}
-                  className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                  className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
                 >
                   {EXAM_OPTIONS.map((ex) => (
                     <option key={ex} value={ex}>{ex}</option>
@@ -933,7 +933,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                     const val = parseInt(e.target.value, 10);
                     updateField('competitive_exam_year', isNaN(val) ? 2024 : val);
                   }}
-                  className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                  className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
                 />
               </div>
 
@@ -946,7 +946,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                   placeholder="e.g. State Common Entrance Test Cell, Maharashtra"
                   value={formData.competitive_exam_conducted_by || ''}
                   onChange={(e) => updateField('competitive_exam_conducted_by', e.target.value)}
-                  className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                  className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
                 />
               </div>
 
@@ -959,7 +959,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                   placeholder="e.g. 24201994"
                   value={formData.competitive_exam_roll || ''}
                   onChange={(e) => updateField('competitive_exam_roll', e.target.value)}
-                  className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                  className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
                 />
               </div>
 
@@ -972,7 +972,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                   placeholder="e.g. 96.48 Percentile / 142 Marks"
                   value={formData.competitive_exam_score || ''}
                   onChange={(e) => updateField('competitive_exam_score', e.target.value)}
-                  className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                  className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
                 />
               </div>
             </div>
@@ -980,13 +980,13 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
         </div>
 
         {/* Block 3: Engineering Standing, Semesters & Backlogs */}
-        <div className="border border-gray-200 rounded-xl p-4 bg-gray-50/50 space-y-4">
+        <div className="border border-gray-200 rounded-none p-5 sm:p-6 bg-gray-50/50 space-y-5">
           <h4 className="text-xs font-bold text-gray-900 uppercase tracking-wider flex items-center gap-2">
-            <Building className="w-4 h-4 text-[#16A34A]" />
+            <Building className="w-4 h-4 text-emerald-800" />
             3. Engineering Year, Semester & Continuous Evaluation
           </h4>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
             <div>
               <label className="block font-semibold text-[#374151] mb-1.5">
                 Current Year of Study <span className="text-red-500">*</span>
@@ -994,7 +994,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
               <select
                 value={formData.year_of_study || '1st Year'}
                 onChange={(e) => handleYearChange(e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               >
                 <option value="1st Year">1st Year (Semester 1 / 2)</option>
                 <option value="2nd Year">2nd Year (Semester 3 / 4)</option>
@@ -1010,7 +1010,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
               <select
                 value={formData.current_semester || btechSemesters[0] || 'Semester 1'}
                 onChange={(e) => updateField('current_semester', e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               >
                 {btechSemesters.map((sem) => (
                   <option key={sem} value={sem}>{sem}</option>
@@ -1037,7 +1037,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                     handlePercentageChange(clamped);
                   }
                 }}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               />
             </div>
 
@@ -1060,17 +1060,17 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                     academic_percentage: clampedCgpa > 0 ? Number((clampedCgpa * 9.5).toFixed(2)) : formData.academic_percentage
                   });
                 }}
-                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+                className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
               />
             </div>
 
             {/* Backlogs */}
-            <div className="sm:col-span-2 p-3.5 rounded-xl border border-gray-200 bg-white flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="sm:col-span-2 p-4 rounded-none border border-gray-200 bg-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
                 <span className="font-semibold text-gray-900 block">
                   Backlogs / ATKT (Allowed To Keep Term)
                 </span>
-                <span className="text-[10px] text-gray-500">
+                <span className="text-[10px] text-gray-500 mt-0.5 block">
                   Merit and renewal scholarships require passing without active backlogs
                 </span>
               </div>
@@ -1078,9 +1078,9 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                 <button
                   type="button"
                   onClick={() => updateProfile({ has_backlogs: false, backlogs_count: 0 })}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  className={`px-3.5 py-2 rounded-none text-xs font-bold transition-all cursor-pointer ${
                     !formData.has_backlogs
-                      ? 'bg-[#16A34A] text-white shadow-xs'
+                      ? 'bg-emerald-800 text-white shadow-xs'
                       : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                   }`}
                 >
@@ -1089,7 +1089,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                 <button
                   type="button"
                   onClick={() => updateProfile({ has_backlogs: true, backlogs_count: formData.backlogs_count || 1 })}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  className={`px-3.5 py-2 rounded-none text-xs font-bold transition-all cursor-pointer ${
                     formData.has_backlogs
                       ? 'bg-amber-600 text-white shadow-xs'
                       : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -1103,12 +1103,12 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
         </div>
 
         {/* Dynamic Score Indicator (NO Hardcoded 75%) */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-xl bg-[#F0FDF4] border border-[#DCFCE7]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-none bg-emerald-50 border border-emerald-200">
           <div>
-            <span className="text-xs font-semibold text-[#15803D] block">
+            <span className="text-xs font-semibold text-emerald-900 block">
               {scoreLabel}:
             </span>
-            <span className="text-2xl font-black text-[#16A34A]">
+            <span className="text-2xl font-black text-emerald-800">
               {activeScore > 0 ? `${activeScore}%` : 'Not entered'}
             </span>
             {formData.cgpa && formData.cgpa > 0 ? (
@@ -1126,15 +1126,15 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
   const ugSemesters = getSemestersForYear(formData.course || 'BCA', formData.year_of_study || '1st Year');
 
   return (
-    <div className="space-y-6 text-xs">
+    <div className="space-y-7 text-xs">
       {/* 10th & 12th Details */}
-      <div className="border border-gray-200 rounded-xl p-4 bg-gray-50/50 space-y-4">
+      <div className="border border-gray-200 rounded-none p-5 sm:p-6 bg-gray-50/50 space-y-5">
         <h4 className="text-xs font-bold text-gray-900 uppercase tracking-wider flex items-center gap-2">
-          <GraduationCap className="w-4 h-4 text-[#16A34A]" />
+          <GraduationCap className="w-4 h-4 text-emerald-800" />
           1. 10th & 12th Board Examination Details
         </h4>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
           <div>
             <label className="block font-semibold text-[#374151] mb-1.5">
               10th Percentage (%) <span className="text-red-500">*</span>
@@ -1150,7 +1150,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                 const val = e.target.value === '' ? 0 : parseFloat(e.target.value);
                 updateField('tenth_percentage', isNaN(val) ? 0 : val);
               }}
-              className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+              className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
             />
           </div>
 
@@ -1173,7 +1173,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                   handlePercentageChange(clamped);
                 }
               }}
-              className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+              className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
             />
           </div>
 
@@ -1184,7 +1184,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
             <select
               value={formData.twelfth_board || 'Maharashtra State Board (MSBSHSE)'}
               onChange={(e) => updateField('twelfth_board', e.target.value)}
-              className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+              className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
             >
               {BOARD_OPTIONS.map((b) => (
                 <option key={b} value={b}>{b}</option>
@@ -1192,21 +1192,21 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
             </select>
           </div>
 
-          <div className="p-3.5 rounded-xl border border-emerald-200 bg-emerald-50/40 flex items-center justify-between">
+          <div className="p-4 rounded-none border border-emerald-300 bg-emerald-50/50 flex items-center justify-between gap-4">
             <div>
               <span className="font-semibold text-gray-900 block">
                 Top 20th Percentile in Board?
               </span>
-              <span className="text-[10px] text-gray-500">
+              <span className="text-[10px] text-gray-500 mt-0.5 block">
                 CSSS merit quota requirement
               </span>
             </div>
             <button
               type="button"
               onClick={() => updateField('board_percentile_80th', !formData.board_percentile_80th)}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+              className={`px-4 py-2 rounded-none text-xs font-bold transition-all cursor-pointer ${
                 formData.board_percentile_80th
-                  ? 'bg-[#16A34A] text-white'
+                  ? 'bg-emerald-800 text-white'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
               }`}
             >
@@ -1217,13 +1217,13 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
       </div>
 
       {/* Degree Year, Semester & Standing */}
-      <div className="border border-gray-200 rounded-xl p-4 bg-gray-50/50 space-y-4">
+      <div className="border border-gray-200 rounded-none p-5 sm:p-6 bg-gray-50/50 space-y-5">
         <h4 className="text-xs font-bold text-gray-900 uppercase tracking-wider flex items-center gap-2">
-          <Building className="w-4 h-4 text-[#16A34A]" />
+          <Building className="w-4 h-4 text-emerald-800" />
           2. Degree Year, Semester & Performance
         </h4>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
           <div>
             <label className="block font-semibold text-[#374151] mb-1.5">
               Current Year of Study <span className="text-red-500">*</span>
@@ -1231,7 +1231,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
             <select
               value={formData.year_of_study || '1st Year'}
               onChange={(e) => handleYearChange(e.target.value)}
-              className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+              className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
             >
               <option value="1st Year">1st Year (Fresh)</option>
               <option value="2nd Year">2nd Year</option>
@@ -1249,7 +1249,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
             <select
               value={formData.current_semester || ugSemesters[0] || 'Semester 1'}
               onChange={(e) => updateField('current_semester', e.target.value)}
-              className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+              className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
             >
               {ugSemesters.map((sem) => (
                 <option key={sem} value={sem}>{sem}</option>
@@ -1276,7 +1276,7 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                   handlePercentageChange(clamped);
                 }
               }}
-              className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+              className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
             />
           </div>
 
@@ -1299,19 +1299,19 @@ export const AcademicPerformanceFields: React.FC<AcademicPerformanceFieldsProps>
                   academic_percentage: clamped > 0 ? Number((clamped * 9.5).toFixed(2)) : formData.academic_percentage
                 });
               }}
-              className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
+              className="w-full px-3.5 py-2.5 bg-white border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:outline-none focus:ring-2 focus:ring-emerald-800"
             />
           </div>
         </div>
       </div>
 
       {/* Dynamic Score Indicator */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-xl bg-[#F0FDF4] border border-[#DCFCE7]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-none bg-emerald-50 border border-emerald-200">
         <div>
-          <span className="text-xs font-semibold text-[#15803D] block">
+          <span className="text-xs font-semibold text-emerald-900 block">
             {scoreLabel}:
           </span>
-          <span className="text-2xl font-black text-[#16A34A]">
+          <span className="text-2xl font-black text-emerald-800">
             {activeScore > 0 ? `${activeScore}%` : 'Not entered'}
           </span>
         </div>

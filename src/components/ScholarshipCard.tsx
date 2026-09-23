@@ -60,9 +60,9 @@ export const ScholarshipCard: React.FC<ScholarshipCardProps> = ({
 
   return (
     <div
-      className={`bg-white border rounded-2xl p-6 shadow-xs transition-all flex flex-col justify-between group ${
+      className={`bg-white border rounded-none p-6 sm:p-7 shadow-xs transition-all flex flex-col justify-between group ${
         isEligible
-          ? 'border-[#E5E7EB] hover:border-[#16A34A] hover:shadow-sm'
+          ? 'border-[#E5E7EB] hover:border-emerald-800 hover:shadow-xs'
           : isUndetermined
           ? 'border-amber-200/90 hover:border-amber-400 bg-amber-50/15'
           : 'border-[#E5E7EB] opacity-80 hover:opacity-100'
@@ -70,49 +70,49 @@ export const ScholarshipCard: React.FC<ScholarshipCardProps> = ({
     >
       <div>
         {/* Source Provenance & Official PDF Label */}
-        <div className="flex items-center justify-between text-[11px] text-[#6B7280] pb-2.5 mb-3 border-b border-[#F3F4F6] gap-2">
+        <div className="flex items-center justify-between text-[11px] text-[#6B7280] pb-3 mb-4 border-b border-[#F3F4F6] gap-2">
           <div className="flex items-center gap-1.5 truncate">
             <span className="font-medium text-[#111827]">
               Source:{' '}
               {scholarship.source_type === 'MAHADBT' || scholarship.id.startsWith('MAHADBT') ? (
-                <span className="text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
+                <span className="text-emerald-800 font-bold bg-emerald-50 px-2 py-0.5 rounded-none border border-emerald-300">
                   MahaDBT (Govt of Maharashtra)
                 </span>
               ) : (
-                <span className="text-blue-700 font-bold bg-blue-50 px-1.5 py-0.5 rounded border border-blue-200">
+                <span className="text-blue-800 font-bold bg-blue-50 px-2 py-0.5 rounded-none border border-blue-300">
                   NSP (Govt of India)
                 </span>
               )}
             </span>
           </div>
 
-          <div className="flex items-center gap-1.5 shrink-0">
+          <div className="flex items-center gap-2 shrink-0">
             {sourcePdfUrl && (
               <a
                 href={sourcePdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-rose-50 text-rose-700 hover:bg-rose-100 text-[10px] font-semibold border border-rose-200 transition-colors"
+                className="inline-flex items-center gap-1 px-2 py-0.5 rounded-none bg-rose-50 text-rose-800 hover:bg-rose-100 text-[10px] font-semibold border border-rose-200 transition-colors"
                 title={`Open official scheme PDF: ${sourcePdfName}`}
               >
-                <FileText className="w-3 h-3 text-rose-600" />
+                <FileText className="w-3 h-3 text-rose-700" />
                 <span>{scholarship.official_specification_url ? 'GR / PDF' : 'PDF Guidelines'}</span>
               </a>
             )}
-            <span className="px-2 py-0.5 rounded-full bg-[#F3F4F6] text-[#4B5563] font-mono text-[10px] font-bold">
+            <span className="px-2 py-0.5 rounded-none bg-[#F3F4F6] text-[#4B5563] font-mono text-[10px] font-bold border border-gray-200">
               AY {scholarship.academic_year || '2026-27'}
             </span>
           </div>
         </div>
 
         {/* Header Row: Provider, Name & Status Badge */}
-        <div className="flex items-start justify-between gap-3 mb-2">
+        <div className="flex items-start justify-between gap-3 mb-3">
           <div>
             <span className="text-[11px] font-semibold text-[#6B7280] uppercase tracking-wider block">
               {scholarship.department || scholarship.provider}
             </span>
             <h3
-              className={`text-base font-bold mt-0.5 leading-snug ${
+              className={`text-base font-bold mt-1 leading-snug ${
                 isEligible ? 'text-[#111827]' : isUndetermined ? 'text-gray-900' : 'text-[#4B5563]'
               }`}
             >
@@ -120,33 +120,33 @@ export const ScholarshipCard: React.FC<ScholarshipCardProps> = ({
             </h3>
           </div>
 
-          <div className="flex flex-col items-end gap-1 shrink-0">
+          <div className="flex flex-col items-end gap-1.5 shrink-0">
             {isEligible && (
-              <span className="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-0.5 rounded-full bg-[#F0FDF4] text-[#16A34A] border border-[#DCFCE7]">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#16A34A]" />
+              <span className="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-0.5 rounded-none bg-emerald-50 text-emerald-800 border border-emerald-200">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-800" />
                 <span>Eligible</span>
               </span>
             )}
             {isUndetermined && (
-              <span className="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200">
-                <HelpCircle className="w-3.5 h-3.5 text-amber-600" />
+              <span className="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-0.5 rounded-none bg-amber-50 text-amber-800 border border-amber-200">
+                <HelpCircle className="w-3.5 h-3.5 text-amber-700" />
                 <span>Needs Info</span>
               </span>
             )}
             {!isEligible && !isUndetermined && (
-              <span className="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-0.5 rounded-full bg-[#F3F4F6] text-[#4B5563] border border-[#E5E7EB]">
+              <span className="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-0.5 rounded-none bg-[#F3F4F6] text-[#4B5563] border border-[#E5E7EB]">
                 <XCircle className="w-3.5 h-3.5 text-[#6B7280]" />
                 <span>Not Eligible</span>
               </span>
             )}
 
             {scholarship.scheme_type === 'merit_based' ? (
-              <span className="inline-flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-md bg-[#EFF6FF] text-[#1D4ED8] border border-[#DBEAFE]">
+              <span className="inline-flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-none bg-[#EFF6FF] text-[#1D4ED8] border border-[#DBEAFE]">
                 <Award className="w-3 h-3" />
                 <span>Merit-based</span>
               </span>
             ) : (
-              <span className="inline-flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-md bg-[#F5F3FF] text-[#6D28D9] border border-[#EDE9FE]">
+              <span className="inline-flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-none bg-[#F5F3FF] text-[#6D28D9] border border-[#EDE9FE]">
                 <HeartHandshake className="w-3 h-3" />
                 <span>Welfare-based</span>
               </span>
@@ -162,13 +162,13 @@ export const ScholarshipCard: React.FC<ScholarshipCardProps> = ({
               potential benefit
             </span>
           </div>
-          <span className="text-[11px] text-[#6B7280] capitalize mt-0.5 block">
+          <span className="text-[11px] text-[#6B7280] capitalize mt-1 block">
             {scholarship.benefit_type.replace(/_/g, ' ')} • Deadline: {scholarship.deadline}
           </span>
         </div>
 
         {/* Requirements Overview */}
-        <div className="space-y-1.5 text-xs text-[#4B5563] mb-3">
+        <div className="space-y-2 text-xs text-[#4B5563] mb-4">
           <div className="flex items-center justify-between">
             <span className="text-[#6B7280]">Academic Cutoff:</span>
             <span className="font-semibold text-[#111827]">
@@ -197,71 +197,71 @@ export const ScholarshipCard: React.FC<ScholarshipCardProps> = ({
 
         {/* Real Required Documents Preview Bar with Cross-Referencing */}
         {requiredDocs.length > 0 && (
-          <div className="mb-3.5">
+          <div className="mb-4">
             <button
               type="button"
               onClick={() => setShowDocuments(!showDocuments)}
-              className={`w-full flex items-center justify-between p-2 rounded-xl border text-xs transition-colors cursor-pointer ${
+              className={`w-full flex items-center justify-between p-2.5 rounded-none border text-xs transition-colors cursor-pointer ${
                 docCrossReference.isFullyReady
-                  ? 'bg-emerald-50/70 hover:bg-emerald-50 border-emerald-200 text-emerald-900'
-                  : 'bg-blue-50/50 hover:bg-blue-50 border-blue-100 text-blue-900'
+                  ? 'bg-emerald-50/70 hover:bg-emerald-50 border-emerald-300 text-emerald-900'
+                  : 'bg-blue-50/50 hover:bg-blue-50 border-blue-200 text-blue-900'
               }`}
             >
-              <div className="flex items-center gap-1.5 font-semibold">
-                <FileCheck2 className={`w-3.5 h-3.5 ${docCrossReference.isFullyReady ? 'text-emerald-600' : 'text-blue-600'}`} />
+              <div className="flex items-center gap-2 font-semibold">
+                <FileCheck2 className={`w-3.5 h-3.5 ${docCrossReference.isFullyReady ? 'text-emerald-800' : 'text-blue-700'}`} />
                 <span>Documents ({docCrossReference.possessedCount}/{docCrossReference.totalRequired} Ready)</span>
                 {docCrossReference.isFullyReady ? (
-                  <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.2 rounded">All in Hand ✓</span>
+                  <span className="text-[10px] bg-emerald-100 text-emerald-900 font-bold px-1.5 py-0.5 rounded-none border border-emerald-300">All in Hand ✓</span>
                 ) : (
-                  <span className="text-[10px] text-amber-700 font-medium">({docCrossReference.missingCount} pending)</span>
+                  <span className="text-[10px] text-amber-800 font-medium">({docCrossReference.missingCount} pending)</span>
                 )}
               </div>
-              <div className="flex items-center gap-1 text-[11px] text-blue-700">
+              <div className="flex items-center gap-1 text-[11px] text-blue-800 font-medium">
                 <span>{showDocuments ? 'Hide' : 'Checklist'}</span>
                 {showDocuments ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
               </div>
             </button>
 
             {showDocuments && (
-              <div className="mt-2 p-3 rounded-xl bg-[#F9FAFB] border border-[#E5E7EB] text-xs space-y-2 animate-fadeIn">
-                <div className="flex items-center justify-between text-[11px] font-bold text-gray-700 border-b border-gray-200 pb-1 mb-1">
+              <div className="mt-2.5 p-4 rounded-none bg-[#F9FAFB] border border-[#E5E7EB] text-xs space-y-3 animate-fadeIn">
+                <div className="flex items-center justify-between text-[11px] font-bold text-gray-700 border-b border-gray-200 pb-1.5 mb-1.5">
                   <span>Cross-Referenced Requirements:</span>
-                  <span className={`text-[10px] font-bold ${docCrossReference.isFullyReady ? 'text-emerald-700' : 'text-amber-700'}`}>
+                  <span className={`text-[10px] font-bold ${docCrossReference.isFullyReady ? 'text-emerald-800' : 'text-amber-800'}`}>
                     {docCrossReference.readinessPercentage}% Readiness
                   </span>
                 </div>
-                <ul className="space-y-1.5">
+                <ul className="space-y-2">
                   {docCrossReference.checks.map((chk, idx) => (
                     <li
                       key={idx}
-                      className="flex items-start justify-between gap-2 text-[11px] leading-snug p-1 rounded hover:bg-white transition-colors"
+                      className="flex items-start justify-between gap-2 text-[11px] leading-snug p-1.5 rounded-none hover:bg-white transition-colors border border-transparent hover:border-gray-200"
                     >
-                      <div className="flex items-start gap-1.5 min-w-0">
+                      <div className="flex items-start gap-2 min-w-0">
                         {chk.isPossessed ? (
-                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-800 shrink-0 mt-0.5" />
                         ) : (
-                          <AlertTriangle className="w-3.5 h-3.5 text-amber-500 shrink-0 mt-0.5" />
+                          <AlertTriangle className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
                         )}
-                        <span className={chk.isPossessed ? 'text-gray-800 font-medium' : 'text-gray-600'}>
+                        <span className={chk.isPossessed ? 'text-gray-900 font-medium' : 'text-gray-600'}>
                           {chk.requiredName}
                         </span>
                       </div>
 
-                      <div className="shrink-0 flex items-center gap-1">
+                      <div className="shrink-0 flex items-center gap-1.5">
                         {chk.isPossessed ? (
-                          <span className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
+                          <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-none border border-emerald-200">
                             Possessed
                           </span>
                         ) : onToggleDocument ? (
                           <button
                             type="button"
                             onClick={() => onToggleDocument(chk.matchedPossessedId || chk.requiredName)}
-                            className="text-[10px] font-semibold text-blue-700 hover:text-blue-900 bg-blue-50 hover:bg-blue-100 px-1.5 py-0.5 rounded border border-blue-200 cursor-pointer"
+                            className="text-[10px] font-semibold text-blue-800 hover:text-blue-900 bg-blue-50 hover:bg-blue-100 px-2 py-0.5 rounded-none border border-blue-300 cursor-pointer"
                           >
                             + Mark Possessed
                           </button>
                         ) : (
-                          <span className="text-[10px] font-medium text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">
+                          <span className="text-[10px] font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-none border border-amber-200">
                             Missing
                           </span>
                         )}
@@ -276,7 +276,7 @@ export const ScholarshipCard: React.FC<ScholarshipCardProps> = ({
 
         {/* Missing Info Warning Callout if Undetermined */}
         {isUndetermined && missing_info_reasons.length > 0 && (
-          <div className="mb-4 p-2.5 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 space-y-1">
+          <div className="mb-4 p-3 rounded-none bg-amber-50 border border-amber-200 text-xs text-amber-900 space-y-1">
             <span className="font-bold block text-[11px]">
               ? Unable to determine — additional information required:
             </span>
@@ -288,7 +288,7 @@ export const ScholarshipCard: React.FC<ScholarshipCardProps> = ({
 
         {/* Rejection Warning Callout if Ineligible */}
         {!isEligible && !isUndetermined && rejection_reasons.length > 0 && (
-          <div className="mb-4 p-2.5 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-900 space-y-1">
+          <div className="mb-4 p-3 rounded-none bg-rose-50 border border-rose-200 text-xs text-rose-900 space-y-1">
             <span className="font-bold block text-[11px]">
               ✗ Primary ineligibility reason:
             </span>
@@ -301,7 +301,7 @@ export const ScholarshipCard: React.FC<ScholarshipCardProps> = ({
 
       {/* Card Footer & Action */}
       <div>
-        <div className="pt-3.5 border-t border-[#F3F4F6] flex items-center justify-between gap-2">
+        <div className="pt-4 border-t border-[#F3F4F6] flex items-center justify-between gap-3">
           <button
             type="button"
             onClick={() => setShowExplainability(!showExplainability)}
@@ -310,23 +310,23 @@ export const ScholarshipCard: React.FC<ScholarshipCardProps> = ({
             {showExplainability ? (
               <>
                 <ChevronUp className="w-3.5 h-3.5" />
-                <span>Hide Audit</span>
+                <span>Hide Checks</span>
               </>
             ) : (
               <>
                 <ChevronDown className="w-3.5 h-3.5" />
-                <span>Audit Checks ({matchResult.match_score}%)</span>
+                <span>Eligibility Checks ({matchResult.match_score}%)</span>
               </>
             )}
           </button>
 
-          <div className="flex items-center gap-2 flex-wrap justify-end">
+          <div className="flex items-center gap-2.5 flex-wrap justify-end">
             {sourcePdfUrl && (
               <a
                 href={sourcePdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-[11px] font-medium text-[#4B5563] hover:text-rose-600 transition-colors"
+                className="inline-flex items-center gap-1 text-[11px] font-medium text-[#4B5563] hover:text-rose-700 transition-colors"
                 title="View original scheme PDF document"
               >
                 <span>Scheme PDF</span>
@@ -337,13 +337,13 @@ export const ScholarshipCard: React.FC<ScholarshipCardProps> = ({
             <button
               type="button"
               onClick={() => onOpenDetails(scholarship, matchResult)}
-              className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-semibold transition-colors cursor-pointer ${
+              className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-none text-xs font-semibold transition-colors cursor-pointer ${
                 isEligible
                   ? 'text-[#111827] bg-[#F9FAFB] hover:bg-[#F3F4F6] border border-[#E5E7EB]'
-                  : 'text-white bg-[#16A34A] hover:bg-[#15803D]'
+                  : 'text-white bg-emerald-800 hover:bg-emerald-900'
               }`}
             >
-              <span>Details & Documents</span>
+              <span>Details &amp; Documents</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
 
@@ -353,14 +353,14 @@ export const ScholarshipCard: React.FC<ScholarshipCardProps> = ({
                   href={officialApplicationUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold text-white bg-[#16A34A] hover:bg-[#15803D] shadow-xs hover:shadow transition-all"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-none text-xs font-bold text-white bg-emerald-800 hover:bg-emerald-900 shadow-xs hover:shadow transition-all"
                   title="Open official NSP scholarship application portal in a new tab"
                 >
                   <span>Apply Now</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               ) : (
-                <span className="inline-flex items-center px-2 py-1 rounded-lg text-[10px] font-medium text-[#6B7280] bg-[#F3F4F6] border border-[#E5E7EB]">
+                <span className="inline-flex items-center px-2.5 py-1.5 rounded-none text-[10px] font-medium text-[#6B7280] bg-[#F3F4F6] border border-[#E5E7EB]">
                   Official application link unavailable
                 </span>
               )
@@ -368,42 +368,42 @@ export const ScholarshipCard: React.FC<ScholarshipCardProps> = ({
           </div>
         </div>
 
-        {/* Explainable 3-State Audit Breakdown */}
+        {/* Eligibility Criteria Breakdown */}
         {showExplainability && (
-          <div className="mt-3 pt-3 border-t border-[#F3F4F6] text-xs space-y-2">
+          <div className="mt-4 pt-4 border-t border-[#F3F4F6] text-xs space-y-2.5">
             <span className="text-[11px] font-bold text-[#111827] block mb-1">
-              Criteria Evaluation (Three-State Check):
+              Eligibility Criteria Evaluation:
             </span>
-            <div className="space-y-1.5 max-h-48 overflow-y-auto pr-1">
+            <div className="space-y-2 max-h-48 overflow-y-auto pr-1">
               {criteria_checks.map((check, idx) => (
                 <div
                   key={idx}
-                  className={`p-2 rounded-lg text-xs transition-colors border ${
+                  className={`p-2.5 rounded-none text-xs transition-colors border ${
                     check.status === 'satisfied'
-                      ? 'bg-emerald-50/60 border-emerald-200 text-emerald-900'
+                      ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950'
                       : check.status === 'undetermined'
-                      ? 'bg-amber-50 border-amber-200 text-amber-900'
-                      : 'bg-rose-50 border-rose-200 text-rose-900'
+                      ? 'bg-amber-50 border-amber-200 text-amber-950'
+                      : 'bg-rose-50 border-rose-200 text-rose-950'
                   }`}
                 >
-                  <div className="flex items-center justify-between gap-1.5 mb-0.5">
+                  <div className="flex items-center justify-between gap-2 mb-1">
                     <div className="flex items-center gap-1.5 font-bold">
                       {check.status === 'satisfied' && (
                         <>
-                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                          <span>✓ Satisfied</span>
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-800 shrink-0" />
+                          <span className="text-emerald-800">✓ Satisfied</span>
                         </>
                       )}
                       {check.status === 'undetermined' && (
                         <>
-                          <HelpCircle className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-                          <span>? Cannot determine</span>
+                          <HelpCircle className="w-3.5 h-3.5 text-amber-700 shrink-0" />
+                          <span className="text-amber-800">? Cannot determine</span>
                         </>
                       )}
                       {check.status === 'not_satisfied' && (
                         <>
-                          <XCircle className="w-3.5 h-3.5 text-rose-600 shrink-0" />
-                          <span>✗ Not satisfied</span>
+                          <XCircle className="w-3.5 h-3.5 text-rose-700 shrink-0" />
+                          <span className="text-rose-800">✗ Not satisfied</span>
                         </>
                       )}
                     </div>

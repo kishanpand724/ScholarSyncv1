@@ -282,33 +282,33 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
   }, [nodes, selectedNodeId]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-7">
       {/* HEADER BAR & CONTROLS */}
-      <div className="bg-white border border-[#E5E7EB] rounded-2xl p-4 sm:p-5 shadow-xs">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+      <div className="bg-white border border-[#E5E7EB] rounded-none p-5 sm:p-6 shadow-xs">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
           <div>
-            <div className="flex items-center gap-2">
-              <span className="w-8 h-8 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center">
+            <div className="flex items-center gap-2.5">
+              <span className="w-8 h-8 rounded-none bg-emerald-50 border border-emerald-200 text-emerald-800 flex items-center justify-center">
                 <Network className="w-4 h-4" />
               </span>
               <div>
-                <span className="font-mono text-[10px] uppercase font-bold text-emerald-700 tracking-wider">
+                <span className="font-mono text-[10px] uppercase font-bold text-emerald-800 tracking-wider">
                   Analytical Engine
                 </span>
                 <h2 className="text-base sm:text-lg font-bold text-gray-900 leading-tight">
-                  Scholarship Compatibility & Conflict Network
+                  Scholarship Compatibility &amp; Conflict Network
                 </h2>
               </div>
             </div>
-            <p className="text-xs text-gray-500 mt-1 max-w-2xl">
+            <p className="text-xs text-gray-500 mt-1.5 max-w-2xl">
               Real-time interactive relationship topology computed directly from statutory scheme rules.
               Click nodes or connecting edges to inspect verified compatibility reasons and conflict blocks.
             </p>
           </div>
 
           {/* Top Level Quick Metrics */}
-          <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-            <div className="px-3 py-1.5 rounded-xl bg-gray-50 border border-gray-200 text-center">
+          <div className="flex items-center gap-2.5 sm:gap-3 flex-wrap">
+            <div className="px-3.5 py-2 rounded-none bg-gray-50 border border-gray-200 text-center">
               <span className="block font-mono text-xs font-bold text-gray-900">
                 {nodes.length}
               </span>
@@ -317,16 +317,16 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
               </span>
             </div>
 
-            <div className="px-3 py-1.5 rounded-xl bg-emerald-50 border border-emerald-200 text-center">
-              <span className="block font-mono text-xs font-bold text-emerald-700">
+            <div className="px-3.5 py-2 rounded-none bg-emerald-50 border border-emerald-200 text-center">
+              <span className="block font-mono text-xs font-bold text-emerald-800">
                 {edges.filter((e) => e.type === 'compatible').length}
               </span>
-              <span className="block text-[10px] font-medium text-emerald-700 uppercase">
+              <span className="block text-[10px] font-medium text-emerald-800 uppercase">
                 Compatible Links
               </span>
             </div>
 
-            <div className="px-3 py-1.5 rounded-xl bg-rose-50 border border-rose-200 text-center">
+            <div className="px-3.5 py-2 rounded-none bg-rose-50 border border-rose-200 text-center">
               <span className="block font-mono text-xs font-bold text-rose-700">
                 {edges.filter((e) => e.type === 'conflict').length}
               </span>
@@ -338,29 +338,29 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
         </div>
 
         {/* CONTROLS & FILTER PANEL TOGGLE BAR */}
-        <div className="mt-4 pt-4 border-t border-gray-100 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
-          <div className="flex items-center gap-2 flex-wrap">
+        <div className="mt-5 pt-5 border-t border-gray-100 flex flex-col md:flex-row items-start md:items-center justify-between gap-3.5">
+          <div className="flex items-center gap-2.5 flex-wrap">
             {/* Filter Panel Open/Close Toggle Button */}
             <button
               onClick={() => setIsFilterPanelExpanded(!isFilterPanelExpanded)}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer border ${
+              className={`px-3.5 py-2 rounded-none text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer border ${
                 isFilterPanelExpanded || edgePortalFilter !== 'ALL' || edgeFilter !== 'all' || sourceFilter !== 'ALL'
-                  ? 'bg-emerald-50 border-emerald-300 text-emerald-800 shadow-2xs'
+                  ? 'bg-emerald-50 border-emerald-300 text-emerald-900 shadow-2xs'
                   : 'bg-gray-50 border-gray-200 text-gray-700 hover:bg-gray-100'
               }`}
             >
-              <SlidersHorizontal className="w-3.5 h-3.5 text-emerald-600" />
+              <SlidersHorizontal className="w-3.5 h-3.5 text-emerald-800" />
               <span>Edge &amp; Node Filters</span>
               {(edgePortalFilter !== 'ALL' || edgeFilter !== 'all' || sourceFilter !== 'ALL') && (
-                <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
+                <span className="w-2 h-2 rounded-none bg-emerald-800 animate-pulse" />
               )}
             </button>
 
             {/* Quick Edge Portal Type Pills */}
-            <div className="flex items-center gap-1 bg-gray-100 p-1 rounded-xl text-xs">
+            <div className="flex items-center gap-1 bg-gray-100 p-1 rounded-none text-xs">
               <button
                 onClick={() => setEdgePortalFilter('ALL')}
-                className={`px-2.5 py-1 rounded-lg font-medium transition-all cursor-pointer ${
+                className={`px-3 py-1.5 rounded-none font-medium transition-all cursor-pointer ${
                   edgePortalFilter === 'ALL'
                     ? 'bg-white text-gray-900 font-semibold shadow-2xs'
                     : 'text-gray-600 hover:text-gray-900'
@@ -371,53 +371,53 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
               </button>
               <button
                 onClick={() => setEdgePortalFilter('NSP')}
-                className={`px-2.5 py-1 rounded-lg font-medium transition-all cursor-pointer flex items-center gap-1 ${
+                className={`px-3 py-1.5 rounded-none font-medium transition-all cursor-pointer flex items-center gap-1.5 ${
                   edgePortalFilter === 'NSP'
                     ? 'bg-blue-600 text-white font-semibold shadow-2xs'
                     : 'text-blue-700 hover:bg-blue-50'
                 }`}
                 title="Intra-NSP Central schemes only"
               >
-                <span className={`w-1.5 h-1.5 rounded-full ${edgePortalFilter === 'NSP' ? 'bg-white' : 'bg-blue-600'}`} />
+                <span className={`w-1.5 h-1.5 rounded-none ${edgePortalFilter === 'NSP' ? 'bg-white' : 'bg-blue-600'}`} />
                 <span>NSP ({edgeStats.nsp})</span>
               </button>
               <button
                 onClick={() => setEdgePortalFilter('MAHADBT')}
-                className={`px-2.5 py-1 rounded-lg font-medium transition-all cursor-pointer flex items-center gap-1 ${
+                className={`px-3 py-1.5 rounded-none font-medium transition-all cursor-pointer flex items-center gap-1.5 ${
                   edgePortalFilter === 'MAHADBT'
-                    ? 'bg-emerald-600 text-white font-semibold shadow-2xs'
-                    : 'text-emerald-700 hover:bg-emerald-50'
+                    ? 'bg-emerald-800 text-white font-semibold shadow-2xs'
+                    : 'text-emerald-800 hover:bg-emerald-50'
                 }`}
                 title="Intra-MahaDBT State schemes only"
               >
-                <span className={`w-1.5 h-1.5 rounded-full ${edgePortalFilter === 'MAHADBT' ? 'bg-white' : 'bg-emerald-600'}`} />
+                <span className={`w-1.5 h-1.5 rounded-none ${edgePortalFilter === 'MAHADBT' ? 'bg-white' : 'bg-emerald-800'}`} />
                 <span>MahaDBT ({edgeStats.mahadbt})</span>
               </button>
               <button
                 onClick={() => setEdgePortalFilter('COMBINED')}
-                className={`px-2.5 py-1 rounded-lg font-medium transition-all cursor-pointer flex items-center gap-1 ${
+                className={`px-3 py-1.5 rounded-none font-medium transition-all cursor-pointer flex items-center gap-1.5 ${
                   edgePortalFilter === 'COMBINED'
                     ? 'bg-purple-600 text-white font-semibold shadow-2xs'
                     : 'text-purple-700 hover:bg-purple-50'
                 }`}
                 title="Cross-Portal NSP × MahaDBT interactions"
               >
-                <span className={`w-1.5 h-1.5 rounded-full ${edgePortalFilter === 'COMBINED' ? 'bg-white' : 'bg-purple-600'}`} />
+                <span className={`w-1.5 h-1.5 rounded-none ${edgePortalFilter === 'COMBINED' ? 'bg-white' : 'bg-purple-600'}`} />
                 <span>Combined ({edgeStats.combined})</span>
               </button>
             </div>
           </div>
 
           {/* Search & View Mode */}
-          <div className="flex items-center gap-2 w-full md:w-auto">
-            <div className="relative flex-1 md:w-52">
+          <div className="flex items-center gap-2.5 w-full md:w-auto">
+            <div className="relative flex-1 md:w-56">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search node / scheme..."
-                className="w-full pl-8 pr-3 py-1.5 bg-gray-50 border border-gray-200 rounded-xl text-xs text-gray-900 placeholder:text-gray-400 focus:bg-white focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                className="w-full pl-8 pr-3 py-2 bg-gray-50 border border-gray-200 rounded-none text-xs text-gray-900 placeholder:text-gray-400 focus:bg-white focus:outline-none focus:ring-1 focus:ring-emerald-800"
               />
               {searchQuery && (
                 <button
@@ -429,10 +429,10 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
               )}
             </div>
 
-            <div className="flex items-center bg-gray-100 p-1 rounded-xl text-xs">
+            <div className="flex items-center bg-gray-100 p-1 rounded-none text-xs">
               <button
                 onClick={() => setViewMode('graph')}
-                className={`px-2.5 py-1 rounded-lg font-medium cursor-pointer ${
+                className={`px-3 py-1.5 rounded-none font-medium cursor-pointer ${
                   viewMode === 'graph' ? 'bg-white text-gray-900 font-semibold shadow-2xs' : 'text-gray-600'
                 }`}
               >
@@ -440,7 +440,7 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
               </button>
               <button
                 onClick={() => setViewMode('matrix')}
-                className={`px-2.5 py-1 rounded-lg font-medium cursor-pointer ${
+                className={`px-3 py-1.5 rounded-none font-medium cursor-pointer ${
                   viewMode === 'matrix' ? 'bg-white text-gray-900 font-semibold shadow-2xs' : 'text-gray-600'
                 }`}
               >
@@ -452,8 +452,8 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
 
         {/* EXPANDABLE DEDICATED FILTER PANEL */}
         {isFilterPanelExpanded && (
-          <div className="mt-4 pt-4 border-t border-gray-100 bg-gray-50/60 -mx-4 -mb-4 sm:-mx-5 sm:-mb-5 p-4 sm:p-5 rounded-b-2xl animate-in fade-in slide-in-from-top-1 duration-200">
-            <div className="flex items-center justify-between gap-3 mb-3">
+          <div className="mt-5 pt-5 border-t border-gray-100 bg-gray-50/60 -mx-5 -mb-5 sm:-mx-6 sm:-mb-6 p-5 sm:p-6 rounded-none animate-in fade-in slide-in-from-top-1 duration-200">
+            <div className="flex items-center justify-between gap-3 mb-4">
               <div className="flex items-center gap-2">
                 <Filter className="w-4 h-4 text-gray-600" />
                 <span className="text-xs font-bold text-gray-900 uppercase tracking-wide font-mono">
@@ -470,7 +470,7 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                     setSourceFilter('ALL');
                     setSearchQuery('');
                   }}
-                  className="text-[11px] font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1 hover:underline cursor-pointer"
+                  className="text-[11px] font-bold text-emerald-800 hover:text-emerald-950 flex items-center gap-1 hover:underline cursor-pointer"
                 >
                   <RefreshCw className="w-3 h-3" />
                   <span>Reset All Filters</span>
@@ -478,9 +478,9 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
               )}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4.5 text-xs">
               {/* FILTER 1: EDGE PORTAL TYPE (NSP / MahaDBT / Combined) */}
-              <div className="bg-white border border-gray-200 rounded-xl p-3 shadow-2xs">
+              <div className="bg-white border border-gray-200 rounded-none p-4 shadow-2xs">
                 <div className="flex items-center justify-between mb-2">
                   <span className="font-bold text-gray-800 text-[11px] uppercase tracking-wide">
                     1. Edge Portal Interaction
@@ -490,14 +490,14 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                   </span>
                 </div>
 
-                <p className="text-[11px] text-gray-500 mb-2.5">
+                <p className="text-[11px] text-gray-500 mb-3">
                   Filter relationships by portal scope (Intra-portal vs. Cross-portal stacking):
                 </p>
 
-                <div className="grid grid-cols-2 gap-1.5">
+                <div className="grid grid-cols-2 gap-2">
                   <button
                     onClick={() => setEdgePortalFilter('ALL')}
-                    className={`p-2 rounded-lg border text-left transition-all cursor-pointer ${
+                    className={`p-2.5 rounded-none border text-left transition-all cursor-pointer ${
                       edgePortalFilter === 'ALL'
                         ? 'border-gray-900 bg-gray-900 text-white shadow-2xs font-semibold'
                         : 'border-gray-200 bg-gray-50/50 hover:bg-gray-100 text-gray-700'
@@ -511,7 +511,7 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
 
                   <button
                     onClick={() => setEdgePortalFilter('NSP')}
-                    className={`p-2 rounded-lg border text-left transition-all cursor-pointer ${
+                    className={`p-2.5 rounded-none border text-left transition-all cursor-pointer ${
                       edgePortalFilter === 'NSP'
                         ? 'border-blue-600 bg-blue-600 text-white shadow-2xs font-semibold'
                         : 'border-blue-100 bg-blue-50/50 hover:bg-blue-100/70 text-blue-900'
@@ -519,7 +519,7 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                   >
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-xs">NSP Only</span>
-                      <span className={`w-2 h-2 rounded-full ${edgePortalFilter === 'NSP' ? 'bg-white' : 'bg-blue-600'}`} />
+                      <span className={`w-2 h-2 rounded-none ${edgePortalFilter === 'NSP' ? 'bg-white' : 'bg-blue-600'}`} />
                     </div>
                     <span className={`block text-[10px] ${edgePortalFilter === 'NSP' ? 'text-blue-100' : 'text-blue-700'}`}>
                       {edgeStats.nsp} Central edges
@@ -528,24 +528,24 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
 
                   <button
                     onClick={() => setEdgePortalFilter('MAHADBT')}
-                    className={`p-2 rounded-lg border text-left transition-all cursor-pointer ${
+                    className={`p-2.5 rounded-none border text-left transition-all cursor-pointer ${
                       edgePortalFilter === 'MAHADBT'
-                        ? 'border-emerald-600 bg-emerald-600 text-white shadow-2xs font-semibold'
+                        ? 'border-emerald-800 bg-emerald-800 text-white shadow-2xs font-semibold'
                         : 'border-emerald-100 bg-emerald-50/50 hover:bg-emerald-100/70 text-emerald-900'
                     }`}
                   >
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-xs">MahaDBT</span>
-                      <span className={`w-2 h-2 rounded-full ${edgePortalFilter === 'MAHADBT' ? 'bg-white' : 'bg-emerald-600'}`} />
+                      <span className={`w-2 h-2 rounded-none ${edgePortalFilter === 'MAHADBT' ? 'bg-white' : 'bg-emerald-800'}`} />
                     </div>
-                    <span className={`block text-[10px] ${edgePortalFilter === 'MAHADBT' ? 'text-emerald-100' : 'text-emerald-700'}`}>
+                    <span className={`block text-[10px] ${edgePortalFilter === 'MAHADBT' ? 'text-emerald-100' : 'text-emerald-800'}`}>
                       {edgeStats.mahadbt} State edges
                     </span>
                   </button>
 
                   <button
                     onClick={() => setEdgePortalFilter('COMBINED')}
-                    className={`p-2 rounded-lg border text-left transition-all cursor-pointer ${
+                    className={`p-2.5 rounded-none border text-left transition-all cursor-pointer ${
                       edgePortalFilter === 'COMBINED'
                         ? 'border-purple-600 bg-purple-600 text-white shadow-2xs font-semibold'
                         : 'border-purple-100 bg-purple-50/50 hover:bg-purple-100/70 text-purple-900'
@@ -553,7 +553,7 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                   >
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-xs">Combined</span>
-                      <span className={`w-2 h-2 rounded-full ${edgePortalFilter === 'COMBINED' ? 'bg-white' : 'bg-purple-600'}`} />
+                      <span className={`w-2 h-2 rounded-none ${edgePortalFilter === 'COMBINED' ? 'bg-white' : 'bg-purple-600'}`} />
                     </div>
                     <span className={`block text-[10px] ${edgePortalFilter === 'COMBINED' ? 'text-purple-100' : 'text-purple-700'}`}>
                       {edgeStats.combined} Cross-portal
@@ -563,21 +563,21 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
               </div>
 
               {/* FILTER 2: RELATIONSHIP STATUS */}
-              <div className="bg-white border border-gray-200 rounded-xl p-3 shadow-2xs">
+              <div className="bg-white border border-gray-200 rounded-none p-4 shadow-2xs">
                 <div className="flex items-center justify-between mb-2">
                   <span className="font-bold text-gray-800 text-[11px] uppercase tracking-wide">
                     2. Relationship Status
                   </span>
                 </div>
 
-                <p className="text-[11px] text-gray-500 mb-2.5">
+                <p className="text-[11px] text-gray-500 mb-3">
                   Isolate verified compatible pairs vs. statutory conflict blocks:
                 </p>
 
-                <div className="space-y-1.5">
+                <div className="space-y-2">
                   <button
                     onClick={() => setEdgeFilter('all')}
-                    className={`w-full p-2 rounded-lg border text-left transition-all flex items-center justify-between cursor-pointer ${
+                    className={`w-full p-2.5 rounded-none border text-left transition-all flex items-center justify-between cursor-pointer ${
                       edgeFilter === 'all'
                         ? 'border-gray-900 bg-gray-900 text-white font-semibold'
                         : 'border-gray-200 bg-gray-50/50 hover:bg-gray-100 text-gray-700'
@@ -591,9 +591,9 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
 
                   <button
                     onClick={() => setEdgeFilter('compatible')}
-                    className={`w-full p-2 rounded-lg border text-left transition-all flex items-center justify-between cursor-pointer ${
+                    className={`w-full p-2.5 rounded-none border text-left transition-all flex items-center justify-between cursor-pointer ${
                       edgeFilter === 'compatible'
-                        ? 'border-emerald-600 bg-emerald-600 text-white font-semibold'
+                        ? 'border-emerald-800 bg-emerald-800 text-white font-semibold'
                         : 'border-emerald-100 bg-emerald-50/50 hover:bg-emerald-100/70 text-emerald-900'
                     }`}
                   >
@@ -608,7 +608,7 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
 
                   <button
                     onClick={() => setEdgeFilter('conflict')}
-                    className={`w-full p-2 rounded-lg border text-left transition-all flex items-center justify-between cursor-pointer ${
+                    className={`w-full p-2.5 rounded-none border text-left transition-all flex items-center justify-between cursor-pointer ${
                       edgeFilter === 'conflict'
                         ? 'border-rose-600 bg-rose-600 text-white font-semibold'
                         : 'border-rose-100 bg-rose-50/50 hover:bg-rose-100/70 text-rose-900'
@@ -626,7 +626,7 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
               </div>
 
               {/* FILTER 3: SCHEME NODES SCOPE */}
-              <div className="bg-white border border-gray-200 rounded-xl p-3 shadow-2xs">
+              <div className="bg-white border border-gray-200 rounded-none p-4 shadow-2xs">
                 <div className="flex items-center justify-between mb-2">
                   <span className="font-bold text-gray-800 text-[11px] uppercase tracking-wide">
                     3. Scheme Nodes Scope
@@ -636,14 +636,14 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                   </span>
                 </div>
 
-                <p className="text-[11px] text-gray-500 mb-2.5">
+                <p className="text-[11px] text-gray-500 mb-3">
                   Filter evaluated scholarship nodes in the graph canvas:
                 </p>
 
-                <div className="space-y-1.5">
+                <div className="space-y-2">
                   <button
                     onClick={() => setSourceFilter('ALL')}
-                    className={`w-full p-2 rounded-lg border text-left transition-all flex items-center justify-between cursor-pointer ${
+                    className={`w-full p-2.5 rounded-none border text-left transition-all flex items-center justify-between cursor-pointer ${
                       sourceFilter === 'ALL'
                         ? 'border-gray-900 bg-gray-900 text-white font-semibold'
                         : 'border-gray-200 bg-gray-50/50 hover:bg-gray-100 text-gray-700'
@@ -657,7 +657,7 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
 
                   <button
                     onClick={() => setSourceFilter('NSP')}
-                    className={`w-full p-2 rounded-lg border text-left transition-all flex items-center justify-between cursor-pointer ${
+                    className={`w-full p-2.5 rounded-none border text-left transition-all flex items-center justify-between cursor-pointer ${
                       sourceFilter === 'NSP'
                         ? 'border-blue-600 bg-blue-600 text-white font-semibold'
                         : 'border-blue-100 bg-blue-50/50 hover:bg-blue-100/70 text-blue-900'
@@ -671,9 +671,9 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
 
                   <button
                     onClick={() => setSourceFilter('MAHADBT')}
-                    className={`w-full p-2 rounded-lg border text-left transition-all flex items-center justify-between cursor-pointer ${
+                    className={`w-full p-2.5 rounded-none border text-left transition-all flex items-center justify-between cursor-pointer ${
                       sourceFilter === 'MAHADBT'
-                        ? 'border-emerald-600 bg-emerald-600 text-white font-semibold'
+                        ? 'border-emerald-800 bg-emerald-800 text-white font-semibold'
                         : 'border-emerald-100 bg-emerald-50/50 hover:bg-emerald-100/70 text-emerald-900'
                     }`}
                   >
@@ -687,16 +687,16 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
             </div>
 
             {/* Active Filter Summary Bar */}
-            <div className="mt-3 pt-3 border-t border-gray-200/60 flex items-center justify-between text-[11px] text-gray-600 flex-wrap gap-2">
-              <div className="flex items-center gap-1.5 flex-wrap">
+            <div className="mt-4 pt-4 border-t border-gray-200/60 flex items-center justify-between text-[11px] text-gray-600 flex-wrap gap-2.5">
+              <div className="flex items-center gap-2 flex-wrap">
                 <span className="font-bold text-gray-700">Active View:</span>
-                <span className="px-2 py-0.5 rounded-md bg-white border border-gray-200 text-gray-800 font-mono text-[10px]">
+                <span className="px-2.5 py-0.5 rounded-none bg-white border border-gray-200 text-gray-800 font-mono text-[10px]">
                   Edge Type: <strong>{edgePortalFilter}</strong>
                 </span>
-                <span className="px-2 py-0.5 rounded-md bg-white border border-gray-200 text-gray-800 font-mono text-[10px]">
+                <span className="px-2.5 py-0.5 rounded-none bg-white border border-gray-200 text-gray-800 font-mono text-[10px]">
                   Relation: <strong>{edgeFilter}</strong>
                 </span>
-                <span className="px-2 py-0.5 rounded-md bg-white border border-gray-200 text-gray-800 font-mono text-[10px]">
+                <span className="px-2.5 py-0.5 rounded-none bg-white border border-gray-200 text-gray-800 font-mono text-[10px]">
                   Nodes: <strong>{sourceFilter}</strong>
                 </span>
               </div>
@@ -713,24 +713,24 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
       {viewMode === 'graph' ? (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* MAIN GRAPH CANVAS */}
-          <div className="lg:col-span-8 bg-white border border-[#E5E7EB] rounded-2xl shadow-xs overflow-hidden flex flex-col relative min-h-[580px]">
+          <div className="lg:col-span-8 bg-white border border-[#E5E7EB] rounded-none shadow-xs overflow-hidden flex flex-col relative min-h-[580px]">
             {/* Top Canvas Bar */}
-            <div className="px-4 py-3 border-b border-gray-100 bg-gray-50/80 flex items-center justify-between text-xs">
-              <div className="flex items-center gap-3">
+            <div className="px-5 py-3.5 border-b border-gray-100 bg-gray-50/80 flex items-center justify-between text-xs">
+              <div className="flex items-center gap-3.5">
                 <span className="font-mono text-[10px] uppercase font-bold text-gray-500">
                   Network Canvas
                 </span>
                 <div className="flex items-center gap-3 text-[11px]">
-                  <span className="flex items-center gap-1 text-emerald-700 font-medium">
-                    <span className="w-2.5 h-0.5 bg-emerald-500 rounded-full" />
+                  <span className="flex items-center gap-1.5 text-emerald-800 font-medium">
+                    <span className="w-2.5 h-0.5 bg-emerald-700 rounded-none" />
                     Compatible
                   </span>
-                  <span className="flex items-center gap-1 text-rose-700 font-medium">
-                    <span className="w-2.5 h-0.5 bg-rose-500 rounded-full" />
+                  <span className="flex items-center gap-1.5 text-rose-700 font-medium">
+                    <span className="w-2.5 h-0.5 bg-rose-500 rounded-none" />
                     Conflict
                   </span>
-                  <span className="flex items-center gap-1 text-gray-500 font-medium">
-                    <span className="w-2 h-2 rounded-full border border-gray-400" />
+                  <span className="flex items-center gap-1.5 text-gray-500 font-medium">
+                    <span className="w-2 h-2 rounded-none border border-gray-400" />
                     Node
                   </span>
                 </div>
@@ -757,8 +757,8 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                 >
                   <defs>
                     <linearGradient id="compatibleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#10B981" />
-                      <stop offset="100%" stopColor="#059669" />
+                      <stop offset="0%" stopColor="#065F46" />
+                      <stop offset="100%" stopColor="#047857" />
                     </linearGradient>
                     <linearGradient id="conflictGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stopColor="#F43F5E" />
@@ -781,7 +781,7 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                         selectedNodeId === edge.sourceId || selectedNodeId === edge.targetId;
 
                       const isConflict = edge.type === 'conflict';
-                      const strokeColor = isConflict ? '#F43F5E' : '#10B981';
+                      const strokeColor = isConflict ? '#F43F5E' : '#065F46';
                       const strokeWidth = isSelectedEdge ? 3.5 : isConnectedToSelectedNode ? 2.5 : 1.2;
                       const strokeOpacity = selectedNodeId
                         ? isConnectedToSelectedNode
@@ -867,7 +867,7 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                             <circle
                               r={36}
                               fill="none"
-                              stroke="#059669"
+                              stroke="#065F46"
                               strokeWidth={2}
                               strokeDasharray="4 3"
                               className="animate-spin-slow"
@@ -880,11 +880,11 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                             fill={isSelected ? '#0F172A' : '#FFFFFF'}
                             stroke={
                               isSelected
-                                ? '#059669'
+                                ? '#065F46'
                                 : isConnected
-                                ? '#10B981'
+                                ? '#047857'
                                 : isMaha
-                                ? '#10B981'
+                                ? '#047857'
                                 : '#3B82F6'
                             }
                             strokeWidth={isSelected ? 3 : isConnected ? 2.5 : 2}
@@ -896,7 +896,7 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                             cx={0}
                             cy={-10}
                             r={3}
-                            fill={isMaha ? '#10B981' : '#3B82F6'}
+                            fill={isMaha ? '#047857' : '#3B82F6'}
                           />
 
                           {/* Node Text Label (Short ID) */}
@@ -918,7 +918,7 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                             fontSize={7.5}
                             fontFamily="sans-serif"
                             fontWeight="600"
-                            fill={isSelected ? '#34D399' : '#64748B'}
+                            fill={isSelected ? '#6EE7B7' : '#64748B'}
                           >
                             {node.scholarship.benefit_amount
                               ? formatINR(node.scholarship.benefit_amount)
@@ -933,7 +933,7 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                                 y={-22}
                                 width={220}
                                 height={26}
-                                rx={6}
+                                rx={0}
                                 fill="#0F172A"
                                 opacity={0.95}
                               />
@@ -960,12 +960,12 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
 
             {/* EDGE INSPECTION BANNER (When edge is clicked) */}
             {selectedEdge && (
-              <div className="absolute bottom-4 left-4 right-4 bg-gray-900 text-white p-4 rounded-xl shadow-xl border border-gray-700 animate-in fade-in slide-in-from-bottom-2 z-20">
+              <div className="absolute bottom-4 left-4 right-4 bg-gray-900 text-white p-5 rounded-none shadow-xl border border-gray-700 animate-in fade-in slide-in-from-bottom-2 z-20">
                 <div className="flex items-start justify-between gap-3">
-                  <div className="space-y-1">
+                  <div className="space-y-1.5">
                     <div className="flex items-center gap-2 flex-wrap">
                       <span
-                        className={`font-mono text-[10px] uppercase font-bold px-2 py-0.5 rounded-md ${
+                        className={`font-mono text-[10px] uppercase font-bold px-2 py-0.5 rounded-none ${
                           selectedEdge.type === 'conflict'
                             ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30'
                             : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
@@ -976,7 +976,7 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
 
                       {/* Edge Portal Type Badge */}
                       <span
-                        className={`font-mono text-[10px] uppercase font-bold px-2 py-0.5 rounded-md flex items-center gap-1 ${
+                        className={`font-mono text-[10px] uppercase font-bold px-2 py-0.5 rounded-none flex items-center gap-1 ${
                           selectedEdge.portalType === 'COMBINED'
                             ? 'bg-purple-500/25 text-purple-300 border border-purple-500/30'
                             : selectedEdge.portalType === 'MAHADBT'
@@ -1015,7 +1015,7 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
 
                   <button
                     onClick={() => setSelectedEdge(null)}
-                    className="p-1 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 transition-colors cursor-pointer"
+                    className="p-1 rounded-none text-gray-400 hover:text-white hover:bg-gray-800 transition-colors cursor-pointer"
                   >
                     <X className="w-4 h-4" />
                   </button>
@@ -1025,13 +1025,13 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
           </div>
 
           {/* SIDE DETAILS PANEL (Selected Node & Connections) */}
-          <div className="lg:col-span-4 space-y-4">
+          <div className="lg:col-span-4 space-y-4.5">
             {selectedScholarship ? (
-              <div className="bg-white border border-[#E5E7EB] rounded-2xl p-5 shadow-xs space-y-5">
+              <div className="bg-white border border-[#E5E7EB] rounded-none p-5 sm:p-6 shadow-xs space-y-5">
                 {/* Header info */}
                 <div>
-                  <div className="flex items-center justify-between gap-2 mb-1.5">
-                    <span className="font-mono text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200 uppercase">
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className="font-mono text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-none border border-emerald-200 uppercase">
                       Selected Node ({selectedScholarship.source_type || 'NSP'})
                     </span>
                     <span className="text-xs font-bold text-gray-900 font-mono">
@@ -1052,7 +1052,7 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                 </div>
 
                 {/* Compatibility Summary */}
-                <div className="p-3.5 rounded-xl bg-gray-50 border border-gray-200/80 space-y-2">
+                <div className="p-4 rounded-none bg-gray-50 border border-gray-200/80 space-y-2.5">
                   <div className="flex items-center justify-between text-xs">
                     <span className="font-semibold text-gray-700">Connected Relationships</span>
                     <span className="font-mono text-xs font-bold text-gray-900">
@@ -1060,17 +1060,17 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2 pt-1 text-xs">
-                    <div className="p-2 rounded-lg bg-emerald-50 border border-emerald-200">
-                      <span className="block text-[10px] font-semibold text-emerald-800 uppercase">
+                  <div className="grid grid-cols-2 gap-2.5 pt-1 text-xs">
+                    <div className="p-2.5 rounded-none bg-emerald-50 border border-emerald-200">
+                      <span className="block text-[10px] font-semibold text-emerald-900 uppercase">
                         Compatible
                       </span>
-                      <span className="font-mono font-bold text-emerald-900 text-sm">
+                      <span className="font-mono font-bold text-emerald-950 text-sm">
                         {selectedRelationships.filter((r) => r.type === 'compatible').length}
                       </span>
                     </div>
 
-                    <div className="p-2 rounded-lg bg-rose-50 border border-rose-200">
+                    <div className="p-2.5 rounded-none bg-rose-50 border border-rose-200">
                       <span className="block text-[10px] font-semibold text-rose-800 uppercase">
                         Conflicts
                       </span>
@@ -1082,7 +1082,7 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                 </div>
 
                 {/* Relationship Breakdown List */}
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   <span className="font-mono text-[10px] uppercase font-bold text-gray-500 block">
                     Relationship Breakdown
                   </span>
@@ -1092,7 +1092,7 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                       No direct paired rules mapped in the current visible set.
                     </p>
                   ) : (
-                    <div className="space-y-2 max-h-56 overflow-y-auto pr-1">
+                    <div className="space-y-2.5 max-h-60 overflow-y-auto pr-1">
                       {selectedRelationships.map((rel) => {
                         const partner =
                           rel.sourceId === selectedScholarship.id
@@ -1104,7 +1104,7 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                           <div
                             key={rel.id}
                             onClick={() => setSelectedEdge(rel)}
-                            className={`p-2.5 rounded-xl border transition-all cursor-pointer text-xs ${
+                            className={`p-3 rounded-none border transition-all cursor-pointer text-xs ${
                               isConflict
                                 ? 'bg-rose-50/50 border-rose-200 hover:bg-rose-50'
                                 : 'bg-emerald-50/50 border-emerald-200 hover:bg-emerald-50'
@@ -1112,10 +1112,10 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                           >
                             <div className="flex items-center justify-between gap-1 mb-1">
                               <span
-                                className={`font-mono text-[9px] uppercase font-bold px-1.5 py-0.5 rounded ${
+                                className={`font-mono text-[9px] uppercase font-bold px-1.5 py-0.5 rounded-none ${
                                   isConflict
                                     ? 'bg-rose-100 text-rose-800'
-                                    : 'bg-emerald-100 text-emerald-800'
+                                    : 'bg-emerald-100 text-emerald-900'
                                 }`}
                               >
                                 {isConflict ? 'Conflict' : 'Compatible'}
@@ -1140,10 +1140,10 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                 </div>
 
                 {/* Action Buttons */}
-                <div className="pt-2 border-t border-gray-100 flex items-center gap-2">
+                <div className="pt-3 border-t border-gray-100 flex items-center gap-2.5">
                   <button
                     onClick={() => onSelectScholarship?.(selectedScholarship)}
-                    className="flex-1 px-3 py-2 rounded-xl bg-gray-900 text-white text-xs font-bold hover:bg-gray-800 transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                    className="flex-1 px-4 py-2.5 rounded-none bg-gray-900 text-white text-xs font-bold hover:bg-gray-800 transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
                   >
                     <span>Full Details</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -1154,7 +1154,7 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                       href={selectedScholarship.official_application_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-3 py-2 rounded-xl bg-emerald-600 text-white text-xs font-bold hover:bg-emerald-700 transition-colors flex items-center gap-1"
+                      className="px-4 py-2.5 rounded-none bg-emerald-800 text-white text-xs font-bold hover:bg-emerald-900 transition-colors flex items-center gap-1"
                       title="Open official portal application page"
                     >
                       <span>Apply</span>
@@ -1164,7 +1164,7 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                 </div>
               </div>
             ) : (
-              <div className="bg-white border border-[#E5E7EB] rounded-2xl p-6 text-center shadow-xs">
+              <div className="bg-white border border-[#E5E7EB] rounded-none p-6 text-center shadow-xs">
                 <Info className="w-8 h-8 text-gray-400 mx-auto mb-2" />
                 <p className="text-xs font-semibold text-gray-700">Select any node to inspect details</p>
               </div>
@@ -1173,11 +1173,11 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
         </div>
       ) : (
         /* MATRIX TABLE VIEW */
-        <div className="bg-white border border-[#E5E7EB] rounded-2xl shadow-xs overflow-hidden">
-          <div className="px-5 py-4 border-b border-gray-100 flex items-center justify-between">
+        <div className="bg-white border border-[#E5E7EB] rounded-none shadow-xs overflow-hidden">
+          <div className="px-6 py-5 border-b border-gray-100 flex items-center justify-between">
             <div>
-              <h3 className="text-sm font-bold text-gray-900">Pairwise Compatibility & Conflict Matrix</h3>
-              <p className="text-xs text-gray-500">
+              <h3 className="text-sm font-bold text-gray-900">Pairwise Compatibility &amp; Conflict Matrix</h3>
+              <p className="text-xs text-gray-500 mt-0.5">
                 Tabular audit of all evaluated scholarship pairs and statutory rulings.
               </p>
             </div>
@@ -1190,12 +1190,12 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
             <table className="w-full text-left text-xs border-collapse">
               <thead>
                 <tr className="bg-gray-50 border-b border-gray-200 text-gray-600 font-mono text-[10px] uppercase">
-                  <th className="py-3 px-4">Scholarship A</th>
-                  <th className="py-3 px-4">Scholarship B</th>
-                  <th className="py-3 px-4">Edge Scope</th>
-                  <th className="py-3 px-4">Status</th>
-                  <th className="py-3 px-4">Statutory Rule / Reasoning</th>
-                  <th className="py-3 px-4 text-right">Actions</th>
+                  <th className="py-3.5 px-4.5">Scholarship A</th>
+                  <th className="py-3.5 px-4.5">Scholarship B</th>
+                  <th className="py-3.5 px-4.5">Edge Scope</th>
+                  <th className="py-3.5 px-4.5">Status</th>
+                  <th className="py-3.5 px-4.5">Statutory Rule / Reasoning</th>
+                  <th className="py-3.5 px-4.5 text-right">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
@@ -1203,7 +1203,7 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                   const isConflict = edge.type === 'conflict';
                   return (
                     <tr key={edge.id} className="hover:bg-gray-50/80 transition-colors">
-                      <td className="py-3 px-4">
+                      <td className="py-3.5 px-4.5">
                         <span className="font-bold text-gray-900 block line-clamp-1">
                           {edge.sourceScholarship.name}
                         </span>
@@ -1212,7 +1212,7 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                         </span>
                       </td>
 
-                      <td className="py-3 px-4">
+                      <td className="py-3.5 px-4.5">
                         <span className="font-bold text-gray-900 block line-clamp-1">
                           {edge.targetScholarship.name}
                         </span>
@@ -1221,9 +1221,9 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                         </span>
                       </td>
 
-                      <td className="py-3 px-4">
+                      <td className="py-3.5 px-4.5">
                         <span
-                          className={`inline-flex items-center gap-1 font-mono text-[9px] uppercase font-bold px-2 py-0.5 rounded-md border ${
+                          className={`inline-flex items-center gap-1 font-mono text-[9px] uppercase font-bold px-2 py-0.5 rounded-none border ${
                             edge.portalType === 'COMBINED'
                               ? 'bg-purple-50 text-purple-800 border-purple-200'
                               : edge.portalType === 'MAHADBT'
@@ -1239,12 +1239,12 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                         </span>
                       </td>
 
-                      <td className="py-3 px-4">
+                      <td className="py-3.5 px-4.5">
                         <span
-                          className={`inline-flex items-center gap-1 font-mono text-[10px] uppercase font-bold px-2 py-0.5 rounded-full ${
+                          className={`inline-flex items-center gap-1 font-mono text-[10px] uppercase font-bold px-2.5 py-0.5 rounded-none ${
                             isConflict
                               ? 'bg-rose-100 text-rose-800'
-                              : 'bg-emerald-100 text-emerald-800'
+                              : 'bg-emerald-100 text-emerald-900'
                           }`}
                         >
                           {isConflict ? <XCircle className="w-3 h-3" /> : <CheckCircle2 className="w-3 h-3" />}
@@ -1252,18 +1252,18 @@ export const CompatibilityNetwork: React.FC<CompatibilityNetworkProps> = ({
                         </span>
                       </td>
 
-                      <td className="py-3 px-4 text-gray-700 leading-relaxed max-w-md">
+                      <td className="py-3.5 px-4.5 text-gray-700 leading-relaxed max-w-md">
                         {edge.reason}
                       </td>
 
-                      <td className="py-3 px-4 text-right">
+                      <td className="py-3.5 px-4.5 text-right">
                         <button
                           onClick={() => {
                             setSelectedNodeId(edge.sourceScholarship.id);
                             setViewMode('graph');
                             setSelectedEdge(edge);
                           }}
-                          className="px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold text-[11px] transition-colors cursor-pointer"
+                          className="px-3 py-1.5 rounded-none bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold text-[11px] transition-colors cursor-pointer"
                         >
                           Inspect
                         </button>

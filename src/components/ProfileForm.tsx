@@ -246,20 +246,20 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       {/* TOP HEADER */}
-      <div className="bg-white border border-[#E5E7EB] rounded-2xl p-5 sm:p-6 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="bg-white border border-[#E5E7EB] rounded-none p-6 sm:p-7 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-5">
         <div>
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#16A34A] animate-pulse"></span>
-            <span className="text-xs font-bold text-[#16A34A] uppercase tracking-wider">
+            <span className="w-2.5 h-2.5 rounded-none bg-emerald-800 animate-pulse"></span>
+            <span className="text-xs font-bold text-emerald-800 uppercase tracking-wider">
               NSP Eligibility Profile Form
             </span>
           </div>
-          <h2 className="text-xl font-bold text-[#111827] mt-1">
+          <h2 className="text-xl font-bold text-[#111827] mt-1.5">
             Student Eligibility Profile
           </h2>
-          <p className="text-xs text-[#6B7280] mt-0.5">
+          <p className="text-xs text-[#6B7280] mt-1 leading-relaxed">
             Fill and edit your details. Navigate freely between sections, edit any field anytime, review all details, and click &quot;Find My Scholarships&quot;.
           </p>
         </div>
@@ -268,7 +268,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
           <button
             type="button"
             onClick={handleClearForm}
-            className="px-3.5 py-2 text-xs font-semibold text-rose-600 bg-rose-50 hover:bg-rose-100 border border-rose-200 rounded-xl transition-all cursor-pointer flex items-center gap-1.5"
+            className="px-4 py-2.5 text-xs font-semibold text-rose-700 bg-rose-50 hover:bg-rose-100 border border-rose-200 rounded-none transition-all cursor-pointer flex items-center gap-1.5"
             title="Reset all fields to blank"
           >
             <RotateCcw className="w-3.5 h-3.5" />
@@ -278,15 +278,15 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
       </div>
 
       {saveStatus && (
-        <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center gap-2 font-medium">
-          <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+        <div className="p-4 rounded-none bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs flex items-center gap-2 font-medium">
+          <CheckCircle2 className="w-4 h-4 text-emerald-800 shrink-0" />
           <span>{saveStatus}</span>
         </div>
       )}
 
       {/* STEPPER PROGRESS BAR (Freely clickable to jump anywhere) */}
-      <div className="bg-white border border-[#E5E7EB] rounded-2xl p-4 shadow-xs overflow-x-auto">
-        <div className="flex items-center justify-between min-w-[580px] gap-2">
+      <div className="bg-white border border-[#E5E7EB] rounded-none p-4 sm:p-5 shadow-xs overflow-x-auto">
+        <div className="flex items-center justify-between min-w-[580px] gap-3">
           {STEPS.map((step, idx) => {
             const Icon = step.icon;
             const isCurrent = currentStep === step.id;
@@ -297,20 +297,20 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
                 <button
                   type="button"
                   onClick={() => setCurrentStep(step.id)}
-                  className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                  className={`flex items-center gap-2 px-3.5 py-2.5 rounded-none text-xs font-bold transition-all cursor-pointer ${
                     isCurrent
-                      ? 'bg-[#16A34A] text-white shadow-xs'
+                      ? 'bg-emerald-800 text-white shadow-xs'
                       : isCompleted
-                      ? 'bg-[#F0FDF4] text-[#16A34A] hover:bg-[#DCFCE7]'
-                      : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
+                      ? 'bg-emerald-50 text-emerald-900 border border-emerald-200 hover:bg-emerald-100'
+                      : 'bg-gray-50 text-gray-600 hover:bg-gray-100 border border-gray-200'
                   }`}
                 >
                   <div
-                    className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold ${
+                    className={`w-5 h-5 rounded-none flex items-center justify-center text-[10px] font-bold ${
                       isCurrent
-                        ? 'bg-white text-[#16A34A]'
+                        ? 'bg-white text-emerald-900'
                         : isCompleted
-                        ? 'bg-[#16A34A] text-white'
+                        ? 'bg-emerald-800 text-white'
                         : 'bg-gray-200 text-gray-700'
                     }`}
                   >
@@ -322,7 +322,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
                 {idx < STEPS.length - 1 && (
                   <div
                     className={`flex-1 h-0.5 min-w-[20px] ${
-                      currentStep > step.id ? 'bg-[#16A34A]' : 'bg-gray-200'
+                      currentStep > step.id ? 'bg-emerald-800' : 'bg-gray-200'
                     }`}
                   />
                 )}
@@ -336,15 +336,15 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
       {/* SECTION 1: PERSONAL DETAILS                                               */}
       {/* ========================================================================= */}
       {currentStep === 1 && (
-        <div className="bg-white border border-[#E5E7EB] rounded-2xl p-5 sm:p-6 shadow-xs space-y-6">
-          <div className="flex items-center justify-between border-b border-[#F3F4F6] pb-3">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-xl bg-[#F0FDF4] text-[#16A34A] flex items-center justify-center font-bold">
+        <div className="bg-white border border-[#E5E7EB] rounded-none p-6 sm:p-8 shadow-xs space-y-7">
+          <div className="flex items-center justify-between border-b border-[#F3F4F6] pb-4">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-none bg-emerald-50 text-emerald-900 border border-emerald-200 flex items-center justify-center font-bold">
                 1
               </div>
               <div>
                 <h3 className="text-base font-bold text-[#111827]">Personal Information</h3>
-                <p className="text-xs text-[#6B7280]">
+                <p className="text-xs text-[#6B7280] mt-0.5">
                   Official NSP identity, category, and domicile fields (freely editable)
                 </p>
               </div>
@@ -352,13 +352,13 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
             <button
               type="button"
               onClick={() => setCurrentStep(5)}
-              className="text-xs font-semibold text-[#16A34A] hover:underline"
+              className="text-xs font-semibold text-emerald-800 hover:text-emerald-900 hover:underline cursor-pointer"
             >
               Skip to Review →
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs">
             {/* Student Full Name */}
             <div>
               <label className="block font-semibold text-[#374151] mb-1.5">
@@ -369,7 +369,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
                 value={formData.name || ''}
                 onChange={(e) => updateField('name', e.target.value)}
                 placeholder="Enter your full name"
-                className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#16A34A] focus:border-[#16A34A] transition-all"
+                className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:bg-white focus:outline-none focus:ring-1 focus:ring-emerald-800 focus:border-emerald-800 transition-all"
               />
             </div>
 
@@ -382,7 +382,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
                 type="date"
                 value={formData.date_of_birth || formData.dob || ''}
                 onChange={(e) => updateProfile({ date_of_birth: e.target.value, dob: e.target.value })}
-                className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#16A34A] focus:border-[#16A34A] transition-all"
+                className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:bg-white focus:outline-none focus:ring-1 focus:ring-emerald-800 focus:border-emerald-800 transition-all"
               />
             </div>
 
@@ -391,15 +391,15 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
               <label className="block font-semibold text-[#374151] mb-1.5">
                 Gender <span className="text-red-500">*</span>
               </label>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-3 gap-3">
                 {(['Male', 'Female', 'Other'] as Gender[]).map((g) => (
                   <button
                     key={g}
                     type="button"
                     onClick={() => updateField('gender', g)}
-                    className={`py-2 px-3 rounded-xl border text-xs font-semibold transition-all cursor-pointer text-center ${
+                    className={`py-2.5 px-3.5 rounded-none border text-xs font-semibold transition-all cursor-pointer text-center ${
                       formData.gender === g
-                        ? 'bg-[#16A34A] text-white border-[#16A34A] shadow-xs'
+                        ? 'bg-emerald-800 text-white border-emerald-800 shadow-xs'
                         : 'bg-[#F9FAFB] border-[#E5E7EB] text-[#374151] hover:bg-gray-100'
                     }`}
                   >
@@ -407,7 +407,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
                   </button>
                 ))}
               </div>
-              <p className="text-[11px] text-[#6B7280] mt-1">
+              <p className="text-[11px] text-[#6B7280] mt-1.5">
                 Note: Female applicants qualify for AICTE Pragati, Begum Hazrat Mahal, and special female quotas.
               </p>
             </div>
@@ -417,15 +417,15 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
               <label className="block font-semibold text-[#374151] mb-1.5">
                 Community / Caste Category <span className="text-red-500">*</span>
               </label>
-              <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
                 {(['General', 'OBC', 'SC', 'ST', 'EWS'] as Category[]).map((cat) => (
                   <button
                     key={cat}
                     type="button"
                     onClick={() => updateField('category', cat)}
-                    className={`py-2 px-3 rounded-xl border text-xs font-bold transition-all cursor-pointer text-center ${
+                    className={`py-2.5 px-3.5 rounded-none border text-xs font-bold transition-all cursor-pointer text-center ${
                       formData.category === cat
-                        ? 'bg-[#16A34A] text-white border-[#16A34A] shadow-xs'
+                        ? 'bg-emerald-800 text-white border-emerald-800 shadow-xs'
                         : 'bg-[#F9FAFB] border-[#E5E7EB] text-[#374151] hover:bg-gray-100'
                     }`}
                   >
@@ -443,7 +443,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
               <select
                 value={formData.state_domicile || 'Maharashtra'}
                 onChange={(e) => updateField('state_domicile', e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#16A34A] focus:border-[#16A34A] transition-all"
+                className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:bg-white focus:outline-none focus:ring-1 focus:ring-emerald-800 focus:border-emerald-800 transition-all"
               >
                 {INDIAN_STATES_AND_UTS.map((st) => (
                   <option key={st} value={st}>
@@ -463,7 +463,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
                 value={formData.district_domicile || ''}
                 onChange={(e) => updateField('district_domicile', e.target.value)}
                 placeholder="e.g. Pune, Nagpur, Mumbai Suburban"
-                className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#16A34A] focus:border-[#16A34A] transition-all"
+                className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:bg-white focus:outline-none focus:ring-1 focus:ring-emerald-800 focus:border-emerald-800 transition-all"
               />
             </div>
 
@@ -475,7 +475,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
               <select
                 value={formData.religion || 'Hindu'}
                 onChange={(e) => updateField('religion', e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#16A34A] focus:border-[#16A34A] transition-all"
+                className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:bg-white focus:outline-none focus:ring-1 focus:ring-emerald-800 focus:border-emerald-800 transition-all"
               >
                 {RELIGIONS.map((r) => (
                   <option key={r} value={r}>
@@ -493,7 +493,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
               <select
                 value={formData.marital_status || 'Single'}
                 onChange={(e) => updateField('marital_status', e.target.value as any)}
-                className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#16A34A] focus:border-[#16A34A] transition-all"
+                className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:bg-white focus:outline-none focus:ring-1 focus:ring-emerald-800 focus:border-emerald-800 transition-all"
               >
                 {MARITAL_STATUSES.map((m) => (
                   <option key={m} value={m}>
@@ -504,17 +504,17 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
             </div>
 
             {/* Both Parents Not Alive (Orphan) */}
-            <div className="p-3.5 rounded-xl border border-gray-200 bg-gray-50/50 flex items-center justify-between">
+            <div className="p-4 rounded-none border border-gray-200 bg-gray-50/50 flex items-center justify-between">
               <div>
                 <span className="font-semibold text-gray-900 block">Both Parents Not Alive (Orphan)?</span>
-                <span className="text-[10px] text-gray-500">Qualifies for special state/central orphan quotas</span>
+                <span className="text-[10px] text-gray-500 mt-0.5 block">Qualifies for special state/central orphan quotas</span>
               </div>
               <button
                 type="button"
                 onClick={() => updateField('parents_not_alive', !formData.parents_not_alive)}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                className={`px-4 py-2 rounded-none text-xs font-bold transition-all cursor-pointer ${
                   formData.parents_not_alive
-                    ? 'bg-[#16A34A] text-white'
+                    ? 'bg-emerald-800 text-white'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                 }`}
               >
@@ -523,11 +523,11 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
             </div>
 
             {/* Person with Disability (PwD) */}
-            <div className="p-3.5 rounded-xl border border-gray-200 bg-gray-50/50 space-y-2">
+            <div className="p-4 rounded-none border border-gray-200 bg-gray-50/50 space-y-2.5">
               <div className="flex items-center justify-between">
                 <div>
                   <span className="font-semibold text-gray-900 block">Person with Disability (PwD)?</span>
-                  <span className="text-[10px] text-gray-500">Benchmark disability (40%+) for Divyang schemes</span>
+                  <span className="text-[10px] text-gray-500 mt-0.5 block">Benchmark disability (40%+) for Divyang schemes</span>
                 </div>
                 <button
                   type="button"
@@ -538,9 +538,9 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
                       updateField('disability_percentage', 40);
                     }
                   }}
-                  className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  className={`px-4 py-2 rounded-none text-xs font-bold transition-all cursor-pointer ${
                     formData.is_disabled
-                      ? 'bg-[#16A34A] text-white'
+                      ? 'bg-emerald-800 text-white'
                       : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                   }`}
                 >
@@ -549,10 +549,10 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
               </div>
 
               {formData.is_disabled && (
-                <div className="pt-2 border-t border-gray-200 space-y-1.5">
+                <div className="pt-2.5 border-t border-gray-200 space-y-2">
                   <div className="flex justify-between font-medium">
                     <span>Disability Percentage:</span>
-                    <span className="font-bold text-[#16A34A]">{formData.disability_percentage || 40}%</span>
+                    <span className="font-bold text-emerald-800">{formData.disability_percentage || 40}%</span>
                   </div>
                   <input
                     type="range"
@@ -561,7 +561,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
                     step="5"
                     value={formData.disability_percentage || 40}
                     onChange={(e) => updateField('disability_percentage', parseInt(e.target.value))}
-                    className="w-full accent-[#16A34A] cursor-pointer"
+                    className="w-full accent-emerald-800 cursor-pointer"
                   />
                   <span className="text-[10px] text-gray-500 block">
                     Statutory benchmark on NSP is 40% certified disability.
@@ -572,12 +572,12 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
           </div>
 
           {/* Section 1 Footer Navigation */}
-          <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
+          <div className="pt-5 border-t border-gray-100 flex items-center justify-between">
             <span className="text-xs text-gray-500">Step 1 of 5</span>
             <button
               type="button"
               onClick={() => setCurrentStep(2)}
-              className="px-5 py-2.5 rounded-xl bg-[#16A34A] hover:bg-[#15803D] text-white text-xs font-bold transition-all shadow-xs flex items-center gap-1.5 cursor-pointer"
+              className="px-6 py-2.5 rounded-none bg-emerald-800 hover:bg-emerald-900 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-2 cursor-pointer"
             >
               <span>Next: Course & Academic Details</span>
               <ChevronRight className="w-4 h-4" />
@@ -590,15 +590,15 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
       {/* SECTION 2: ACADEMIC & COURSE DETAILS                                      */}
       {/* ========================================================================= */}
       {currentStep === 2 && (
-        <div className="bg-white border border-[#E5E7EB] rounded-2xl p-5 sm:p-6 shadow-xs space-y-6">
-          <div className="flex items-center justify-between border-b border-[#F3F4F6] pb-3">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-xl bg-[#F0FDF4] text-[#16A34A] flex items-center justify-center font-bold">
+        <div className="bg-white border border-[#E5E7EB] rounded-none p-6 sm:p-8 shadow-xs space-y-7">
+          <div className="flex items-center justify-between border-b border-[#F3F4F6] pb-4">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-none bg-emerald-50 text-emerald-900 border border-emerald-200 flex items-center justify-center font-bold">
                 2
               </div>
               <div>
                 <h3 className="text-base font-bold text-[#111827]">Degree & Course Details</h3>
-                <p className="text-xs text-[#6B7280]">
+                <p className="text-xs text-[#6B7280] mt-0.5">
                   Dynamic duration, semesters, and institution profile (freely editable)
                 </p>
               </div>
@@ -606,13 +606,13 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
             <button
               type="button"
               onClick={() => setCurrentStep(5)}
-              className="text-xs font-semibold text-[#16A34A] hover:underline"
+              className="text-xs font-semibold text-emerald-800 hover:text-emerald-900 hover:underline cursor-pointer"
             >
               Skip to Review →
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs">
             {/* Degree / Course Dropdown */}
             <div className="md:col-span-2">
               <label className="block font-semibold text-[#374151] mb-1.5">
@@ -621,7 +621,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
               <select
                 value={formData.course || 'B.Tech / B.E.'}
                 onChange={(e) => handleCourseChange(e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl text-xs text-[#111827] font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#16A34A] focus:border-[#16A34A] transition-all"
+                className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-none text-xs text-[#111827] font-medium focus:bg-white focus:outline-none focus:ring-1 focus:ring-emerald-800 focus:border-emerald-800 transition-all"
               >
                 {ACADEMIC_COURSES.map((c) => (
                   <option key={c.id} value={c.name}>
@@ -629,7 +629,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
                   </option>
                 ))}
               </select>
-              <div className="flex items-center gap-3 mt-1.5 text-[11px] text-[#6B7280]">
+              <div className="flex items-center gap-3 mt-2 text-[11px] text-[#6B7280]">
                 <span>Level: <strong className="text-gray-900">{formData.education_level}</strong></span>
                 <span>•</span>
                 <span>Duration: <strong className="text-gray-900">{formData.duration_years || 4} Years</strong></span>
@@ -648,7 +648,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
                 value={formData.branch || ''}
                 onChange={(e) => updateField('branch', e.target.value)}
                 placeholder="e.g. Computer Science, Mechanical, Civil, Commerce"
-                className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#16A34A] focus:border-[#16A34A] transition-all"
+                className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:bg-white focus:outline-none focus:ring-1 focus:ring-emerald-800 focus:border-emerald-800 transition-all"
               />
             </div>
 
@@ -662,7 +662,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
                 value={formData.institute_name || ''}
                 onChange={(e) => updateField('institute_name', e.target.value)}
                 placeholder="e.g. IIT Bombay, Delhi University, COEP Pune"
-                className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#16A34A] focus:border-[#16A34A] transition-all"
+                className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:bg-white focus:outline-none focus:ring-1 focus:ring-emerald-800 focus:border-emerald-800 transition-all"
               />
             </div>
 
@@ -671,15 +671,15 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
               <label className="block font-semibold text-[#374151] mb-1.5">
                 Current Year of Study <span className="text-red-500">*</span>
               </label>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {courseConfig.years.map((yr) => (
                   <button
                     key={yr.id}
                     type="button"
                     onClick={() => handleYearChange(yr.id)}
-                    className={`py-2.5 px-3 rounded-xl border text-xs font-bold transition-all cursor-pointer text-center ${
+                    className={`py-2.5 px-3.5 rounded-none border text-xs font-bold transition-all cursor-pointer text-center ${
                       formData.year_of_study === yr.id
-                        ? 'bg-[#16A34A] text-white border-[#16A34A] shadow-xs'
+                        ? 'bg-emerald-800 text-white border-emerald-800 shadow-xs'
                         : 'bg-[#F9FAFB] border-[#E5E7EB] text-[#374151] hover:bg-gray-100'
                     }`}
                   >
@@ -697,7 +697,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
               <select
                 value={formData.current_semester || availableSemesters[0] || 'Semester 1'}
                 onChange={(e) => updateField('current_semester', e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#16A34A] focus:border-[#16A34A] transition-all"
+                className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:bg-white focus:outline-none focus:ring-1 focus:ring-emerald-800 focus:border-emerald-800 transition-all"
               >
                 {availableSemesters.map((sem) => (
                   <option key={sem} value={sem}>
@@ -712,13 +712,13 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
               <label className="block font-semibold text-[#374151] mb-1.5">
                 Accommodation Status
               </label>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-2 gap-3">
                 <button
                   type="button"
                   onClick={() => updateField('hosteller_status', 'Day Scholar')}
-                  className={`py-2 px-3 rounded-xl border text-xs font-semibold transition-all cursor-pointer text-center ${
+                  className={`py-2.5 px-3.5 rounded-none border text-xs font-semibold transition-all cursor-pointer text-center ${
                     formData.hosteller_status === 'Day Scholar'
-                      ? 'bg-[#16A34A] text-white border-[#16A34A]'
+                      ? 'bg-emerald-800 text-white border-emerald-800'
                       : 'bg-[#F9FAFB] border-[#E5E7EB] text-[#374151] hover:bg-gray-100'
                   }`}
                 >
@@ -727,9 +727,9 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
                 <button
                   type="button"
                   onClick={() => updateField('hosteller_status', 'Hosteller')}
-                  className={`py-2 px-3 rounded-xl border text-xs font-semibold transition-all cursor-pointer text-center ${
+                  className={`py-2.5 px-3.5 rounded-none border text-xs font-semibold transition-all cursor-pointer text-center ${
                     formData.hosteller_status === 'Hosteller'
-                      ? 'bg-[#16A34A] text-white border-[#16A34A]'
+                      ? 'bg-emerald-800 text-white border-emerald-800'
                       : 'bg-[#F9FAFB] border-[#E5E7EB] text-[#374151] hover:bg-gray-100'
                   }`}
                 >
@@ -746,7 +746,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
               <select
                 value={formData.mode_of_study || 'Regular'}
                 onChange={(e) => updateField('mode_of_study', e.target.value as any)}
-                className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#16A34A] focus:border-[#16A34A] transition-all"
+                className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:bg-white focus:outline-none focus:ring-1 focus:ring-emerald-800 focus:border-emerald-800 transition-all"
               >
                 {MODES_OF_STUDY.map((m) => (
                   <option key={m} value={m}>
@@ -761,13 +761,13 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
               <label className="block font-semibold text-[#374151] mb-1.5">
                 Application Type
               </label>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-2 gap-3">
                 <button
                   type="button"
                   onClick={() => updateField('application_type', 'Fresh')}
-                  className={`py-2 px-3 rounded-xl border text-xs font-semibold transition-all cursor-pointer text-center ${
+                  className={`py-2.5 px-3.5 rounded-none border text-xs font-semibold transition-all cursor-pointer text-center ${
                     formData.application_type === 'Fresh'
-                      ? 'bg-[#16A34A] text-white border-[#16A34A]'
+                      ? 'bg-emerald-800 text-white border-emerald-800'
                       : 'bg-[#F9FAFB] border-[#E5E7EB] text-[#374151] hover:bg-gray-100'
                   }`}
                 >
@@ -776,9 +776,9 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
                 <button
                   type="button"
                   onClick={() => updateField('application_type', 'Renewal')}
-                  className={`py-2 px-3 rounded-xl border text-xs font-semibold transition-all cursor-pointer text-center ${
+                  className={`py-2.5 px-3.5 rounded-none border text-xs font-semibold transition-all cursor-pointer text-center ${
                     formData.application_type === 'Renewal'
-                      ? 'bg-[#16A34A] text-white border-[#16A34A]'
+                      ? 'bg-emerald-800 text-white border-emerald-800'
                       : 'bg-[#F9FAFB] border-[#E5E7EB] text-[#374151] hover:bg-gray-100'
                   }`}
                 >
@@ -789,11 +789,11 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
           </div>
 
           {/* Section 2 Footer Navigation */}
-          <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
+          <div className="pt-5 border-t border-gray-100 flex items-center justify-between">
             <button
               type="button"
               onClick={() => setCurrentStep(1)}
-              className="px-4 py-2.5 rounded-xl border border-gray-300 hover:bg-gray-50 text-gray-700 text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer"
+              className="px-5 py-2.5 rounded-none border border-gray-300 hover:bg-gray-50 text-gray-700 text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Back: Personal Details</span>
@@ -801,7 +801,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
             <button
               type="button"
               onClick={() => setCurrentStep(3)}
-              className="px-5 py-2.5 rounded-xl bg-[#16A34A] hover:bg-[#15803D] text-white text-xs font-bold transition-all shadow-xs flex items-center gap-1.5 cursor-pointer"
+              className="px-6 py-2.5 rounded-none bg-emerald-800 hover:bg-emerald-900 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-2 cursor-pointer"
             >
               <span>Next: Family & Income Details</span>
               <ChevronRight className="w-4 h-4" />
@@ -814,15 +814,15 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
       {/* SECTION 3: FAMILY & FINANCIAL DETAILS                                     */}
       {/* ========================================================================= */}
       {currentStep === 3 && (
-        <div className="bg-white border border-[#E5E7EB] rounded-2xl p-5 sm:p-6 shadow-xs space-y-6">
-          <div className="flex items-center justify-between border-b border-[#F3F4F6] pb-3">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-xl bg-[#F0FDF4] text-[#16A34A] flex items-center justify-center font-bold">
+        <div className="bg-white border border-[#E5E7EB] rounded-none p-6 sm:p-8 shadow-xs space-y-7">
+          <div className="flex items-center justify-between border-b border-[#F3F4F6] pb-4">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-none bg-emerald-50 text-emerald-900 border border-emerald-200 flex items-center justify-center font-bold">
                 3
               </div>
               <div>
                 <h3 className="text-base font-bold text-[#111827]">Family & Financial Details</h3>
-                <p className="text-xs text-[#6B7280]">
+                <p className="text-xs text-[#6B7280] mt-0.5">
                   Annual income ceilings and statutory welfare quotas (freely editable)
                 </p>
               </div>
@@ -830,19 +830,19 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
             <button
               type="button"
               onClick={() => setCurrentStep(5)}
-              className="text-xs font-semibold text-[#16A34A] hover:underline"
+              className="text-xs font-semibold text-emerald-800 hover:text-emerald-900 hover:underline cursor-pointer"
             >
               Skip to Review →
             </button>
           </div>
 
-          <div className="space-y-4 text-xs">
+          <div className="space-y-5 text-xs">
             {/* Quick Income Preset Buttons */}
             <div>
               <label className="block font-semibold text-[#374151] mb-1.5">
                 Official NSP Scheme Income Ceilings (1-Click Presets)
               </label>
-              <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
                 {INCOME_PRESETS.map((p) => {
                   const isSelected = formData.annual_family_income === p.value;
                   return (
@@ -853,9 +853,9 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
                         updateField('annual_family_income', p.value);
                         updateField('parent_annual_income', p.value);
                       }}
-                      className={`py-2 px-3 rounded-xl border text-xs font-bold transition-all cursor-pointer text-center ${
+                      className={`py-2.5 px-3.5 rounded-none border text-xs font-bold transition-all cursor-pointer text-center ${
                         isSelected
-                          ? 'bg-[#16A34A] text-white border-[#16A34A] shadow-xs'
+                          ? 'bg-emerald-800 text-white border-emerald-800 shadow-xs'
                           : 'bg-[#F9FAFB] border-[#E5E7EB] text-[#374151] hover:bg-gray-100'
                       }`}
                     >
@@ -867,7 +867,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
             </div>
 
             {/* Income Input Field & Formatted Display */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2">
               <div>
                 <label className="block font-semibold text-[#374151] mb-1.5">
                   Annual Family Income (INR ₹) <span className="text-red-500">*</span>
@@ -886,14 +886,14 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
                       parent_annual_income: isNaN(val) ? 0 : val
                     });
                   }}
-                  className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#16A34A] focus:border-[#16A34A]"
+                  className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:bg-white focus:outline-none focus:ring-1 focus:ring-emerald-800 focus:border-emerald-800"
                 />
               </div>
 
               <div className="flex flex-col justify-end">
-                <div className="p-2.5 rounded-xl bg-gray-50 border border-gray-200">
+                <div className="p-3.5 rounded-none bg-gray-50 border border-gray-200">
                   <span className="text-[11px] text-gray-500 block">Formatted Income:</span>
-                  <span className="text-sm font-bold text-gray-900">
+                  <span className="text-sm font-bold text-gray-900 mt-0.5 block">
                     {formatINR(formData.annual_family_income || 0)} / year
                   </span>
                 </div>
@@ -908,7 +908,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
               <select
                 value={formData.parent_profession || 'Private Sector / Self-Employed'}
                 onChange={(e) => updateField('parent_profession', e.target.value)}
-                className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl text-xs text-[#111827] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#16A34A] focus:border-[#16A34A] transition-all"
+                className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-none text-xs text-[#111827] focus:bg-white focus:outline-none focus:ring-1 focus:ring-emerald-800 focus:border-emerald-800 transition-all"
               >
                 <option value="Agriculture / Farming">Agriculture / Farming</option>
                 <option value="Private Sector / Self-Employed">Private Sector / Self-Employed</option>
@@ -921,12 +921,12 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
             </div>
 
             {/* Special Welfare Quotas */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               {/* Single Girl Child */}
-              <div className="p-3.5 rounded-xl border border-gray-200 bg-gray-50/50 flex items-center justify-between">
+              <div className="p-4 rounded-none border border-gray-200 bg-gray-50/50 flex items-center justify-between">
                 <div>
                   <span className="font-semibold text-gray-900 block">Single Girl Child in Family?</span>
-                  <span className="text-[10px] text-gray-500">Qualifies for AICTE Pragati & UGC Girl Child schemes</span>
+                  <span className="text-[10px] text-gray-500 mt-0.5 block">Qualifies for AICTE Pragati & UGC Girl Child schemes</span>
                 </div>
                 <button
                   type="button"
@@ -934,9 +934,9 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
                     const count = formData.family_girl_children_count === 1 ? 0 : 1;
                     updateField('family_girl_children_count', count);
                   }}
-                  className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  className={`px-4 py-2 rounded-none text-xs font-bold transition-all cursor-pointer ${
                     formData.family_girl_children_count === 1
-                      ? 'bg-[#16A34A] text-white'
+                      ? 'bg-emerald-800 text-white'
                       : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                   }`}
                 >
@@ -945,10 +945,10 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
               </div>
 
               {/* Ward of Armed Forces / Ex-Servicemen */}
-              <div className="p-3.5 rounded-xl border border-gray-200 bg-gray-50/50 flex items-center justify-between">
+              <div className="p-4 rounded-none border border-gray-200 bg-gray-50/50 flex items-center justify-between">
                 <div>
                   <span className="font-semibold text-gray-900 block">Ward of Armed Forces / Police?</span>
-                  <span className="text-[10px] text-gray-500">Eligible for Prime Minister&apos;s Scholarship Scheme (PMSS)</span>
+                  <span className="text-[10px] text-gray-500 mt-0.5 block">Eligible for Prime Minister&apos;s Scholarship Scheme (PMSS)</span>
                 </div>
                 <button
                   type="button"
@@ -959,9 +959,9 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
                       : [...(formData.special_conditions || []), 'ward_of_armed_forces_martyr'];
                     updateField('special_conditions', nextTags);
                   }}
-                  className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  className={`px-4 py-2 rounded-none text-xs font-bold transition-all cursor-pointer ${
                     formData.special_conditions?.includes('ward_of_armed_forces_martyr')
-                      ? 'bg-[#16A34A] text-white'
+                      ? 'bg-emerald-800 text-white'
                       : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                   }`}
                 >
@@ -972,11 +972,11 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
           </div>
 
           {/* Section 3 Footer Navigation */}
-          <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
+          <div className="pt-5 border-t border-gray-100 flex items-center justify-between">
             <button
               type="button"
               onClick={() => setCurrentStep(2)}
-              className="px-4 py-2.5 rounded-xl border border-gray-300 hover:bg-gray-50 text-gray-700 text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer"
+              className="px-5 py-2.5 rounded-none border border-gray-300 hover:bg-gray-50 text-gray-700 text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Back: Course Details</span>
@@ -984,7 +984,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
             <button
               type="button"
               onClick={() => setCurrentStep(4)}
-              className="px-5 py-2.5 rounded-xl bg-[#16A34A] hover:bg-[#15803D] text-white text-xs font-bold transition-all shadow-xs flex items-center gap-1.5 cursor-pointer"
+              className="px-6 py-2.5 rounded-none bg-emerald-800 hover:bg-emerald-900 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-2 cursor-pointer"
             >
               <span>Next: Marks & Score</span>
               <ChevronRight className="w-4 h-4" />
@@ -997,25 +997,25 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
       {/* SECTION 4: ACADEMIC PERFORMANCE & MARKS (Dynamic per course)             */}
       {/* ========================================================================= */}
       {currentStep === 4 && (
-        <div className="bg-white border border-[#E5E7EB] rounded-2xl p-5 sm:p-6 shadow-xs space-y-6">
-          <div className="flex items-center justify-between border-b border-[#F3F4F6] pb-3">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-xl bg-[#F0FDF4] text-[#16A34A] flex items-center justify-center font-bold">
+        <div className="bg-white border border-[#E5E7EB] rounded-none p-6 sm:p-8 shadow-xs space-y-7">
+          <div className="flex items-center justify-between border-b border-[#F3F4F6] pb-4">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-none bg-emerald-50 text-emerald-900 border border-emerald-200 flex items-center justify-center font-bold">
                 4
               </div>
               <div>
                 <h3 className="text-base font-bold text-[#111827]">
                   Academic Performance & Marks
                 </h3>
-                <p className="text-xs text-[#6B7280]">
-                  Dynamic evaluation fields configured for: <strong className="text-[#16A34A]">{formData.course || 'B.Tech / B.E.'}</strong>
+                <p className="text-xs text-[#6B7280] mt-0.5">
+                  Dynamic evaluation fields configured for: <strong className="text-emerald-800">{formData.course || 'B.Tech / B.E.'}</strong>
                 </p>
               </div>
             </div>
             <button
               type="button"
               onClick={() => setCurrentStep(5)}
-              className="text-xs font-semibold text-[#16A34A] hover:underline"
+              className="text-xs font-semibold text-emerald-800 hover:text-emerald-900 hover:underline cursor-pointer"
             >
               Skip to Review →
             </button>
@@ -1031,11 +1031,11 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
           />
 
           {/* Section 4 Footer Navigation */}
-          <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
+          <div className="pt-5 border-t border-gray-100 flex items-center justify-between">
             <button
               type="button"
               onClick={() => setCurrentStep(3)}
-              className="px-4 py-2.5 rounded-xl border border-gray-300 hover:bg-gray-50 text-gray-700 text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer"
+              className="px-5 py-2.5 rounded-none border border-gray-300 hover:bg-gray-50 text-gray-700 text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Back: Family & Income</span>
@@ -1043,7 +1043,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
             <button
               type="button"
               onClick={() => setCurrentStep(5)}
-              className="px-5 py-2.5 rounded-xl bg-[#16A34A] hover:bg-[#15803D] text-white text-xs font-bold transition-all shadow-xs flex items-center gap-1.5 cursor-pointer"
+              className="px-6 py-2.5 rounded-none bg-emerald-800 hover:bg-emerald-900 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-2 cursor-pointer"
             >
               <span>Next: Review & Confirm</span>
               <ChevronRight className="w-4 h-4" />
@@ -1056,63 +1056,63 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
       {/* SECTION 5: REVIEW & CONFIRMATION SCREEN (With Edit Buttons on Each Card)  */}
       {/* ========================================================================= */}
       {currentStep === 5 && (
-        <div className="bg-white border border-[#E5E7EB] rounded-2xl p-5 sm:p-6 shadow-xs space-y-6">
-          <div className="flex items-center justify-between border-b border-[#F3F4F6] pb-3">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-xl bg-[#F0FDF4] text-[#16A34A] flex items-center justify-center font-bold">
+        <div className="bg-white border border-[#E5E7EB] rounded-none p-6 sm:p-8 shadow-xs space-y-7">
+          <div className="flex items-center justify-between border-b border-[#F3F4F6] pb-4">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-none bg-emerald-50 text-emerald-900 border border-emerald-200 flex items-center justify-center font-bold">
                 ✓
               </div>
               <div>
                 <h3 className="text-base font-bold text-[#111827]">Review & Confirm Your Profile</h3>
-                <p className="text-xs text-[#6B7280]">
+                <p className="text-xs text-[#6B7280] mt-0.5">
                   Click &quot;Edit&quot; on any section to return and change values, or click &quot;Find My Scholarships&quot; to evaluate.
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {/* Review Card 1: Personal Details */}
-            <div className="p-4 rounded-xl border border-gray-200 bg-gray-50/50 space-y-3">
+            <div className="p-5 rounded-none border border-gray-200 bg-gray-50/50 space-y-3.5">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <User className="w-4 h-4 text-[#16A34A]" />
+                  <User className="w-4 h-4 text-emerald-800" />
                   <span className="text-xs font-bold text-[#111827]">1. Personal Information</span>
                 </div>
                 <button
                   type="button"
                   onClick={() => setCurrentStep(1)}
-                  className="inline-flex items-center gap-1 text-xs font-bold text-[#16A34A] hover:text-[#15803D] bg-white px-2.5 py-1 rounded-lg border border-[#DCFCE7] shadow-2xs hover:bg-[#F0FDF4] cursor-pointer"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-emerald-900 hover:text-emerald-950 bg-white px-3 py-1 rounded-none border border-emerald-200 shadow-2xs hover:bg-emerald-50 cursor-pointer"
                 >
                   <Edit3 className="w-3 h-3" />
                   <span>Edit</span>
                 </button>
               </div>
 
-              <div className="grid grid-cols-2 gap-2 text-xs pt-1 border-t border-gray-200/60">
+              <div className="grid grid-cols-2 gap-2.5 text-xs pt-1 border-t border-gray-200/60">
                 <div>
                   <span className="text-[11px] text-gray-500 block">Full Name:</span>
-                  <span className="font-semibold text-gray-900">{formData.name || 'Not provided'}</span>
+                  <span className="font-semibold text-gray-900 mt-0.5 block">{formData.name || 'Not provided'}</span>
                 </div>
                 <div>
                   <span className="text-[11px] text-gray-500 block">Gender:</span>
-                  <span className="font-semibold text-gray-900">{formData.gender}</span>
+                  <span className="font-semibold text-gray-900 mt-0.5 block">{formData.gender}</span>
                 </div>
                 <div>
                   <span className="text-[11px] text-gray-500 block">Category:</span>
-                  <span className="font-semibold text-gray-900">{formData.category}</span>
+                  <span className="font-semibold text-gray-900 mt-0.5 block">{formData.category}</span>
                 </div>
                 <div>
                   <span className="text-[11px] text-gray-500 block">Religion:</span>
-                  <span className="font-semibold text-gray-900">{formData.religion || 'Hindu'}</span>
+                  <span className="font-semibold text-gray-900 mt-0.5 block">{formData.religion || 'Hindu'}</span>
                 </div>
                 <div>
                   <span className="text-[11px] text-gray-500 block">Domicile State:</span>
-                  <span className="font-semibold text-gray-900">{formData.state_domicile}</span>
+                  <span className="font-semibold text-gray-900 mt-0.5 block">{formData.state_domicile}</span>
                 </div>
                 <div>
                   <span className="text-[11px] text-gray-500 block">Disability:</span>
-                  <span className="font-semibold text-gray-900">
+                  <span className="font-semibold text-gray-900 mt-0.5 block">
                     {formData.is_disabled ? `Yes (${formData.disability_percentage}%)` : 'No'}
                   </span>
                 </div>
@@ -1120,89 +1120,89 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
             </div>
 
             {/* Review Card 2: Academic & Course Details */}
-            <div className="p-4 rounded-xl border border-gray-200 bg-gray-50/50 space-y-3">
+            <div className="p-5 rounded-none border border-gray-200 bg-gray-50/50 space-y-3.5">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <GraduationCap className="w-4 h-4 text-[#16A34A]" />
+                  <GraduationCap className="w-4 h-4 text-emerald-800" />
                   <span className="text-xs font-bold text-[#111827]">2. Degree & Course Details</span>
                 </div>
                 <button
                   type="button"
                   onClick={() => setCurrentStep(2)}
-                  className="inline-flex items-center gap-1 text-xs font-bold text-[#16A34A] hover:text-[#15803D] bg-white px-2.5 py-1 rounded-lg border border-[#DCFCE7] shadow-2xs hover:bg-[#F0FDF4] cursor-pointer"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-emerald-900 hover:text-emerald-950 bg-white px-3 py-1 rounded-none border border-emerald-200 shadow-2xs hover:bg-emerald-50 cursor-pointer"
                 >
                   <Edit3 className="w-3 h-3" />
                   <span>Edit</span>
                 </button>
               </div>
 
-              <div className="grid grid-cols-2 gap-2 text-xs pt-1 border-t border-gray-200/60">
+              <div className="grid grid-cols-2 gap-2.5 text-xs pt-1 border-t border-gray-200/60">
                 <div className="col-span-2">
                   <span className="text-[11px] text-gray-500 block">Course / Degree:</span>
-                  <span className="font-semibold text-gray-900">{formData.course}</span>
+                  <span className="font-semibold text-gray-900 mt-0.5 block">{formData.course}</span>
                 </div>
                 <div>
                   <span className="text-[11px] text-gray-500 block">Year of Study:</span>
-                  <span className="font-semibold text-gray-900">{formData.year_of_study || '1st Year'}</span>
+                  <span className="font-semibold text-gray-900 mt-0.5 block">{formData.year_of_study || '1st Year'}</span>
                 </div>
                 <div>
                   <span className="text-[11px] text-gray-500 block">Current Semester:</span>
-                  <span className="font-semibold text-gray-900">{formData.current_semester || 'Semester 1'}</span>
+                  <span className="font-semibold text-gray-900 mt-0.5 block">{formData.current_semester || 'Semester 1'}</span>
                 </div>
                 <div>
                   <span className="text-[11px] text-gray-500 block">Education Level:</span>
-                  <span className="font-semibold text-gray-900">{formData.education_level}</span>
+                  <span className="font-semibold text-gray-900 mt-0.5 block">{formData.education_level}</span>
                 </div>
                 <div>
                   <span className="text-[11px] text-gray-500 block">Accommodation:</span>
-                  <span className="font-semibold text-gray-900">{formData.hosteller_status || 'Day Scholar'}</span>
+                  <span className="font-semibold text-gray-900 mt-0.5 block">{formData.hosteller_status || 'Day Scholar'}</span>
                 </div>
               </div>
             </div>
 
             {/* Review Card 3: Family & Financial */}
-            <div className="p-4 rounded-xl border border-gray-200 bg-gray-50/50 space-y-3">
+            <div className="p-5 rounded-none border border-gray-200 bg-gray-50/50 space-y-3.5">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Wallet className="w-4 h-4 text-[#16A34A]" />
+                  <Wallet className="w-4 h-4 text-emerald-800" />
                   <span className="text-xs font-bold text-[#111827]">3. Family & Financial</span>
                 </div>
                 <button
                   type="button"
                   onClick={() => setCurrentStep(3)}
-                  className="inline-flex items-center gap-1 text-xs font-bold text-[#16A34A] hover:text-[#15803D] bg-white px-2.5 py-1 rounded-lg border border-[#DCFCE7] shadow-2xs hover:bg-[#F0FDF4] cursor-pointer"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-emerald-900 hover:text-emerald-950 bg-white px-3 py-1 rounded-none border border-emerald-200 shadow-2xs hover:bg-emerald-50 cursor-pointer"
                 >
                   <Edit3 className="w-3 h-3" />
                   <span>Edit</span>
                 </button>
               </div>
 
-              <div className="grid grid-cols-2 gap-2 text-xs pt-1 border-t border-gray-200/60">
+              <div className="grid grid-cols-2 gap-2.5 text-xs pt-1 border-t border-gray-200/60">
                 <div className="col-span-2">
                   <span className="text-[11px] text-gray-500 block">Annual Family Income:</span>
-                  <span className="text-sm font-bold text-[#16A34A]">
+                  <span className="text-sm font-bold text-emerald-800 mt-0.5 block">
                     {formatINR(formData.annual_family_income || 0)} / year
                   </span>
                 </div>
                 <div>
                   <span className="text-[11px] text-gray-500 block">Parent Profession:</span>
-                  <span className="font-semibold text-gray-900">{formData.parent_profession || 'Private'}</span>
+                  <span className="font-semibold text-gray-900 mt-0.5 block">{formData.parent_profession || 'Private'}</span>
                 </div>
                 <div>
                   <span className="text-[11px] text-gray-500 block">Single Girl Child:</span>
-                  <span className="font-semibold text-gray-900">
+                  <span className="font-semibold text-gray-900 mt-0.5 block">
                     {formData.family_girl_children_count === 1 ? 'Yes' : 'No'}
                   </span>
                 </div>
                 <div>
                   <span className="text-[11px] text-gray-500 block">Armed Forces Ward:</span>
-                  <span className="font-semibold text-gray-900">
+                  <span className="font-semibold text-gray-900 mt-0.5 block">
                     {formData.special_conditions?.includes('ward_of_armed_forces_martyr') ? 'Yes' : 'No'}
                   </span>
                 </div>
                 <div>
                   <span className="text-[11px] text-gray-500 block">Parents Alive:</span>
-                  <span className="font-semibold text-gray-900">
+                  <span className="font-semibold text-gray-900 mt-0.5 block">
                     {formData.parents_not_alive ? 'Both Deceased (Orphan)' : 'Normal'}
                   </span>
                 </div>
@@ -1210,66 +1210,66 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
             </div>
 
             {/* Review Card 4: Academic Performance */}
-            <div className="p-4 rounded-xl border border-gray-200 bg-gray-50/50 space-y-3">
+            <div className="p-5 rounded-none border border-gray-200 bg-gray-50/50 space-y-3.5">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Award className="w-4 h-4 text-[#16A34A]" />
+                  <Award className="w-4 h-4 text-emerald-800" />
                   <span className="text-xs font-bold text-[#111827]">4. Marks & Performance</span>
                 </div>
                 <button
                   type="button"
                   onClick={() => setCurrentStep(4)}
-                  className="inline-flex items-center gap-1 text-xs font-bold text-[#16A34A] hover:text-[#15803D] bg-white px-2.5 py-1 rounded-lg border border-[#DCFCE7] shadow-2xs hover:bg-[#F0FDF4] cursor-pointer"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-emerald-900 hover:text-emerald-950 bg-white px-3 py-1 rounded-none border border-emerald-200 shadow-2xs hover:bg-emerald-50 cursor-pointer"
                 >
                   <Edit3 className="w-3 h-3" />
                   <span>Edit</span>
                 </button>
               </div>
 
-              <div className="grid grid-cols-2 gap-2 text-xs pt-1 border-t border-gray-200/60">
+              <div className="grid grid-cols-2 gap-2.5 text-xs pt-1 border-t border-gray-200/60">
                 <div>
                   <span className="text-[11px] text-gray-500 block">Course & Year:</span>
-                  <span className="font-semibold text-gray-900">{formData.course} ({formData.year_of_study || '1st Year'})</span>
+                  <span className="font-semibold text-gray-900 mt-0.5 block">{formData.course} ({formData.year_of_study || '1st Year'})</span>
                 </div>
                 <div>
                   <span className="text-[11px] text-gray-500 block">Qualifying Score:</span>
-                  <span className="text-sm font-bold text-[#16A34A]">{formData.academic_percentage || formData.twelfth_percentage || formData.tenth_percentage || formData.ug_percentage || 0}%</span>
+                  <span className="text-sm font-bold text-emerald-800 mt-0.5 block">{formData.academic_percentage || formData.twelfth_percentage || formData.tenth_percentage || formData.ug_percentage || 0}%</span>
                 </div>
                 {formData.tenth_percentage ? (
                   <div>
                     <span className="text-[11px] text-gray-500 block">10th Percentage:</span>
-                    <span className="font-semibold text-gray-900">{formData.tenth_percentage}% ({formData.tenth_board ? formData.tenth_board.split('(')[0].trim() : 'Board'})</span>
+                    <span className="font-semibold text-gray-900 mt-0.5 block">{formData.tenth_percentage}% ({formData.tenth_board ? formData.tenth_board.split('(')[0].trim() : 'Board'})</span>
                   </div>
                 ) : null}
                 {formData.twelfth_percentage ? (
                   <div>
                     <span className="text-[11px] text-gray-500 block">12th Percentage:</span>
-                    <span className="font-semibold text-gray-900">{formData.twelfth_percentage}% ({formData.twelfth_board ? formData.twelfth_board.split('(')[0].trim() : 'Board'})</span>
+                    <span className="font-semibold text-gray-900 mt-0.5 block">{formData.twelfth_percentage}% ({formData.twelfth_board ? formData.twelfth_board.split('(')[0].trim() : 'Board'})</span>
                   </div>
                 ) : null}
                 {formData.ug_percentage ? (
                   <div>
                     <span className="text-[11px] text-gray-500 block">UG Percentage:</span>
-                    <span className="font-semibold text-gray-900">{formData.ug_percentage}% ({formData.ug_degree_name || 'UG Degree'})</span>
+                    <span className="font-semibold text-gray-900 mt-0.5 block">{formData.ug_percentage}% ({formData.ug_degree_name || 'UG Degree'})</span>
                   </div>
                 ) : null}
                 {formData.competitive_exam_taken && (
                   <div className="col-span-2">
                     <span className="text-[11px] text-gray-500 block">Entrance Exam:</span>
-                    <span className="font-semibold text-gray-900">
+                    <span className="font-semibold text-gray-900 mt-0.5 block">
                       {formData.competitive_exam_name?.split('(')[0].trim()} - {formData.competitive_exam_score || 'Declared'} (Roll: {formData.competitive_exam_roll || 'N/A'})
                     </span>
                   </div>
                 )}
                 <div>
                   <span className="text-[11px] text-gray-500 block">Backlogs / ATKT:</span>
-                  <span className={`font-semibold ${formData.has_backlogs ? 'text-amber-700' : 'text-emerald-700'}`}>
+                  <span className={`font-semibold mt-0.5 block ${formData.has_backlogs ? 'text-amber-700' : 'text-emerald-800'}`}>
                     {formData.has_backlogs ? `${formData.backlogs_count || 1} Active Backlog(s)` : 'Clear Pass (0)'}
                   </span>
                 </div>
                 <div>
                   <span className="text-[11px] text-gray-500 block">Top 20th Percentile in Board:</span>
-                  <span className="font-semibold text-gray-900">
+                  <span className="font-semibold text-gray-900 mt-0.5 block">
                     {formData.board_percentile_80th ? 'Yes (Meets CSSS Merit Cutoff)' : 'No'}
                   </span>
                 </div>
@@ -1278,7 +1278,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
           </div>
 
           {/* Student Document Readiness Checklist */}
-          <div className="pt-2">
+          <div className="pt-3">
             <DocumentChecklistSection
               possessedDocuments={formData.possessed_documents || []}
               onChange={(updatedDocs) => updateField('possessed_documents', updatedDocs)}
@@ -1289,11 +1289,11 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
           </div>
 
           {/* Section 5 Footer Action Bar */}
-          <div className="pt-5 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4">
             <button
               type="button"
               onClick={() => setCurrentStep(4)}
-              className="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-gray-300 hover:bg-gray-50 text-gray-700 text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+              className="w-full sm:w-auto px-5 py-2.5 rounded-none border border-gray-300 hover:bg-gray-50 text-gray-700 text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Back: Marks & Score</span>
@@ -1303,11 +1303,11 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
               type="button"
               onClick={handleFinalSubmit}
               disabled={isLoading}
-              className="w-full sm:w-auto px-8 py-3 rounded-xl bg-[#16A34A] hover:bg-[#15803D] text-white text-xs font-black transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75"
+              className="w-full sm:w-auto px-8 py-3 rounded-none bg-emerald-800 hover:bg-emerald-900 text-white text-xs font-bold transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75"
             >
               {isLoading ? (
                 <>
-                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-none animate-spin"></div>
                   <span>Evaluating 31 Official Schemes...</span>
                 </>
               ) : (

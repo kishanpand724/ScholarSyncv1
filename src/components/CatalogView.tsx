@@ -212,32 +212,32 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
   }, [baseScholarships, selectedSource, selectedDepartment, selectedClassification, selectedSchemeType, searchTerm]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       {/* Search & Filter Bar */}
-      <div className="bg-white border border-[#E5E7EB] rounded-2xl p-6 shadow-xs space-y-5">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <div className="bg-white border border-[#E5E7EB] rounded-none p-6 sm:p-7 shadow-xs space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="w-2 h-2 rounded-full bg-[#16A34A]" />
+            <div className="flex items-center gap-2 mb-1.5">
+              <span className="w-2.5 h-2.5 rounded-none bg-emerald-800" />
               <h2 className="text-lg font-bold text-[#111827]">
                 Official Scholarship Directory & Discovery
               </h2>
             </div>
-            <p className="text-xs text-[#6B7280]">
+            <p className="text-xs text-[#6B7280] leading-relaxed">
               Explore verified scholarships across Central (NSP) and Maharashtra State (MahaDBT) official portals.
             </p>
           </div>
 
-          <div className="flex items-center gap-2 self-start sm:self-auto flex-wrap">
+          <div className="flex items-center gap-2.5 self-start sm:self-auto flex-wrap">
             {onSyncMahaDbt && (
               <button
                 type="button"
                 onClick={onSyncMahaDbt}
                 disabled={isSyncingMahaDbt}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-emerald-200 hover:border-emerald-500 text-xs font-semibold text-emerald-800 bg-emerald-50/60 hover:bg-emerald-100/70 transition-all cursor-pointer disabled:opacity-50"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-none border border-emerald-300 hover:border-emerald-700 text-xs font-semibold text-emerald-900 bg-emerald-50/80 hover:bg-emerald-100 transition-all cursor-pointer disabled:opacity-50"
                 title="Synchronize MahaDBT schemes from mahadbt.maharashtra.gov.in"
               >
-                <RefreshCw className={`w-3.5 h-3.5 text-emerald-700 ${isSyncingMahaDbt ? 'animate-spin' : ''}`} />
+                <RefreshCw className={`w-3.5 h-3.5 text-emerald-800 ${isSyncingMahaDbt ? 'animate-spin' : ''}`} />
                 <span>{isSyncingMahaDbt ? 'Syncing MahaDBT...' : 'Sync MahaDBT'}</span>
               </button>
             )}
@@ -247,10 +247,10 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
                 type="button"
                 onClick={onSyncNsp}
                 disabled={isSyncingNsp}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-[#E5E7EB] hover:border-[#16A34A] text-xs font-semibold text-[#374151] hover:text-[#16A34A] bg-white transition-all cursor-pointer disabled:opacity-50"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-none border border-[#E5E7EB] hover:border-emerald-800 text-xs font-semibold text-[#374151] hover:text-emerald-900 bg-white transition-all cursor-pointer disabled:opacity-50"
                 title="Refresh scholarship records from official NSP directory"
               >
-                <RefreshCw className={`w-3.5 h-3.5 text-[#16A34A] ${isSyncingNsp ? 'animate-spin' : ''}`} />
+                <RefreshCw className={`w-3.5 h-3.5 text-emerald-800 ${isSyncingNsp ? 'animate-spin' : ''}`} />
                 <span>{isSyncingNsp ? 'Syncing NSP...' : 'Sync NSP'}</span>
               </button>
             )}
@@ -258,21 +258,21 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
         </div>
 
         {/* 1. Official Source Filter Tabs */}
-        <div className="flex items-center gap-2 pb-1 border-b border-[#F3F4F6] overflow-x-auto">
+        <div className="flex items-center gap-2 pb-2 border-b border-[#F3F4F6] overflow-x-auto">
           <span className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider mr-1 shrink-0">
             Source Portal:
           </span>
           <button
             type="button"
             onClick={() => setSelectedSource('ALL')}
-            className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer shrink-0 ${
+            className={`inline-flex items-center gap-2 px-4 py-2 rounded-none text-xs font-bold transition-all cursor-pointer shrink-0 ${
               selectedSource === 'ALL'
                 ? 'bg-[#111827] text-white shadow-xs'
                 : 'bg-[#F9FAFB] text-[#4B5563] hover:bg-[#F3F4F6]'
             }`}
           >
             <span>All Sources</span>
-            <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono ${selectedSource === 'ALL' ? 'bg-white/20 text-white' : 'bg-[#E5E7EB] text-[#374151]'}`}>
+            <span className={`text-[10px] px-1.5 py-0.5 rounded-none font-mono ${selectedSource === 'ALL' ? 'bg-white/20 text-white' : 'bg-[#E5E7EB] text-[#374151]'}`}>
               {scholarships.length}
             </span>
           </button>
@@ -280,15 +280,15 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
           <button
             type="button"
             onClick={() => setSelectedSource('NSP')}
-            className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer shrink-0 ${
+            className={`inline-flex items-center gap-2 px-4 py-2 rounded-none text-xs font-bold transition-all cursor-pointer shrink-0 ${
               selectedSource === 'NSP'
-                ? 'bg-blue-700 text-white shadow-xs'
-                : 'bg-blue-50 text-blue-800 hover:bg-blue-100 border border-blue-200/60'
+                ? 'bg-blue-800 text-white shadow-xs'
+                : 'bg-blue-50 text-blue-900 hover:bg-blue-100 border border-blue-200/60'
             }`}
           >
             <Landmark className="w-3.5 h-3.5" />
             <span>National Scholarship Portal (NSP)</span>
-            <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono ${selectedSource === 'NSP' ? 'bg-white/20 text-white' : 'bg-blue-200 text-blue-900'}`}>
+            <span className={`text-[10px] px-1.5 py-0.5 rounded-none font-mono ${selectedSource === 'NSP' ? 'bg-white/20 text-white' : 'bg-blue-200 text-blue-900'}`}>
               {nspCount}
             </span>
           </button>
@@ -296,15 +296,15 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
           <button
             type="button"
             onClick={() => setSelectedSource('MAHADBT')}
-            className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer shrink-0 ${
+            className={`inline-flex items-center gap-2 px-4 py-2 rounded-none text-xs font-bold transition-all cursor-pointer shrink-0 ${
               selectedSource === 'MAHADBT'
-                ? 'bg-[#16A34A] text-white shadow-xs'
-                : 'bg-emerald-50 text-emerald-800 hover:bg-emerald-100 border border-emerald-200/60'
+                ? 'bg-emerald-800 text-white shadow-xs'
+                : 'bg-emerald-50 text-emerald-900 hover:bg-emerald-100 border border-emerald-200/60'
             }`}
           >
             <Building2 className="w-3.5 h-3.5" />
             <span>MahaDBT (Maharashtra)</span>
-            <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono ${selectedSource === 'MAHADBT' ? 'bg-white/20 text-white' : 'bg-emerald-200 text-emerald-900'}`}>
+            <span className={`text-[10px] px-1.5 py-0.5 rounded-none font-mono ${selectedSource === 'MAHADBT' ? 'bg-white/20 text-white' : 'bg-emerald-200 text-emerald-950'}`}>
               {mahadbtCount}
             </span>
           </button>
@@ -312,22 +312,22 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
 
         {/* 2. Eligibility State Tabs (if student profile exists) */}
         {isProfileCompleted && (
-          <div className="flex flex-wrap items-center gap-2 pt-1">
+          <div className="flex flex-wrap items-center gap-2.5 pt-1">
             <span className="text-xs font-semibold text-[#6B7280] uppercase tracking-wider mr-1">
               Status for You:
             </span>
             <button
               type="button"
               onClick={() => setEligibilityFilter('eligible')}
-              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+              className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-none text-xs font-semibold transition-all cursor-pointer ${
                 eligibilityFilter === 'eligible'
-                  ? 'bg-[#16A34A] text-white shadow-2xs'
-                  : 'bg-[#F0FDF4] text-[#16A34A] hover:bg-[#DCFCE7] border border-[#DCFCE7]'
+                  ? 'bg-emerald-800 text-white shadow-2xs'
+                  : 'bg-emerald-50 text-emerald-900 hover:bg-emerald-100 border border-emerald-200'
               }`}
             >
               <CheckCircle2 className="w-3.5 h-3.5" />
               <span>Eligible</span>
-              <span className="bg-white/20 px-1.5 py-0.2 rounded-full font-mono text-[10px]">
+              <span className="bg-white/20 px-1.5 py-0.5 rounded-none font-mono text-[10px]">
                 {evaluation.summary.eligible_count}
               </span>
             </button>
@@ -335,15 +335,15 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
             <button
               type="button"
               onClick={() => setEligibilityFilter('undetermined')}
-              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+              className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-none text-xs font-semibold transition-all cursor-pointer ${
                 eligibilityFilter === 'undetermined'
-                  ? 'bg-amber-600 text-white shadow-2xs'
-                  : 'bg-amber-50 text-amber-700 hover:bg-amber-100 border border-amber-200'
+                  ? 'bg-amber-700 text-white shadow-2xs'
+                  : 'bg-amber-50 text-amber-800 hover:bg-amber-100 border border-amber-200'
               }`}
             >
               <HelpCircle className="w-3.5 h-3.5" />
               <span>Needs Info</span>
-              <span className="bg-white/20 px-1.5 py-0.2 rounded-full font-mono text-[10px]">
+              <span className="bg-white/20 px-1.5 py-0.5 rounded-none font-mono text-[10px]">
                 {evaluation.summary.undetermined_count}
               </span>
             </button>
@@ -351,7 +351,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
             <button
               type="button"
               onClick={() => setEligibilityFilter('ineligible')}
-              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+              className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-none text-xs font-semibold transition-all cursor-pointer ${
                 eligibilityFilter === 'ineligible'
                   ? 'bg-[#4B5563] text-white shadow-2xs'
                   : 'bg-[#F3F4F6] text-[#4B5563] hover:bg-[#E5E7EB] border border-[#E5E7EB]'
@@ -359,7 +359,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
             >
               <XCircle className="w-3.5 h-3.5" />
               <span>Ineligible</span>
-              <span className="bg-white/20 px-1.5 py-0.2 rounded-full font-mono text-[10px]">
+              <span className="bg-white/20 px-1.5 py-0.5 rounded-none font-mono text-[10px]">
                 {evaluation.summary.ineligible_count}
               </span>
             </button>
@@ -367,14 +367,14 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
             <button
               type="button"
               onClick={() => setEligibilityFilter('all')}
-              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+              className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-none text-xs font-semibold transition-all cursor-pointer ${
                 eligibilityFilter === 'all'
                   ? 'bg-[#111827] text-white shadow-2xs'
                   : 'bg-[#F9FAFB] text-[#6B7280] hover:bg-[#F3F4F6] border border-[#E5E7EB]'
               }`}
             >
               <span>All Statuses</span>
-              <span className="bg-black/10 px-1.5 py-0.2 rounded-full font-mono text-[10px]">
+              <span className="bg-black/10 px-1.5 py-0.5 rounded-none font-mono text-[10px]">
                 {scholarships.length}
               </span>
             </button>
@@ -382,7 +382,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
         )}
 
         {/* 3. Search and Secondary Filters */}
-        <div className="grid grid-cols-1 sm:grid-cols-12 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-12 gap-4">
           <div className="relative sm:col-span-5">
             <Search className="w-4 h-4 text-[#9CA3AF] absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
@@ -390,7 +390,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
               placeholder="Search by scholarship name, department, or keyword..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-9.5 pr-4 py-2 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl text-xs text-[#111827] placeholder-[#9CA3AF] focus:outline-none focus:border-[#16A34A] focus:bg-white transition-colors"
+              className="w-full pl-10 pr-4 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-none text-xs text-[#111827] placeholder-[#9CA3AF] focus:outline-none focus:ring-1 focus:ring-emerald-800 focus:border-emerald-800 focus:bg-white transition-colors"
             />
           </div>
 
@@ -399,7 +399,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
               value={selectedDepartment}
               onChange={(e) => setSelectedDepartment(e.target.value)}
               aria-label="Filter by department"
-              className="w-full px-3 py-2 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl text-xs text-[#374151] focus:outline-none focus:border-[#16A34A] focus:bg-white transition-colors cursor-pointer"
+              className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-none text-xs text-[#374151] focus:outline-none focus:ring-1 focus:ring-emerald-800 focus:border-emerald-800 focus:bg-white transition-colors cursor-pointer"
             >
               <option value="ALL">All Government Departments ({departments.length})</option>
               {departments.map((dept) => (
@@ -415,7 +415,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
               value={selectedSchemeType}
               onChange={(e) => setSelectedSchemeType(e.target.value)}
               aria-label="Filter by scheme type"
-              className="w-full px-3 py-2 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl text-xs text-[#374151] focus:outline-none focus:border-[#16A34A] focus:bg-white transition-colors cursor-pointer"
+              className="w-full px-3.5 py-2.5 bg-[#F9FAFB] border border-[#E5E7EB] rounded-none text-xs text-[#374151] focus:outline-none focus:ring-1 focus:ring-emerald-800 focus:border-emerald-800 focus:bg-white transition-colors cursor-pointer"
             >
               <option value="ALL">All Benefit Types</option>
               <option value="fee_reimbursement">Fee Reimbursement / Freeship</option>
@@ -432,7 +432,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
             Showing <strong className="text-[#111827]">{filtered.length}</strong> of{' '}
             <strong>{baseTotal}</strong> schemes
             {selectedSource !== 'ALL' && (
-              <span className="ml-1 font-semibold text-[#16A34A]">
+              <span className="ml-1 font-semibold text-emerald-800">
                 ({selectedSource === 'MAHADBT' ? 'MahaDBT Maharashtra' : 'NSP National'})
               </span>
             )}
@@ -451,7 +451,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
                 setSelectedSchemeType('ALL');
                 setSelectedClassification('ALL');
               }}
-              className="text-[#16A34A] hover:underline font-semibold cursor-pointer"
+              className="text-emerald-800 hover:text-emerald-950 hover:underline font-semibold cursor-pointer"
             >
               Reset Filters
             </button>
@@ -460,7 +460,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
       </div>
 
       {/* Scholarship Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filtered.map((s) => {
           const isEligible = eligibleScholarshipIds.has(s.id);
           const matchResult = evaluation.matchMap.get(s.id);
@@ -469,24 +469,24 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
           return (
             <div
               key={s.id}
-              className={`bg-white border rounded-2xl p-5 shadow-xs transition-all flex flex-col justify-between group ${
+              className={`bg-white border rounded-none p-6 shadow-xs transition-all flex flex-col justify-between group ${
                 isEligible
-                  ? 'border-[#DCFCE7] hover:border-[#16A34A] hover:shadow-sm'
-                  : 'border-[#E5E7EB] hover:border-[#D1D5DB]'
+                  ? 'border-emerald-300 hover:border-emerald-700 hover:shadow-sm'
+                  : 'border-[#E5E7EB] hover:border-gray-400'
               }`}
             >
               <div>
                 {/* Source & Department Provenance */}
-                <div className="flex items-center justify-between text-[11px] pb-2.5 mb-2.5 border-b border-[#F3F4F6] gap-1.5 flex-wrap">
-                  <div className="flex items-center gap-1.5">
+                <div className="flex items-center justify-between text-[11px] pb-3 mb-3 border-b border-[#F3F4F6] gap-2 flex-wrap">
+                  <div className="flex items-center gap-2">
                     {isMaha ? (
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 text-[10px] font-bold border border-emerald-200">
-                        <Building2 className="w-2.5 h-2.5 text-emerald-600" />
+                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-none bg-emerald-50 text-emerald-900 text-[10px] font-bold border border-emerald-200">
+                        <Building2 className="w-3 h-3 text-emerald-700" />
                         <span>MahaDBT</span>
                       </span>
                     ) : (
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-blue-50 text-blue-800 text-[10px] font-bold border border-blue-200">
-                        <Landmark className="w-2.5 h-2.5 text-blue-600" />
+                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-none bg-blue-50 text-blue-900 text-[10px] font-bold border border-blue-200">
+                        <Landmark className="w-3 h-3 text-blue-700" />
                         <span>NSP</span>
                       </span>
                     )}
@@ -495,20 +495,20 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-1.5">
                     {s.mahadbt_scheme_type && (
-                      <span className="px-1.5 py-0.2 rounded text-[10px] font-medium bg-amber-50 text-amber-800 border border-amber-200/50">
+                      <span className="px-2 py-0.5 rounded-none text-[10px] font-medium bg-amber-50 text-amber-900 border border-amber-200">
                         {s.mahadbt_scheme_type.replace('_', ' ')}
                       </span>
                     )}
                     {s.scheme_type === 'merit_based' ? (
-                      <span className="inline-flex items-center gap-0.5 text-[10px] font-medium px-1.5 py-0.5 rounded bg-[#EFF6FF] text-[#1D4ED8]">
-                        <Award className="w-2.5 h-2.5" />
+                      <span className="inline-flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-none bg-blue-50 text-blue-800 border border-blue-200">
+                        <Award className="w-3 h-3" />
                         <span>Merit</span>
                       </span>
                     ) : (
-                      <span className="inline-flex items-center gap-0.5 text-[10px] font-medium px-1.5 py-0.5 rounded bg-[#F5F3FF] text-[#6D28D9]">
-                        <HeartHandshake className="w-2.5 h-2.5" />
+                      <span className="inline-flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-none bg-purple-50 text-purple-900 border border-purple-200">
+                        <HeartHandshake className="w-3 h-3" />
                         <span>Welfare</span>
                       </span>
                     )}
@@ -516,7 +516,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
                 </div>
 
                 {/* Department or Provider */}
-                <div className="text-[11px] font-semibold text-[#6B7280] uppercase tracking-wider mb-1 line-clamp-1">
+                <div className="text-[11px] font-semibold text-[#6B7280] uppercase tracking-wider mb-1.5 line-clamp-1">
                   {s.department || s.provider}
                 </div>
 
@@ -526,20 +526,20 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
                 </h3>
 
                 {/* Financial Benefit */}
-                <div className="mt-3 mb-3 pb-3 border-b border-[#F3F4F6]">
+                <div className="mt-4 mb-4 pb-4 border-b border-[#F3F4F6]">
                   <div className="text-xl font-bold text-[#111827]">
                     {formatINR(s.benefit_amount)}
                     <span className="text-xs font-normal text-[#6B7280] ml-1">
                       / year
                     </span>
                   </div>
-                  <span className="text-[11px] text-[#6B7280] block mt-0.5 truncate">
+                  <span className="text-[11px] text-[#6B7280] block mt-1 truncate">
                     {s.classification} • {s.department || s.provider}
                   </span>
                 </div>
 
                 {/* Quick Eligibility Requirements */}
-                <div className="space-y-1 text-xs text-[#4B5563]">
+                <div className="space-y-2 text-xs text-[#4B5563]">
                   <div className="flex items-center justify-between">
                     <span className="text-[#6B7280]">Domicile:</span>
                     <span className="font-semibold text-[#111827]">
@@ -562,13 +562,13 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-4 mt-4 border-t border-[#F3F4F6] flex items-center justify-between gap-2 flex-wrap">
-                <div className="flex items-center gap-1.5">
+              <div className="pt-5 mt-5 border-t border-[#F3F4F6] flex items-center justify-between gap-2.5 flex-wrap">
+                <div className="flex items-center gap-2">
                   <a
                     href={getVerifiedOfficialSourceUrl(s)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[11px] font-medium text-[#6B7280] hover:text-[#16A34A] flex items-center gap-1 transition-colors"
+                    className="text-[11px] font-medium text-[#6B7280] hover:text-emerald-800 flex items-center gap-1 transition-colors"
                     title="Open official scheme page"
                   >
                     <span>Official Scheme</span>
@@ -580,7 +580,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
                       href={s.official_specification_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[11px] font-semibold text-rose-700 hover:text-rose-900 bg-rose-50 px-1.5 py-0.5 rounded flex items-center gap-1 transition-colors border border-rose-200"
+                      className="text-[11px] font-semibold text-rose-700 hover:text-rose-900 bg-rose-50 px-2 py-0.5 rounded-none flex items-center gap-1 transition-colors border border-rose-200"
                       title="Open official Government Resolution (GR) PDF"
                     >
                       <FileText className="w-3 h-3" />
@@ -593,7 +593,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
                   <button
                     type="button"
                     onClick={() => onOpenDetails(s, matchResult)}
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-[#4B5563] hover:text-[#111827] px-2.5 py-1.5 rounded-xl border border-[#E5E7EB] hover:bg-[#F9FAFB] transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#4B5563] hover:text-[#111827] px-3 py-1.5 rounded-none border border-[#E5E7EB] hover:bg-[#F9FAFB] transition-colors cursor-pointer"
                   >
                     <span>Details</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -606,11 +606,7 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
                         href={officialAppUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`inline-flex items-center gap-1 text-xs font-bold px-3 py-1.5 rounded-xl transition-all shadow-2xs ${
-                          isMaha
-                            ? 'text-white bg-emerald-700 hover:bg-emerald-800'
-                            : 'text-white bg-[#16A34A] hover:bg-[#15803D]'
-                        }`}
+                        className="inline-flex items-center gap-1.5 text-xs font-bold px-3.5 py-1.5 rounded-none transition-all shadow-2xs text-white bg-emerald-800 hover:bg-emerald-900 cursor-pointer"
                         title={`Open official ${isMaha ? 'MahaDBT' : 'NSP'} application portal in new tab`}
                       >
                         <span>Apply Now</span>
@@ -626,8 +622,8 @@ export const CatalogView: React.FC<CatalogViewProps> = ({
       </div>
 
       {filtered.length === 0 && (
-        <div className="bg-white border border-[#E5E7EB] rounded-2xl p-12 text-center">
-          <p className="text-sm font-semibold text-[#374151] mb-1">
+        <div className="bg-white border border-[#E5E7EB] rounded-none p-12 text-center">
+          <p className="text-sm font-semibold text-[#374151] mb-1.5">
             No scholarships found matching your filters.
           </p>
           <p className="text-xs text-[#6B7280]">

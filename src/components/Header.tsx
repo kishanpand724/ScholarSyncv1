@@ -21,7 +21,7 @@ export const Header: React.FC<HeaderProps> = ({
       case 'profile':
         return {
           title: 'Student Profile',
-          description: 'Set your academic, financial, and quota details.'
+          description: 'Set your academic, financial, and category details.'
         };
       case 'scholarships':
         return {
@@ -30,18 +30,18 @@ export const Header: React.FC<HeaderProps> = ({
         };
       case 'combinations':
         return {
-          title: 'Compatible Plans & Combinations',
-          description: 'View conflict-free scholarship packages and stacked financial benefit.'
+          title: 'Scholarship Combinations',
+          description: 'Multi-scholarship packages you can apply for together without conflicts.'
         };
       case 'network':
         return {
-          title: 'Compatibility & Conflict Network',
-          description: 'Interactive topological relationship graph across official scholarships.'
+          title: 'Compatibility Network',
+          description: 'Visual map of compatibility and restrictions between scholarships.'
         };
       case 'whatif':
         return {
-          title: 'What-If? Scenario Simulator',
-          description: 'Simulate hypothetical profile adjustments without mutating saved data.'
+          title: 'What-If? Simulator',
+          description: 'Explore how changes to your marks or income unlock new scholarships.'
         };
       default:
         return {
@@ -54,12 +54,12 @@ export const Header: React.FC<HeaderProps> = ({
   const pageInfo = getPageInfo();
 
   return (
-    <header className="sticky top-0 z-30 h-16 bg-white border-b border-[#E5E7EB] px-4 sm:px-8 flex items-center justify-between">
+    <header className="sticky top-0 z-30 h-18 bg-white border-b border-[#E5E7EB] px-6 sm:px-10 flex items-center justify-between">
       {/* Left: Mobile hamburger & Page Title */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-4">
         <button
           onClick={onOpenMobileSidebar}
-          className="lg:hidden p-2 rounded-xl text-[#4B5563] hover:bg-[#F3F4F6] transition-colors"
+          className="lg:hidden p-2.5 rounded-none text-[#4B5563] hover:bg-[#F3F4F6] transition-colors cursor-pointer"
           aria-label="Open navigation menu"
         >
           <Menu className="w-5 h-5" />
@@ -69,7 +69,7 @@ export const Header: React.FC<HeaderProps> = ({
           <h1 className="text-base sm:text-lg font-bold text-[#111827] leading-tight">
             {pageInfo.title}
           </h1>
-          <p className="text-xs text-[#6B7280] hidden sm:block leading-tight mt-0.5">
+          <p className="text-xs text-[#6B7280] hidden sm:block leading-tight mt-1">
             {pageInfo.description}
           </p>
         </div>

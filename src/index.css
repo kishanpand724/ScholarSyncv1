@@ -8,7 +8,7 @@
   }
 }
 
-/* Custom clean subtle scrollbar */
+/* Custom clean subtle square scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -18,7 +18,7 @@
 }
 ::-webkit-scrollbar-thumb {
   background: #D1D5DB;
-  border-radius: 9999px;
+  border-radius: 0px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #9CA3AF;

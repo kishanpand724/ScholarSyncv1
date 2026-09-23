@@ -2,10 +2,10 @@ import React from 'react';
 import {
   X,
   RotateCcw,
-  Server,
-  Layers,
+  User,
   ShieldCheck,
-  CheckCircle2
+  CheckCircle2,
+  FileText
 } from 'lucide-react';
 import { StudentProfile } from '../types/scholarship';
 
@@ -27,79 +27,67 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-xs overflow-y-auto">
       <div
-        className="relative w-full max-w-xl bg-white rounded-2xl shadow-xl border border-[#E5E7EB] overflow-hidden my-8 flex flex-col"
+        className="relative w-full max-w-xl bg-white rounded-none shadow-xl border border-[#E5E7EB] overflow-hidden my-8 flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="p-6 border-b border-[#F3F4F6] flex items-center justify-between">
+        <div className="p-6 sm:p-7 border-b border-[#F3F4F6] flex items-center justify-between">
           <div>
             <h2 className="text-lg font-bold text-[#111827]">
-              System Preferences
+              Profile &amp; Settings
             </h2>
-            <p className="text-xs text-[#6B7280] mt-0.5">
-              Engine status, multi-portal verification, and profile management.
+            <p className="text-xs text-[#6B7280] mt-1">
+              Manage your student profile data and preferences.
             </p>
           </div>
 
           <button
             onClick={onClose}
-            className="p-2 rounded-xl text-[#6B7280] hover:text-[#111827] hover:bg-[#F3F4F6] transition-colors cursor-pointer"
+            className="p-2 rounded-none text-[#6B7280] hover:text-[#111827] hover:bg-[#F3F4F6] transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Content */}
-        <div className="p-6 space-y-6 overflow-y-auto max-h-[75vh]">
+        <div className="p-6 sm:p-7 space-y-6 overflow-y-auto max-h-[75vh]">
           {/* Active Profile Status */}
-          <div className="p-4 rounded-xl bg-[#F0FDF4] border border-[#DCFCE7] space-y-1">
-            <span className="text-[11px] font-bold text-[#166534] uppercase tracking-wider block">
-              Active Profile Status
-            </span>
-            <div className="text-sm font-bold text-[#111827]">
-              {currentProfile.name ? currentProfile.name : 'Candidate Profile (Pending Setup)'}
+          <div className="p-5 rounded-none bg-emerald-50 border border-emerald-200 space-y-2">
+            <div className="flex items-center gap-2">
+              <User className="w-4 h-4 text-emerald-800" />
+              <span className="text-[11px] font-bold text-emerald-900 uppercase tracking-wider">
+                Current Student Profile
+              </span>
             </div>
-            <p className="text-xs text-[#166534]">
-              {currentProfile.academic_percentage > 0
-                ? `${currentProfile.course} • ${currentProfile.academic_percentage}% Marks • ${currentProfile.category} • ${currentProfile.state_domicile}`
-                : 'Configure your profile in the Student Profile Setup tab.'}
+            <div className="text-sm font-bold text-[#111827]">
+              {currentProfile.name ? currentProfile.name : 'Profile not configured'}
+            </div>
+            <p className="text-xs text-emerald-900">
+              {currentProfile.is_completed
+                ? `${currentProfile.course || 'Course specified'} • ${currentProfile.academic_percentage || 0}% Marks • ${currentProfile.category || 'Category'} • ${currentProfile.state_domicile || 'State'}`
+                : 'Complete your profile to find scholarships matching your eligibility.'}
             </p>
           </div>
 
-          {/* Engine & Architecture Info */}
-          <div className="p-4 rounded-xl bg-[#F9FAFB] border border-[#E5E7EB] space-y-3">
-            <h3 className="text-xs font-bold text-[#111827] uppercase tracking-wider flex items-center gap-1.5">
-              <Server className="w-4 h-4 text-[#16A34A]" />
-              System Architecture & Multi-Portal Pipeline
-            </h3>
-            <div className="space-y-2 text-xs text-[#4B5563]">
-              <div className="flex justify-between items-center py-1 border-b border-[#F3F4F6]">
-                <span className="text-[#6B7280]">Eligibility Engine:</span>
-                <span className="font-semibold text-[#111827]">8-Gate Deterministic Rule Engine</span>
-              </div>
-              <div className="flex justify-between items-center py-1 border-b border-[#F3F4F6]">
-                <span className="text-[#6B7280]">Combination Engine:</span>
-                <span className="font-semibold text-[#111827]">Statutory Stacking & Conflict Matrix</span>
-              </div>
-              <div className="flex justify-between items-center py-1 border-b border-[#F3F4F6]">
-                <span className="text-[#6B7280]">Portal Integration:</span>
-                <span className="font-semibold text-[#111827]">Multi-Portal Directory Extensible</span>
-              </div>
-              <div className="flex justify-between items-center py-1">
-                <span className="text-[#6B7280]">Decision Type:</span>
-                <span className="font-semibold text-[#16A34A]">Explainable 3-State (Pass/Fail/Info-Needed)</span>
-              </div>
+          {/* Privacy and Local Storage Notice */}
+          <div className="p-4.5 rounded-none bg-[#F9FAFB] border border-[#E5E7EB] space-y-2 text-xs">
+            <div className="flex items-center gap-2 text-[#111827] font-semibold">
+              <ShieldCheck className="w-4 h-4 text-emerald-800" />
+              <span>Data Privacy &amp; Storage</span>
             </div>
+            <p className="text-[#6B7280] leading-relaxed">
+              Your profile details are stored locally on your device and are used solely to match eligibility criteria and calculate scholarship combinations.
+            </p>
           </div>
 
           {/* Reset Action */}
-          <div className="pt-2 border-t border-[#F3F4F6] flex items-center justify-between">
+          <div className="pt-3 border-t border-[#F3F4F6] flex items-center justify-between">
             <div>
               <span className="text-xs font-bold text-[#111827] block">
-                Reset Profile Form
+                Clear Profile Data
               </span>
-              <span className="text-[11px] text-[#6B7280]">
-                Clear entered inputs to start with a blank student profile
+              <span className="text-[11px] text-[#6B7280] mt-0.5 block">
+                Reset your saved details to start fresh with a blank profile
               </span>
             </div>
 
@@ -109,7 +97,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 onResetDemo();
                 onClose();
               }}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white border border-[#FEE2E2] text-[#DC2626] hover:bg-[#FEF2F2] text-xs font-semibold transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-none bg-white border border-[#FEE2E2] text-[#DC2626] hover:bg-[#FEF2F2] text-xs font-semibold transition-colors cursor-pointer"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Clear Profile</span>
@@ -118,11 +106,11 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="p-4 bg-[#F9FAFB] border-t border-[#F3F4F6] flex justify-end">
+        <div className="p-4.5 sm:p-5 bg-[#F9FAFB] border-t border-[#F3F4F6] flex justify-end">
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 text-xs font-semibold rounded-xl text-[#374151] hover:text-[#111827] cursor-pointer"
+            className="px-5 py-2.5 text-xs font-semibold rounded-none text-[#374151] hover:text-[#111827] bg-white border border-[#E5E7EB] hover:border-[#D1D5DB] cursor-pointer"
           >
             Close
           </button>

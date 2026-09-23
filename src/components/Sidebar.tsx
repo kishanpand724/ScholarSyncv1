@@ -104,16 +104,16 @@ export const Sidebar: React.FC<SidebarProps> = ({
       >
         <div>
           {/* Brand Header */}
-          <div className="h-16 px-6 border-b border-[#E5E7EB] flex items-center justify-between">
-            <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-[#F0FDF4] border border-[#DCFCE7] flex items-center justify-center text-[#16A34A] shadow-2xs">
+          <div className="h-18 px-6 border-b border-[#E5E7EB] flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-none bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-800 shadow-2xs">
                 <GraduationCap className="w-5 h-5 stroke-[2.2]" />
               </div>
               <div>
                 <span className="text-base font-bold text-[#111827] tracking-tight block leading-tight">
                   ScholarSync
                 </span>
-                <span className="text-[10px] font-medium text-[#6B7280] tracking-wide block">
+                <span className="text-[10px] font-medium text-[#6B7280] tracking-wide block mt-0.5">
                   by Team Scholar IQ
                 </span>
               </div>
@@ -122,15 +122,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
             {/* Mobile close button */}
             <button
               onClick={() => setIsMobileOpen(false)}
-              className="lg:hidden p-1.5 rounded-lg text-[#6B7280] hover:bg-[#F3F4F6] transition-colors"
+              className="lg:hidden p-2 rounded-none text-[#6B7280] hover:bg-[#F3F4F6] transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
 
           {/* Navigation Items */}
-          <div className="p-4 space-y-1">
-            <div className="px-3 pb-2 pt-1 text-[11px] font-semibold text-[#6B7280] uppercase tracking-wider">
+          <div className="p-5 space-y-1.5">
+            <div className="px-3 pb-2.5 pt-1 text-[11px] font-semibold text-[#6B7280] uppercase tracking-wider">
               Main Menu
             </div>
 
@@ -142,16 +142,16 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
-                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                  className={`w-full flex items-center justify-between px-4 py-3 rounded-none text-sm font-medium transition-all cursor-pointer ${
                     isActive
-                      ? 'bg-[#F0FDF4] text-[#16A34A] font-semibold'
+                      ? 'bg-emerald-50 text-emerald-800 font-semibold border-l-2 border-emerald-800'
                       : 'text-[#4B5563] hover:text-[#111827] hover:bg-[#F9FAFB]'
                   }`}
                 >
                   <div className="flex items-center gap-3">
                     <Icon
                       className={`w-4 h-4 ${
-                        isActive ? 'text-[#16A34A]' : 'text-[#6B7280]'
+                        isActive ? 'text-emerald-800' : 'text-[#6B7280]'
                       }`}
                     />
                     <span>{item.label}</span>
@@ -159,9 +159,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
                   {item.badge && (
                     <span
-                      className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
+                      className={`text-[10px] font-semibold px-2 py-0.5 rounded-none ${
                         isActive
-                          ? 'bg-[#DCFCE7] text-[#15803D]'
+                          ? 'bg-emerald-100 text-emerald-900 border border-emerald-300'
                           : 'bg-[#F3F4F6] text-[#4B5563]'
                       }`}
                     >
@@ -174,43 +174,21 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </div>
         </div>
 
-        {/* Bottom Actions & Data Provenance */}
-        <div className="p-4 border-t border-[#E5E7EB] space-y-2 bg-white">
-          <div className="px-2 py-2 rounded-xl bg-[#F9FAFB] border border-[#E5E7EB]/60">
-            <span className="text-[10px] font-bold text-[#374151] uppercase tracking-wider block mb-1">
-              Official Data Portals
-            </span>
-            <div className="space-y-1 text-[11px]">
-              <div className="flex items-center justify-between text-[#4B5563]">
-                <span className="flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
-                  NSP (Central)
-                </span>
-                <span className="font-mono text-[10px] text-gray-500 font-medium">AY 2026-27</span>
-              </div>
-              <div className="flex items-center justify-between text-[#4B5563]">
-                <span className="flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
-                  MahaDBT (Maharashtra)
-                </span>
-                <span className="font-mono text-[10px] text-gray-500 font-medium">Govt of MH</span>
-              </div>
-            </div>
-          </div>
-
+        {/* Bottom Actions */}
+        <div className="p-5 border-t border-[#E5E7EB] space-y-2 bg-white">
           <button
             onClick={onOpenSettings}
-            className="w-full flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs font-medium text-[#4B5563] hover:text-[#111827] hover:bg-[#F9FAFB] transition-colors text-left cursor-pointer"
+            className="w-full flex items-center gap-3 px-4 py-2.5 rounded-none text-xs font-medium text-[#4B5563] hover:text-[#111827] hover:bg-[#F9FAFB] transition-colors text-left cursor-pointer"
           >
             <Settings className="w-4 h-4 text-[#6B7280]" />
-            <span>Preferences</span>
+            <span>Profile &amp; Settings</span>
           </button>
 
           <button
             onClick={onResetProfile}
-            className="w-full flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs font-medium text-[#DC2626] hover:bg-[#FEF2F2] transition-colors text-left cursor-pointer"
+            className="w-full flex items-center gap-3 px-4 py-2.5 rounded-none text-xs font-medium text-rose-700 hover:bg-rose-50 transition-colors text-left cursor-pointer"
           >
-            <RotateCcw className="w-4 h-4 text-[#DC2626]" />
+            <RotateCcw className="w-4 h-4 text-rose-700" />
             <span>Reset Profile</span>
           </button>
         </div>
