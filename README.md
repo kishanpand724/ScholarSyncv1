@@ -1,764 +1,597 @@
-# ScholarSync — Intelligent Scholarship & Combination Engine
+ScholarSync — Intelligent Scholarship & Combination Engine
 
-> **Built by Team Scholar IQ**
+One Profile. Every Eligible Scholarship. Smarter Combinations.
 
-ScholarSync is an intelligent scholarship discovery, eligibility analysis, and automatic scholarship combination platform designed to help students discover scholarship opportunities from multiple official sources and understand which scholarships they can apply for.
+ScholarSync is an intelligent scholarship discovery and combination engine that helps students discover scholarships, understand their eligibility, track deadlines and documents, and automatically identify valid scholarship combinations from a single student profile.
 
-Instead of manually searching different scholarship portals and checking complicated eligibility conditions one by one, ScholarSync allows a student to enter their profile once and automatically evaluates available scholarships against that profile.
+Instead of forcing students to search through multiple portals and manually compare complicated eligibility and scholarship rules, ScholarSync turns the process into a profile-driven, explainable and automated workflow.
 
-## Live Demo
+🔗 Live Demo
 
-**ScholarSync — Intelligent Scholarship & Combination Engine**
+https://scholarsync-v1-git-main-kaknateganesh24.vercel.app/
 
-https://scholarsync-scholariqv1.ai.studio/
+💻 GitHub
 
----
+https://github.com/kishanpand724/ScholarSyncv1
 
-# Problem Statement
+🎯 The Problem
 
-Students often have to search through multiple scholarship portals to find financial assistance.
+Finding a scholarship is easy.
 
-The major problems include:
+Finding the right combination of scholarships is not.
 
-* Scholarship information is distributed across different portals.
-* Eligibility criteria are often complicated and scheme-specific.
-* Students have to manually compare their profile with every scholarship.
-* Missing information can be confused with ineligibility.
-* Some scholarships have restrictions on receiving other financial assistance.
-* Students may not know why they are rejected by a particular scholarship.
-* Finding combinations of scholarships manually is difficult.
-* Scholarship information can change between academic years.
+Students often have to:
 
-ScholarSync addresses these problems through a **data-driven eligibility engine and automatic combination engine**.
+Search multiple scholarship portals
+Read lengthy eligibility conditions
+Compare income and academic requirements
+Check category, gender, domicile and course restrictions
+Track different deadlines
+Find required documents
+Visit different application portals
+Determine whether multiple scholarships can be received together
 
----
+This becomes especially difficult when two scholarships are individually eligible but cannot be combined due to their respective rules.
 
-# Our Solution
+The result is a fragmented and confusing process.
 
-ScholarSync follows a simple pipeline:
+💡 Our Solution
 
-```text
+ScholarSync converts this entire process into a single workflow:
+
 Student Profile
-       ↓
-Scholarship Data Collection
-       ↓
-Data Extraction & Normalization
-       ↓
-Structured Scholarship JSON
-       ↓
-Eligibility Engine
-       ↓
-Eligible / Not Eligible / Info Required
-       ↓
-Automatic Combination Engine
-       ↓
+      ↓
+Scholarship Dataset
+      ↓
+Eligibility Analysis
+      ↓
+Explainable Results
+      ↓
+Automatic Combination Generation
+      ↓
 Conflict Detection
-       ↓
+      ↓
 Valid Scholarship Combinations
+      ↓
+Benefits + Documents + Deadlines + Apply
+
+The student enters their profile once.
+
+ScholarSync does the rest.
+
+🚀 What Makes ScholarSync Different?
+
+Most scholarship platforms primarily help students find scholarships.
+
+ScholarSync goes one step further.
+
+Traditional Approach
+Search Scholarship
        ↓
-Student Dashboard
-```
+Read Eligibility
+       ↓
+Apply
+ScholarSync Approach
+Create Profile
+      ↓
+Automatically Evaluate Scholarships
+      ↓
+Understand Why You Are / Aren't Eligible
+      ↓
+Identify Missing Information
+      ↓
+Generate Possible Combinations
+      ↓
+Check Conflicts & Restrictions
+      ↓
+Calculate Potential Combined Benefits
+      ↓
+Prepare Documents & Application Links
 
-The student does not need to manually select scholarships to test combinations.
+The key innovation is the automatic combination engine.
 
----
+Students do not have to manually test:
 
-# Core Features
+A + B
+A + C
+A + D
+B + C
+...
 
-## 1. Single Student Profile
+ScholarSync generates and evaluates these combinations automatically.
 
-The student enters their information once.
+🧠 Core Intelligence
 
-The profile can contain:
+ScholarSync is built around three major engines.
 
-* Name
-* Date of birth
-* Gender
-* Domicile state
-* Category
-* Religion/community where applicable
-* Family income
-* Disability status
-* Parent information
-* Hosteller status
-* Academic qualifications
-* School/college details
-* Course
-* Branch/specialization
-* Current academic year
-* Current semester
-* Previous academic performance
-* CGPA/percentage
-* Backlogs/ATKT
-* Entrance examination information
-* Previous qualification details
+1. Eligibility Engine
 
-The academic fields are designed to adapt according to the student's education level and course.
+Evaluates each scholarship against the student's actual profile.
 
----
+It can consider:
 
-# 2. Multi-Portal Scholarship Data
+Family income
+Category
+Gender
+Domicile
+Academic percentage
+CGPA
+Qualifying examination
+Entrance examination
+Course
+Branch
+Current year
+Current semester
+Previous academic performance
+Backlogs / ATKT
+Other scholarship restrictions
+Three possible outcomes
+Result	Meaning
+✅ Eligible	Known requirements are satisfied
+❌ Not Eligible	A known requirement is not satisfied
+ℹ️ Additional Information Required	Required information is missing
 
-ScholarSync is designed to work with scholarship information from multiple official portals.
+This distinction is important because:
 
-### Current Sources
+Missing information should not automatically mean rejection.
 
-**National Scholarship Portal (NSP)**
+🔍 Explainable Eligibility
 
-https://scholarships.gov.in/
+ScholarSync doesn't simply say:
 
-**MahaDBT — Government of Maharashtra**
+"You are not eligible."
 
-https://mahadbt.maharashtra.gov.in/
+It can show which condition caused the result.
 
-The system is designed so that additional scholarship sources can be integrated without changing the core matching engine.
+Example:
 
----
+Family Income
 
-# 3. Scholarship Fetch Engine
+Student: ₹2,50,000
+Required: ≤ ₹4,50,000
 
-A major part of ScholarSync is the data collection pipeline.
-
-Instead of manually entering every scholarship into the application, the project contains a fetch/data-processing pipeline for collecting scholarship information from official sources.
-
-The basic workflow is:
-
-```text
-Official Scholarship Portal
-          ↓
-       Fetch Engine
-          ↓
-   Scholarship Pages/PDFs
-          ↓
-    Data Extraction
-          ↓
-   Data Normalization
-          ↓
- Structured Scholarship JSON
-          ↓
- Application Data Layer
-```
-
-The purpose of the fetch engine is to keep the application's scholarship dataset maintainable and scalable.
-
----
-
-# 4. Scholarship Data Extraction
-
-Scholarship information can exist in different formats, including:
-
-* Portal listings
-* Scheme pages
-* Guidelines
-* Government documents
-* PDF files
-* Structured web information
-
-The extraction pipeline processes this information and converts it into structured scholarship records.
-
-The extracted information can include:
-
-* Scholarship name
-* Provider/department
-* Academic year
-* Scholarship type
-* Eligibility criteria
-* Minimum percentage
-* Income limit
-* Category requirements
-* Gender requirements
-* Domicile requirements
-* Course requirements
-* Academic requirements
-* Benefit amount
-* Duration
-* Selection process
-* Required documents
-* Application deadline
-* Restrictions
-* Official scheme URL
-* Official guideline URL
-* Official application URL
-* Source portal
-
----
-
-# 5. Structured JSON Scholarship Dataset
-
-After fetching and extracting scholarship information, the data is converted into structured JSON records.
-
-The application can then consume the normalized scholarship dataset instead of repeatedly scraping websites during every student search.
-
-Conceptually:
-
-```json
-{
-  "id": "scholarship-id",
-  "name": "Scholarship Name",
-  "provider": "Organization",
-  "source": "NSP",
-  "academicYear": "2026-27",
-  "eligibility": {},
-  "benefit": {},
-  "documents": [],
-  "restrictions": {},
-  "officialSchemeUrl": "",
-  "officialGuidelineUrl": "",
-  "officialApplicationUrl": ""
-}
-```
-
-This separation makes the scholarship data independent from the frontend.
-
----
-
-# 6. Data Validation
-
-Scholarship data should not be blindly assumed to be correct.
-
-The extraction pipeline is designed to preserve information from the official source and avoid inventing missing eligibility conditions.
-
-When information is not specified by the source, it should remain:
-
-```text
-null
-```
+✓ Passed
 
 or:
 
-```text
-Not specified in source
-```
+Academic Percentage
 
-rather than being converted into an assumed eligibility rule.
+Student: 62%
+Required: ≥ 70%
 
-This is particularly important for scheme-specific conditions.
+✗ Failed
 
----
+This makes the matching process transparent and understandable.
 
-# 7. Deterministic Eligibility Engine
+🔗 Automatic Combination Engine
 
-The eligibility engine evaluates every scholarship against the student's saved profile.
+This is one of ScholarSync's core features.
 
-The matching process is rule-based and deterministic.
+Suppose the student is eligible for:
 
-It does not depend on an AI response for every individual scholarship evaluation.
+Scholarship A
+Scholarship B
+Scholarship C
+Scholarship D
 
-The engine evaluates relevant conditions such as:
+Instead of asking the student to manually select scholarships, the system automatically generates possible combinations:
 
-* Academic percentage
-* Previous qualification
-* Current academic year
-* Current semester
-* Course
-* Branch
-* Category
-* Gender
-* Family income
-* Domicile
-* Disability
-* Institution requirements
-* Entrance examination requirements
-* Other scheme-specific conditions
+A + B
+A + C
+A + D
+B + C
+B + D
+C + D
+A + B + C
+A + B + D
+...
 
----
+Each combination is then passed through the conflict-checking layer.
 
-# 8. Three-State Eligibility Result
+⚔️ Conflict Detection
 
-ScholarSync does not treat every missing value as an automatic rejection.
+Being individually eligible for two scholarships does not necessarily mean they can be received together.
 
-Each scholarship can result in one of three states:
+ScholarSync checks stored scholarship restrictions before considering a combination valid.
 
-```text
-ELIGIBLE
-NOT ELIGIBLE
-ADDITIONAL INFORMATION REQUIRED
-```
+Examples include:
 
-### Eligible
+Financial Assistance Restrictions
 
-All required conditions are satisfied.
+A scholarship may restrict receiving financial assistance from another source.
 
-### Not Eligible
+Exclusivity Rules
 
-A required condition is explicitly violated.
+A scheme may require the student to choose it exclusively.
 
-### Additional Information Required
+Duplicate Benefits
 
-The available profile does not contain enough information to determine eligibility.
+Two scholarships may attempt to cover the same type of financial benefit.
 
-Example:
+Provider Restrictions
 
-```text
-Required: Previous semester percentage
-Student value: Not provided
+Some schemes may have restrictions involving other government, institutional or private scholarships.
 
-Result:
-Additional Information Required
-```
+Therefore:
 
-This prevents incomplete student profiles from producing misleading rejection results.
+Eligible A
++
+Eligible B
 
----
+does not automatically become:
 
-# 9. Explainable Eligibility
+Valid A + B
 
-ScholarSync provides understandable reasons behind eligibility decisions.
+Instead:
 
-Example:
-
-```text
-Eligible
-
-✓ Family income is within the permitted limit
-✓ Academic requirement satisfied
-✓ Course requirement satisfied
-✓ Domicile requirement satisfied
-```
-
-For an ineligible scholarship:
-
-```text
-Not Eligible
-
-✗ Required percentage: 80%
-✗ Student percentage: 72%
-```
-
-The purpose is to make the matching process transparent rather than showing only a final status.
-
----
-
-# 10. Automatic Combination Engine
-
-One of the main innovations of ScholarSync is the automatic scholarship combination engine.
-
-The student does **not** manually choose scholarships and test whether they can be combined.
-
-The system automatically works from the scholarships for which the student is eligible.
-
-```text
 Eligible Scholarships
         ↓
-Generate Possible Combinations
+Combination Generator
         ↓
-Check Combination Rules
+Conflict Checker
         ↓
-Detect Conflicts
-        ↓
-Remove Invalid Combinations
-        ↓
-Return Valid Combinations
-```
+Valid Combinations
+💰 Potential Benefit Analysis
 
-The combination engine can evaluate pairs and larger subsets of eligible scholarships according to the project's supported combination rules.
-
----
-
-# 11. Conflict Detection
-
-Two individually eligible scholarships are not necessarily valid together.
-
-ScholarSync therefore evaluates combinations using conflict rules.
-
-Examples of conflict categories include:
-
-### Exclusive Scholarship
-
-A scholarship may prohibit receiving another scholarship or financial assistance.
-
-### Provider Conflict
-
-Two schemes may have restrictions on receiving concurrent assistance from the same type of government/provider source.
-
-### Fee Duplication
-
-Two scholarships may attempt to cover the same tuition/fee component.
-
-### Sponsorship Conflict
-
-Certain external/CSR scholarships may restrict simultaneous sponsorship from another organization.
-
-The combination engine filters such invalid combinations.
-
----
-
-# 12. Combination Ranking
-
-After invalid combinations are removed, valid combinations can be compared based on their potential scholarship benefit.
+For valid combinations, ScholarSync can calculate the combined potential benefit from the structured scholarship data.
 
 Example:
 
-```text
-Combination A
-Scholarship 1 + Scholarship 2
-Potential Benefit: ₹80,000/year
+Scholarship A     ₹50,000/year
+Scholarship C     ₹30,000/year
+Scholarship D     ₹20,000/year
+--------------------------------
+Potential Benefit ₹1,00,000/year
 
-Combination B
-Scholarship 1 + Scholarship 3
-Potential Benefit: ₹1,00,000/year
-```
+This allows students to understand the financial potential of a combination without manually calculating every scholarship amount.
 
-The system can also provide:
+The final awarded amount remains subject to the respective scholarship provider's official rules and approval.
 
-* Compatibility information
-* Combined benefits
-* Scholarship details
-* Required documents
-* Official source links
+📄 One Profile → Multiple Scholarship Decisions
 
----
+The student profile acts as the single source of input.
 
-# 13. Backend Architecture
+                    Student Profile
+                          │
+          ┌───────────────┼───────────────┐
+          ↓               ↓               ↓
+      Academic         Financial       Personal
+      Details           Details        Details
+          │               │               │
+          └───────────────┼───────────────┘
+                          ↓
+                  Eligibility Engine
+                          ↓
+             ┌────────────┼────────────┐
+             ↓            ↓            ↓
+          Eligible     Ineligible    Info Needed
+             │
+             ↓
+      Combination Engine
+             │
+             ↓
+      Conflict Detection
+             │
+             ↓
+       Valid Combinations
 
-ScholarSync uses a full-stack architecture rather than relying only on frontend logic.
+This avoids repeatedly entering the same information for different scholarships.
 
-```text
-React Frontend
+🌐 Official Scholarship Data
+
+ScholarSync is designed around structured information collected from official scholarship sources.
+
+The project currently focuses on sources such as:
+
+National Scholarship Portal (NSP)
+MahaDBT
+AICTE / official scheme guidelines
+Data Pipeline
+Official Portal
       ↓
-REST API
+Scholarship Listing
       ↓
-Express Server
+Official Scheme / Guidelines
       ↓
-Scholarship Service
+Extraction
       ↓
-Eligibility Engine
+Normalization
       ↓
-Combination Engine
+Validation
       ↓
-Structured Scholarship Data
-```
+Structured Scholarship Dataset
+      ↓
+ScholarSync Engine
 
-The repository contains a dedicated backend/service layer through `server.ts`.
+This separates data collection from eligibility and combination logic.
 
----
+📅 Real Scholarship Deadlines
 
-# 14. Backend API
+Scholarship deadlines are maintained per scholarship.
 
-The project exposes API endpoints for scholarship operations and analysis.
+ScholarSync does not assume that every scholarship has the same deadline.
 
-| Method | Endpoint                | Purpose                               |
-| ------ | ----------------------- | ------------------------------------- |
-| GET    | `/api/health`           | Check backend/service status          |
-| GET    | `/api/scholarships`     | Retrieve scholarship records          |
-| GET    | `/api/scholarships/:id` | Retrieve a specific scholarship       |
-| POST   | `/api/match`            | Run eligibility matching              |
-| POST   | `/api/combinations`     | Generate valid combinations           |
-| POST   | `/api/analyze`          | Run matching and combination analysis |
+Where available, the system can distinguish between:
 
-These endpoints are documented in the project's current repository.
+Student application deadline
+Fresh application deadline
+Renewal deadline
+Defective application deadline
+Institute verification deadline
+Nodal verification deadline
 
----
+If the official source does not provide a deadline, the system should not invent one.
 
-# 15. Main Project Components
+Official Deadline
+       ↓
+Scholarship Record
+       ↓
+Student Dashboard
 
-The repository is organized around separate responsibilities.
+This prevents a common problem where different scholarships are incorrectly displayed with the same deadline.
 
-```text
+📋 Documents & Application Information
+
+For every scholarship, ScholarSync can expose information such as:
+
+Required documents
+Benefit amount
+Eligibility conditions
+Deadline
+Official scheme page
+Official guideline
+Application portal
+Apply Now link
+Important restrictions
+
+The goal is to take the student from:
+
+"I found a scholarship."
+
+to:
+
+"I know why I qualify, what I need, when to apply and where to apply."
+
+🧩 Data-Driven Architecture
+
+A major design decision in ScholarSync is keeping scholarship rules data-driven.
+
+Instead of writing separate frontend logic such as:
+
+if scholarshipA...
+if scholarshipB...
+if scholarshipC...
+
+scholarship requirements are represented as structured data and evaluated by reusable services.
+
+This makes the system easier to:
+
+Add new scholarships
+Update existing rules
+Support multiple portals
+Maintain different eligibility criteria
+Extend combination rules
+🏗️ System Architecture
+┌───────────────────────────┐
+│      Student Profile      │
+└─────────────┬─────────────┘
+              ↓
+┌───────────────────────────┐
+│   Scholarship Data Layer  │
+│      NSP / MahaDBT        │
+└─────────────┬─────────────┘
+              ↓
+┌───────────────────────────┐
+│    Eligibility Engine     │
+└─────────────┬─────────────┘
+              ↓
+     ┌────────┴────────┐
+     ↓                 ↓
+ Eligible          Not Eligible /
+ Scholarships      Info Required
+     │
+     ↓
+┌───────────────────────────┐
+│  Combination Generator    │
+└─────────────┬─────────────┘
+              ↓
+┌───────────────────────────┐
+│    Conflict Checker       │
+└─────────────┬─────────────┘
+              ↓
+┌───────────────────────────┐
+│   Valid Combinations      │
+└─────────────┬─────────────┘
+              ↓
+┌───────────────────────────┐
+│ Benefits / Docs /         │
+│ Deadlines / Apply Links   │
+└───────────────────────────┘
+🛠️ Technology Stack
+Frontend
+React 19
+TypeScript
+Vite
+Tailwind CSS
+Lucide React
+Motion
+Backend
+Node.js
+Express.js
+TypeScript
+TSX
+Core Services
+eligibilityEngine.ts
+combinationEngine.ts
+scholarshipService.ts
+Data
+Structured scholarship dataset
+Official scholarship information
+Scheme guidelines
+Eligibility rules
+Combination restrictions
+📡 API Layer
+
+ScholarSync includes a backend service layer for the core scholarship operations.
+
+Endpoint	Purpose
+GET /api/health	Backend/service health
+GET /api/scholarships	Retrieve scholarships
+GET /api/scholarships/:id	Scholarship details
+POST /api/match	Evaluate student eligibility
+POST /api/combinations	Generate/check combinations
+POST /api/analyze	Run analysis workflow
+
+This allows the frontend to remain separate from the core scholarship processing logic.
+
+📁 Project Structure
 ScholarSyncv1/
 │
 ├── data/
 │   └── Scholarship datasets
 │
 ├── scripts/
-│   └── Data fetching / processing utilities
+│   └── Data fetching / processing
 │
 ├── src/
 │   ├── components/
 │   ├── services/
-│   ├── data/
-│   └── types/
+│   │   ├── eligibilityEngine.ts
+│   │   ├── combinationEngine.ts
+│   │   └── scholarshipService.ts
+│   ├── types/
+│   └── application source
 │
 ├── server.ts
 ├── package.json
+├── tsconfig.json
 ├── vite.config.ts
 └── README.md
-```
-
-The repository currently contains dedicated `data`, `scripts`, and `src` directories along with the backend server and project configuration.
-
----
-
-# 16. Core Services
-
-### Eligibility Engine
-
-```text
-src/services/eligibilityEngine.ts
-```
-
-Responsible for deterministic scholarship eligibility evaluation.
-
-### Combination Engine
-
-```text
-src/services/combinationEngine.ts
-```
-
-Responsible for generating scholarship combinations and checking conflicts.
-
-### Scholarship Service
-
-```text
-src/services/scholarshipService.ts
-```
-
-Responsible for retrieving and working with structured scholarship data.
-
-These services are separated so that data collection, eligibility matching, and combination analysis remain independently maintainable.
-
----
-
-# 17. Data Pipeline
-
-The overall data pipeline can be represented as:
-
-```text
-              OFFICIAL SOURCES
-                     │
-          ┌──────────┴──────────┐
-          │                     │
-         NSP                MahaDBT
-          │                     │
-          └──────────┬──────────┘
-                     ↓
-              Fetch Engine
-                     ↓
-           Page / PDF Retrieval
-                     ↓
-            Content Extraction
-                     ↓
-          Structured Data Parsing
-                     ↓
-             Data Validation
-                     ↓
-              Normalization
-                     ↓
-              Scholarship JSON
-                     ↓
-          Scholarship Service
-                     ↓
-            Eligibility Engine
-                     ↓
-          Combination Engine
-                     ↓
-             Student Results
-```
-
----
-
-# 18. Why JSON-Based Scholarship Data?
-
-Using structured JSON provides several advantages:
-
-* Easy local development
-* Fast scholarship lookup
-* Separation between data and UI
-* Easy testing of eligibility rules
-* Easy replacement of outdated records
-* Easier integration of new portals
-* Reusable data for backend APIs
-* No need to scrape the source portal for every student request
-
-The repository currently uses a structured local scholarship data layer, while its architecture also supports future automated extraction.
-
----
-
-# 19. Future Automated Data Pipeline
-
-The architecture also supports a more automated pipeline:
-
-```text
-Official NSP / Government Portal
-             ↓
-        Fetch Engine
-             ↓
-       PDF Downloader
-             ↓
-       Text / OCR Extraction
-             ↓
-      Structured Extraction
-             ↓
-       Scholarship JSON
-             ↓
-       Data Validation
-             ↓
-      Scholarship Service
-             ↓
-      Eligibility Engine
-             ↓
-     Combination Engine
-```
-
-This allows the scholarship dataset to be updated without rewriting the frontend or matching system.
-
----
-
-# 20. Technology Stack
-
-### Frontend
-
-* React 19
-* TypeScript
-* Vite
-* Tailwind CSS
-* Lucide React
-* Motion
-
-### Backend
-
-* Node.js
-* Express.js
-* TypeScript
-* TSX
-
-### Data
-
-* Structured JSON scholarship dataset
-* Official portal data
-* Extracted scholarship information
-
-### AI / Data Processing
-
-The project architecture includes support for structured extraction workflows where required, while the actual eligibility decision remains deterministic and rule-based.
-
-The current repository includes the Google Generative AI SDK as a project dependency.
-
----
-
-# 21. Installation
-
-Clone the repository:
-
-```bash
+⚙️ Running Locally
+Clone
 git clone https://github.com/kishanpand724/ScholarSyncv1.git
 cd ScholarSyncv1
-```
-
-Install dependencies:
-
-```bash
+Install
 npm install
-```
-
-Start the development server:
-
-```bash
+Run
 npm run dev
-```
-
-The project's development script starts the full-stack server through `server.ts`.
-
----
-
-# 22. Production Build
-
-Build the frontend:
-
-```bash
+Build
 npm run build
-```
+🔄 End-to-End Example
 
-Start the application:
+Imagine a student enters:
 
-```bash
-npm start
-```
+Course: B.Tech CSE
+Year: 2nd
+Category: EWS
+Family Income: ₹3,00,000
+Academic Score: 82%
+Domicile: Maharashtra
 
-Type checking:
+ScholarSync processes the profile against the scholarship dataset.
 
-```bash
-npm run lint
-```
+Step 1 — Eligibility
+Scholarship A → Eligible
+Scholarship B → Eligible
+Scholarship C → Not Eligible
+Scholarship D → Additional Information Required
+Step 2 — Combination Generation
+A + B
+Step 3 — Conflict Check
+A + B
+↓
+No detected conflict
+↓
+Valid Combination
+Step 4 — Student View
 
-These commands correspond to the current project configuration.
+The student can then see:
 
----
+Scholarship A
+Benefit
+Deadline
+Documents
+Apply
 
-# 23. Project Design Philosophy
+Scholarship B
+Benefit
+Deadline
+Documents
+Apply
 
-ScholarSync follows four major principles:
+────────────────────
 
-### Data Driven
+Valid Combination
 
-Scholarship rules should come from structured scholarship data rather than being hardcoded throughout the frontend.
+A + B
 
-### Deterministic
+Potential Combined Benefit
+₹XX,XXX / year
 
-Given the same student profile and scholarship dataset, the eligibility engine should produce the same result.
+The important part is that the student did not have to manually discover and test every combination.
 
-### Explainable
+🌟 Why This Matters
 
-Students should understand why a scholarship is eligible or ineligible.
+Scholarship discovery is often treated as a search problem.
 
-### Extensible
+ScholarSync treats it as a decision-support problem.
 
-New scholarship portals and datasets should be addable without rewriting the entire application.
+The system answers multiple questions together:
 
----
+What scholarships exist?
+          ↓
+Which ones match me?
+          ↓
+Why do they match?
+          ↓
+What information is missing?
+          ↓
+What documents do I need?
+          ↓
+When do I need to apply?
+          ↓
+Where do I apply?
+          ↓
+Which eligible scholarships can work together?
 
-# 24. Future Scope
+That is the core idea behind ScholarSync.
 
-ScholarSync can be extended with:
+🔮 Future Scope
 
-* More state scholarship portals
-* More central government schemes
-* Automated scholarship updates
-* Scheduled data fetching
-* Advanced PDF extraction
-* OCR for scanned guidelines
-* Improved rule extraction
-* Deadline notifications
-* Document checklist generation
-* Application tracking
-* Student notification system
-* Scholarship change detection
-* Database-backed production deployment
+The architecture allows ScholarSync to grow into a larger scholarship intelligence platform.
 
----
+Potential extensions include:
 
-# 25. Project Vision
+More state scholarship portals
+Automated periodic data updates
+Advanced PDF extraction
+OCR for scanned documents
+Deadline reminders
+Multilingual support
+Mobile application
+More detailed conflict policies
+Automated source verification
+Personalized scholarship notifications
+Expanded national scholarship coverage
+⚠️ Disclaimer
 
-ScholarSync aims to transform scholarship discovery from a manual search process into an intelligent and explainable system.
+ScholarSync is a scholarship discovery and decision-support system.
 
-Instead of asking students to:
+Eligibility and combination results are generated from the scholarship information and rules available in the system.
 
-```text
-Search → Read → Compare → Check Eligibility → Check Conflicts
-```
+Final eligibility, selection, award amount, approval and application status are determined by the respective scholarship provider.
 
-ScholarSync aims to provide:
+Students should verify important information from the official scholarship portal or guideline before applying.
 
-```text
-Enter Profile
-      ↓
-Automatic Matching
-      ↓
-Understand Eligibility
-      ↓
-Automatic Combination Analysis
-      ↓
-Discover Valid Scholarship Options
-```
+👨‍💻 Team Scholar IQ
 
----
+ScholarSync — Intelligent Scholarship & Combination Engine
 
-# 26. Team
+Our Vision
 
-## Team Scholar IQ
+Make scholarship discovery as simple as entering your profile once — and let the system handle the complexity.
 
-**Project:** ScholarSync — Intelligent Scholarship & Combination Engine
+🔗 Project Links
 
-**Live Demo:**
-https://scholarsync-scholariqv1.ai.studio/
-
-**Repository:**
-https://github.com/kishanpand724/ScholarSyncv1
-
----
-
-# Disclaimer
-
-ScholarSync is an educational and informational platform intended to assist students in discovering scholarship opportunities.
-
-Scholarship eligibility, benefits, deadlines, and application requirements can change. Students should verify the latest information and final eligibility requirements on the respective official scholarship portal before applying.
+Live Demo:
+https://scholarsync-v1-git-main-kaknateganesh24.vercel.app/
